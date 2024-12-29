@@ -1,0 +1,20 @@
+.section {
+  padding-top: 117px;
+  padding-bottom: 135px;
+  width: 100%;
+  background-image: url('@/shared/assets/images/bgHelp.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  & :last-child {
+    width: 378px;
+  }
+}
+.title {
+  margin-bottom: 55px;
+  width: 65%;
+}

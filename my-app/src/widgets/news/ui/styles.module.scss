@@ -1,0 +1,22 @@
+.section {
+  margin-bottom: 168px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  &:last-child {
+    align-self: center;
+  }
+}
+
+.title {
+  color: var(--text-color-black);
+  margin-bottom: 84px;
+}
+
+.newsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 64px 40px;
+}

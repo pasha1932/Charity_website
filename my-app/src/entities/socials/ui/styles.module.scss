@@ -1,0 +1,22 @@
+.socials {
+  display: flex;
+  flex-direction: column;
+  width: 310px;
+  & :first-child {
+    align-self: flex-start;
+  }
+}
+
+.text {
+  margin-block: 24px;
+  font-size: 18px;
+  line-height: 1em;
+  color: #A8A8A8;
+  width: 60%;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}

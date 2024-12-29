@@ -1,0 +1,61 @@
+.content {
+  margin-top: 82px;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  margin-bottom: 64px;
+  color: #A9A9A9;
+  font-weight: 500;
+}
+
+.moneyList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 40px;
+}
+
+.money {
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #F4F4F4;
+  padding-block: 55px;
+
+  &Active {
+    border: 5px solid var(--bg-color-btn)
+  }
+
+  & input {
+    width: 180px;
+    text-align: center;
+    &::placeholder  {
+      color: var(--text-color-black);
+    }
+  }
+}
+
+.text {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1em;
+}
+
+.agreement {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 80px;
+  margin-bottom: 32px;
+}
+
+.agree {
+  font-size: 18px;
+  line-height: 1em;
+}
