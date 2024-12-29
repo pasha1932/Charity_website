@@ -1,0 +1,35 @@
+.content {
+  margin-top: 82px;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  margin-bottom: 64px;
+  color: #a9a9a9;
+  font-weight: 500;
+}
+
+.bottom {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 39px;
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  padding: 75px 0 75px;
+  width: 80%;
+}
+
+.code {
+  width: 322px;
+  aspect-ratio: 1/1;
+  background-color: #fff;
+  border-radius: 10px;
+}

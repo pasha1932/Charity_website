@@ -1,0 +1,49 @@
+@import '@/shared/styles/fonts.css';
+@import '@/shared/styles/variables.css';
+
+body {
+  font-family: 'FixelDisplay', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--text-color-black);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin-inline: auto;
+  margin-inline: 15px;
+  /* padding-inline: 15px; */
+}
+
+h2 {
+  font-size: 84px;
+  line-height: 1em;
+  font-weight: 600;
+  color: var(--text-color-white);
+}
+
+h4 {
+  font-size: 48px;
+  line-height: 1em;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 32px;
+  line-height: 1em;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 24px;
+  line-height: 1em;
+  font-weight: 400;
+}

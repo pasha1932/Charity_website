@@ -1,0 +1,15 @@
+.navbar {
+  margin-left: 63px;
+  margin-right: 48px;
+}
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 55px;
+}
+
+.navLink {
+  font-size: 18px;
+  line-height: 1em;
+  color: var(--text-color-white);
+}

@@ -1,0 +1,19 @@
+.result {
+  border: 1px solid #000;
+  width: 475px;
+  height: 260px;
+  padding: 32px;
+  margin-right: 40px;
+  border-radius: 20px;
+}
+
+.count {
+  color: var(--bg-color-btn);
+  margin-bottom: 16px;
+}
+
+.text {
+  font-size: 24px;
+  line-height: 1em;
+  font-weight: 500;
+}

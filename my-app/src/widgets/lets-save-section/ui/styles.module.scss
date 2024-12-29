@@ -1,0 +1,33 @@
+.section {
+  background-image: url(../assets/images/bg.png);
+  background-size: cover;
+  border-radius: 25px;
+  margin-bottom: 128px;
+  margin-top: 64px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 84px 110px 113px;
+}
+
+.title {
+  margin-bottom: 32px;
+  max-width: 80%;
+}
+
+.subtitle {
+  font-size: 28px;
+  line-height: 28px;
+  color: var(--text-color-white);
+  margin-bottom: 160px;
+  max-width: 75%;
+}
+
+.img {
+  width: 150px;
+  aspect-ratio: 1 / 1;
+
+}

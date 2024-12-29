@@ -1,0 +1,24 @@
+.section {
+  width: 100%;
+}
+
+.topContent {
+  padding-top: 55px;
+  background: url('@/shared/assets/images/bgSave.jpg');
+  background-size: cover;
+}
+
+.title {
+  color: var(--text-color-white);
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  color: var(--text-color-white);
+  margin-bottom: 141px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+}

@@ -1,0 +1,33 @@
+.button {
+  background-color: var(--bg-color-btn);
+  border-radius: 99px;
+  color: var(--taxt-color-white);
+}
+
+.withIconLeft {
+  padding: 12.5px 18.5px;
+  margin-right: 44px;
+}
+
+.withIconRight {
+  padding: 9px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.usual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 60px;
+  margin-top: 64px;
+  font-size: 24px;
+  line-height: 1em;
+  color: var(--text-color-white);
+  margin-inline: auto;
+}
+
+.disabled {
+  background-color: #FF8D0666;
+  cursor:auto;
+}
