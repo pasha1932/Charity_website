@@ -14,13 +14,13 @@ const MainPage = () => {
   return (
     <main>
       <LetsSaveSection />
-      <FondResults />
+      {/* <FondResults />
       <Team />
       <Cooperation />
       <Companies />
       <Projects />
       <News />
-      <Help />
+      <Help /> */}
     </main>
   );
 };

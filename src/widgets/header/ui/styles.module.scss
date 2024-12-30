@@ -1,3 +1,5 @@
+@import '@/shared/styles/mixins.scss';
+
 .header {
   width: 100%;
   background-color: var(--bg-ft-hd);
@@ -9,5 +11,10 @@
   align-items: center;
   width: 100%;
   height: 150px;
-}
 
+  & > :first-child {
+    @include on-tablet {
+      margin-left: 150px;
+    }
+  }
+}

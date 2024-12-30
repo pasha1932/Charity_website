@@ -1,0 +1,45 @@
+.burgerMenu {
+  .burgerButton {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    width: 100%;
+  }
+
+  .menu {
+    border-top: 1px solid #D9DBE9;
+    position: fixed;
+    top: 150px;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--bg-ft-hd);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .closeButton {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+}
+
+.navLink {
+  width: 100%;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1em;
+  color: var(--text-color-white);
+  padding-block: 16px;
+  border-bottom: 1px solid #D9DBE924;
+
+  &Yellow {
+    color: #FFC800;
+  }
+}
