@@ -1,5 +1,7 @@
 @import '@/shared/styles/fonts.css';
 @import '@/shared/styles/variables.css';
+@import '@/shared/styles/mixins.scss';
+
 
 body {
   font-family: 'FixelDisplay', sans-serif;
@@ -19,8 +21,11 @@ main {
 .container {
   max-width: 1280px;
   margin-inline: auto;
-  margin-inline: 15px;
+  // margin-inline: 24px;
   /* padding-inline: 15px; */
+  @include on-tablet {
+    margin-inline: 24px;
+  }
 }
 
 h2 {
