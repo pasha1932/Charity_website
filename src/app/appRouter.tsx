@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, createHashRouter } from "react-router-dom";
 import BaseLayout from "./layouts/BaseLayout";
 import { MainPage } from "@/pages/main";
 import { Payment } from "@/pages/payment";
@@ -6,7 +6,7 @@ import { Form } from "@/widgets/form";
 import { FormSubmit } from "@/pages/form";
 // import { NewsPage } from "@/pages/news";
 
-export const appRouter = createBrowserRouter([
+export const appRouter = createHashRouter([
   {
     element: <BaseLayout />,
     errorElement: <div>Error page</div>,
