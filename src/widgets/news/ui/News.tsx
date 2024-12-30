@@ -1,8 +1,3 @@
-import { useEffect } from 'react';
-// import { useAppDispatch, useAppSelector } from 'shared/hooks/reduxHooks';
-// import { fetchNews } from 'features/news/newsSlice';
-import { useAppDispatch, useAppSelector } from '@/shared/hooks/reduxHooks';
-
 import { NewsItem } from "@/entities/newsItem";
 import { CONTENT_NEWS } from "@/shared/consts/contentNews";
 import styles from './styles.module.scss';

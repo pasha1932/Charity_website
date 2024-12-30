@@ -1,4 +1,3 @@
-import { SeeAllBtn } from '@/features/see-all-news';
 import styles from './styles.module.scss';
 import { HelpBtn } from '@/features/help-buton';
 
