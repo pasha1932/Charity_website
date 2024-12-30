@@ -1,5 +1,4 @@
 import { Button } from '@/shared/ui/button';
-import styles from './styles.module.scss';
 
 const SeeAllBtn = () => {
   return ( 

@@ -1,3 +1,3 @@
-import NewsItem from "./ui/newsItem";
+import NewsItem from "./ui/NewsItem";
 
 export { NewsItem };
