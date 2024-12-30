@@ -1,6 +1,5 @@
 import icon from '@/shared/assets/images/icons/handFast.svg';
 import styles from './styles.module.scss';
-import classNames from 'classnames';
 import { Button } from '@/shared/ui/button';
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
   title: string,
 };
 
-const DoDeposBtn: React.FC<Props> = ({ disabled, title }) => {
+const DoDeposBtn: React.FC<Props> = ({ disabled }) => {
   
   return ( 
     <Button
