@@ -1,6 +1,5 @@
 import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
-import axios from 'axios';
 import Flag from 'react-world-flags';
 import styles from './styles.module.scss';
 import { SendFormBtn } from '@/features/send-form';
@@ -22,7 +21,7 @@ const countryOptions = [
 ];
 
 const Form = () => {
-  const { control, watch, setValue, register, handleSubmit, formState: { errors } } = useForm<FormData>({
+  const { control, watch, setValue, register, formState: { errors } } = useForm<FormData>({
     defaultValues: {
       phoneNumber: '+380 ', // Початковий код країни Україна
     },
