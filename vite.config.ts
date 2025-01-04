@@ -14,7 +14,7 @@ export default defineConfig({
   //   },
   // },
   plugins: [react()],
-  base: "/Charity_website/",
+  base: "/Charity_website",
   resolve: {
     alias: {
     "@": path.resolve(__dirname, "./src"),
