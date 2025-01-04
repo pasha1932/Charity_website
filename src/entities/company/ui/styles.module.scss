@@ -1,6 +1,17 @@
+@import '@/shared/styles/mixins.scss';
+
 .company {
   margin-right: 128px;
   display: flex !important;
   align-items: center;
   height: 80px;
+
+  @include on-phone {
+    height: 29px;
+    margin-right: 48px;
+  }
+}
+
+.img {
+  height: 29px;
 }

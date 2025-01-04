@@ -1,13 +1,23 @@
+@import '@/shared/styles/mixins.scss';
+
 .section {
   margin-bottom: 168px;
   overflow: hidden;
   width: 100vw;
+
+  @include on-tablet {
+    margin-bottom: 48px;
+  }
 }
 
 .content {
   max-width: 100vw;
   overflow: hidden;
   max-height: 80px;
+
+  @include on-phone {
+    max-height: 30px;
+  }
 }
 
 .slider {

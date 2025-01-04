@@ -3,29 +3,33 @@ import Connects from '@/entities/connects/ui/Connects';
 import Socials from '@/entities/socials/ui/Socials';
 import { FooterNav } from '@/features/footer-navbar';
 import logo from '@/shared/assets/images/icons/logo.svg';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return ( 
 <footer
       className={styles.footer}
+      id="contacts"
     > 
       <div className="container">
         <div className={styles.content}>
           <div className={styles.top}>
-            <article className={styles.article}>
-              <img src={logo} alt="" />
+            <article className={`${styles.article} ${styles.block1}`}>
+              <img src={logo} alt="" className={styles.logo} />
               <Socials />
             </article>
             <article className={styles.article}>
               <FooterNav />
             </article>
-            <article className={styles.article}>
+            <article className={`${styles.article} ${styles.block3}`}>
               <div className={styles.reports}>
-                <a href="/" className={styles.report}>Звіти</a>
-                <a href="/" className={styles.report}>Установчі документи</a>
+                <a href="/" className={styles.report}>{t('reports')}</a>
+                <a href="/" className={styles.report}>{t('foundingDocuments')}</a>
               </div>
             </article>
-            <article className={styles.article}>
+            <article className={`${styles.article} ${styles.block4}`}>
               <Connects />
             </article> 
           </div>

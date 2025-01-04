@@ -1,9 +1,13 @@
 import { Button } from "@/shared/ui/button";
+import { useTranslation } from "react-i18next";
 // import { useNavigate } from "react-router-dom";
+type Props = {
+  disabled?: boolean;
+}
+const SendFormBtn: React.FC<Props> = ({disabled}) => {
+  const { t } = useTranslation();
 
-const SendFormBtn = () => {
-  // const navigate = useNavigate();
-  return ( <Button variant='usual' >Відправити форму</Button> );
+  return ( <Button variant='usual' disabled={!disabled}>{t('send')}</Button> );
 }
  
 export default SendFormBtn;

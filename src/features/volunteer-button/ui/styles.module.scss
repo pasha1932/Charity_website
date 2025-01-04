@@ -1,13 +1,25 @@
+@import '@/shared/styles/mixins.scss';
+
 .text {
   font-size: 18px;
   line-height: 1em;
   margin-right: 28px;
   color: var(--text-color-white);
   margin-left: 14px;
+
+  @include on-phone {
+    font-size: 14px;
+    margin-right: 10px;
+  }
 }
 
 .icon {
   background-color: #fff;
   padding: 12px;
   border-radius: 30px;
+
+  @include on-phone {
+    padding: 5px;
+    width: 27px;
+  }
 }

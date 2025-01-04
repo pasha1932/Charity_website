@@ -1,3 +1,5 @@
+@import '@/shared/styles/mixins.scss';
+
 .button {
   background-color: var(--bg-color-btn);
   border-radius: 99px;
@@ -13,18 +15,32 @@
   padding: 9px 10px;
   display: flex;
   align-items: center;
+
+  @include on-phone {
+    padding: 6.5px;
+  }
 }
 
 .usual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 35px 60px;
   margin-top: 64px;
   font-size: 24px;
   line-height: 1em;
   color: var(--text-color-white);
   margin-inline: auto;
+  
+  @include on-tablet {
+    display: block;
+    padding: 25px 40px;
+  }
+  
+  @include on-phone {
+    padding: 13px 27px;
+    font-size: 14px;
+    margin-top: 0;
+    display: block;
+    margin-inline: auto;
+  }
 }
 
 .disabled {

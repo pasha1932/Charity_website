@@ -1,34 +1,97 @@
+@import '@/shared/styles/mixins.scss';
+
 .section {
   margin-top: 128px;
   margin-bottom: 64px;
+  width: 100%;
+
+  @include on-tablet {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
 }
+
 .top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: 110px;
   margin-bottom: 64px;
+
+  @include on-tablet {
+    margin-left: 0;
+    margin-bottom: 32px;
+  }
 }
 
 .title {
   color: var(--text-color-black);
   margin-bottom: 32px;
+
+  @include on-tablet {
+    margin-bottom: 24px;
+  }
 }
 
 .left {
   width: 54%;
+
+  @include on-tablet {
+    width: 80%;
+  }
+
+  @include on-phone {
+    width: 100%;
+  }
 }
 
 .text {
   font-size: 24px;
   line-height: 28.8px;
+
+  @include on-phone {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+  }
+}
+
+.connect {
+  display: flex;
+  flex-direction: column;
+  @include on-tablet {
+    display: none;
+  }
+}
+
+.connectTop {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #FF8D0633;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -40px;
+}
+
+.spanText {
+  font-size: 24px;
+  line-height: 1em;
+  text-align: center;
+  width: 80%;
+  color: var(--text-color-black);
 }
 
 .img {
+  display: block;
   width: 150px;
+  aspect-ratio: 1 / 1;
+  mix-blend-mode: multiply;
 }
 
-.team {
-  display: flex;
-  gap: 40px;
+.slider {
+  width: 100vw;
+  overflow: hidden;
+  margin-inline: auto;
 }

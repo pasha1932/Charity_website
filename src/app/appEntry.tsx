@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 // import { Provider } from "react-redux";
 // import { store } from "./appStore";
 import { RouterProvider } from "react-router-dom";
-// import "@/shared/index.css";
+import '@/shared/lib/i18n';
 import '../app/styles/reset.css';
 import '../app/styles/global.scss';
 import { appRouter } from "./appRouter";

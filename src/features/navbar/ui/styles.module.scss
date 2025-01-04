@@ -12,4 +12,11 @@
   font-size: 18px;
   line-height: 1em;
   color: var(--text-color-white);
+
+}
+
+.navLink:target,
+.navLink.active {
+  color: orange;
+  text-decoration: underline;
 }

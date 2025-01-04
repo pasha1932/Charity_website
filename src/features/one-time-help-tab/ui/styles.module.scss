@@ -1,24 +1,61 @@
+@import '@/shared/styles/mixins.scss';
+
 .content {
   margin-top: 82px;
   margin-bottom: 64px;
   display: flex;
   flex-direction: column;
+
+
+  @include on-tablet {
+    margin-top: 32px;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title {
   margin-bottom: 24px;
+
+  @include on-tablet {
+    margin-bottom: 16px;
+  }
 }
 
 .subtitle {
   margin-bottom: 64px;
   color: #A9A9A9;
   font-weight: 500;
+
+  @include on-tablet {
+    margin-bottom: 32px;
+  }
 }
 
 .moneyList {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px 40px;
+
+  @include on-tablet {
+    margin-bottom: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 20px;
+  }
+
+  & :nth-child(6), & :nth-child(7){
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  @include on-phone {
+
+  }
 }
 
 .money {
@@ -27,6 +64,11 @@
   border-radius: 20px;
   background-color: #F4F4F4;
   padding-block: 55px;
+  align-items: center;
+
+  @include on-tablet {
+    padding-block: 26.5px;
+  }
 
   &Active {
     border: 5px solid var(--bg-color-btn)
@@ -35,6 +77,12 @@
   & input {
     width: 180px;
     text-align: center;
+
+    @include on-phone {
+      width: 100px;
+
+    }
+
     &::placeholder  {
       color: var(--text-color-black);
     }
@@ -45,17 +93,54 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 1em;
+
+  @include on-phone {
+    font-size: 17px;
+  }
+}
+
+.btn {
+  align-self: flex-start;
+  color: var(--bg-color-btn);
+  font-size: 18px;
+  line-height: 1em;
+  display: none;
+
+  @include on-tablet {
+    display: block;
+  }
 }
 
 .agreement {
   display: flex;
   gap: 10px;
   justify-content: center;
+  align-items: center;
   margin-top: 80px;
   margin-bottom: 32px;
+  
+  @include on-tablet {
+    margin-top: 64px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.checkbox {
+  padding: 0;
+  width: 25px;
+  height: 20px;
+  accent-color: white;
+    
+  &:checked {
+    outline: 1px solid var(--text-color-black);
+  }
 }
 
 .agree {
   font-size: 18px;
   line-height: 1em;
+  
+  @include on-phone {
+    font-size: 16px;
+  }
 }

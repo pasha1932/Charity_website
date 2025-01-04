@@ -4,22 +4,33 @@ import { CONTENT_RESULTS } from "@/shared/consts/contentResults";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { useTranslation } from 'react-i18next';
 
 const FondResults = () => {
   const settings = {
     infinite: true,
     centerMode: true,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     variableWidth: true,
     arrows: false,
   };
 
+  const { t } = useTranslation();
+
+  const CONTENT_RESULTS = [
+    { title:  t('resText1'), count: 2420 },
+    { title: t('resText2'), count: 145308 },
+    { title:  t('resText1'), count: 1305 },
+    { title:  t('resText2'), count: 9452305 },
+    { title:  t('resText2'), count: 245305 },
+  ]
+
   return ( 
-    <section className={styles.results}>
+    <section id="fond" className={styles.results}>
       <div className='container'>
-        <h4 className={styles.title}>Результати фонду</h4>
-        <h6 className={styles.subtitle}>Ми намагаємося зробити все можливе, щоб наблизити нас до перемоги</h6>
+        <h4 className={styles.title}>{t('fondRes')}</h4>
+        <h6 className={styles.subtitle}>{t('weTried')}</h6>
       </div>
       <div className={styles.resultsList}>
         <Slider {...settings} className={styles.slider}>

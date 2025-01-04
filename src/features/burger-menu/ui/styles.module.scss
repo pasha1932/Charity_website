@@ -1,8 +1,10 @@
+@import '@/shared/styles/mixins.scss';
+
 .burgerMenu {
   .burgerButton {
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #fff;
     width: 100%;
   }
@@ -11,14 +13,23 @@
     border-top: 1px solid #D9DBE9;
     position: fixed;
     top: 150px;
+    z-index: 100;
     right: 0;
-    height: 100%;
+    height: fit-content;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
     width: 100%;
     background: var(--bg-ft-hd);
     color: #fff;
     display: flex;
     flex-direction: column;
     padding: 20px;
+
+    @include on-tablet {
+      top: 91px;
+      padding: 16px;
+      padding-top: 5px;
+    }
   }
 
   .closeButton {
@@ -30,6 +41,11 @@
   }
 }
 
+.navList :last-child {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .navLink {
   width: 100%;
   display: inline-block;
@@ -37,7 +53,7 @@
   line-height: 1em;
   font-weight: 400;
   color: var(--text-color-white);
-  padding-block: 16px;
+  padding-block: 17px;
   border-bottom: 1px solid #D9DBE924;
 
   &Yellow {

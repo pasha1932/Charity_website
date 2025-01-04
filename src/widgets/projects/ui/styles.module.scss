@@ -1,6 +1,12 @@
+@import '@/shared/styles/mixins.scss';
+
 .section {
   margin-bottom: 168px;
-  // overflow: hidden;
+  width: 100%;
+
+  @include on-phone {
+    margin-bottom: 48px;
+  }
 }
 
 .slider {
@@ -11,7 +17,12 @@
 .top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 86px;
+
+  @include on-tablet {
+    margin-bottom: 32px;
+  }
 }
 
 .title {
@@ -28,4 +39,11 @@
   padding: 26px 24px;
   border: 1px solid var(--text-color-black);
 
+  @include on-phone {
+    padding: 15px 12px;
+  }
+
+  img {
+    width: 90%;
+  }
 }

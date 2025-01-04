@@ -4,64 +4,78 @@ import { HelpBtn } from "@/shared/ui/help-button";
 import OneTimeTab from "@/features/one-time-help-tab/ui/OneTimeTab";
 import { JuridicPeopleTab } from "@/features/juridic-people-tab";
 import { CryptoMonoTab } from "@/features/crypto-mono-tab";
+import { useMediaQuery } from "react-responsive";
+import { DonateWays } from "@/features/donate-ways";
+import { Button } from "@/shared/ui/button";
+import { useTranslation } from "react-i18next";
 
 const Save = () => {
+  const { t } = useTranslation();
+
   const tabs = [
     {
       id: "one-time",
-      label: "Разова допомога",
+      label: t('oneTime'),
       content: (
         <OneTimeTab />
       ),
     },
     {
       id: "monthly-time",
-      label: "Щомісячна допомога",
+      label: t('monthly'),
       content: (
         <OneTimeTab />
       ),
     },
     {
       id: "judge-person",
-      label: "Юридичні особи",
+      label: t('juridic'),
       content: (
         <JuridicPeopleTab />
       ),
     },
     {
       id: "monobank",
-      label: "Наша монобанка",
+      label: t('monobank'),
       content: (
-        <CryptoMonoTab title="Підтримай нас через Monobank" />
+        <CryptoMonoTab title={t('doMono')} />
       ),
     },
     {
       id: "crypto",
-      label: "Криптовалюта",
+      label: t('crypto'),
       content: (
-        <CryptoMonoTab title="Підтримай нас через криптовалюту" />
+        <CryptoMonoTab title={t('doCrypto')} />
       ),
     },
   ];
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
+  const [activeTab, setActiveTab] = useState(tabs[0].label);
+  const [isKindDonate, setIsKindDonate] = useState(false);
+  const isTablet = useMediaQuery({ query: '(max-width: 1310px)' });
+
+  console.log(activeTab, isKindDonate)
 
   return ( 
     <section className={styles.section}>
       <div className={styles.topContent}>
         <div className="container">
-          <h2 className={styles.title}>Рятуємо країну разом</h2>
-          <h6 className={styles.subtitle}>Кожна гривня здатна змінити життя людини</h6>
-          <div className={styles.tabs}>
+          <h2 className={styles.title}>{t('helpCountry')}</h2>
+          <h6 className={styles.subtitle}>{t('everyGrn')}</h6>
+          {!isTablet ? <div className={styles.tabs}>
             {tabs.map((tab) => (
-              <HelpBtn key={tab.id} onClick={() => setActiveTab(tab.id)} isActive={activeTab === tab.id}>
+              <HelpBtn key={tab.id} onClick={() => setActiveTab(tab.label)} isActive={activeTab === tab.label}>
             {tab.label}
             </HelpBtn>
         ))}
-          </div>
+          </div> :
+            (<Button variant="usual" onClick={() => setIsKindDonate(false)} >{!isKindDonate ? 'Оберіть спосіб оплати': 'Змінити спосіб оплати'}</Button>)}
         </div>
       </div>
       <div className="container">
-        <div className={styles.bottom}>{tabs.find((tab) => tab.id === activeTab)?.content}</div>
+        <div className={styles.bottom}>
+          {(!isKindDonate && isTablet) && <DonateWays activeTab={activeTab} onActiveTab={setActiveTab} onKindDonate={setIsKindDonate} />}
+          {(isKindDonate || !isTablet) && tabs.find((tab) => tab.label === activeTab)?.content}
+        </div>
       </div>
     </section>
    );

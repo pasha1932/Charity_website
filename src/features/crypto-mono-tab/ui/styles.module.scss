@@ -1,18 +1,33 @@
+
+@import '@/shared/styles/mixins.scss';
+
 .content {
   margin-top: 82px;
   margin-bottom: 64px;
   display: flex;
   flex-direction: column;
+
+  @include on-tablet {
+    margin-top: 32px;
+  }
 }
 
 .title {
   margin-bottom: 24px;
+
+  @include on-tablet {
+    margin-bottom: 16px;
+  }
 }
 
 .subtitle {
   margin-bottom: 64px;
   color: #a9a9a9;
   font-weight: 500;
+
+  @include on-tablet {
+    margin-bottom: 32px;
+  }
 }
 
 .bottom {
@@ -25,6 +40,11 @@
   border-radius: 20px;
   padding: 75px 0 75px;
   width: 80%;
+
+  @include on-phone {
+    padding-block: 32px;
+    width: 100%;
+  }
 }
 
 .code {
@@ -32,4 +52,8 @@
   aspect-ratio: 1/1;
   background-color: #fff;
   border-radius: 10px;
+
+  @include on-tablet {
+    width: 181px;
+  }
 }

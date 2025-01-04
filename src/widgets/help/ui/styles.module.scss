@@ -1,3 +1,5 @@
+@import '@/shared/styles/mixins.scss';
+
 .section {
   padding-top: 117px;
   padding-bottom: 135px;
@@ -5,6 +7,11 @@
   background-image: url('@/shared/assets/images/bgHelp.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+
+  @include on-phone {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
 }
 
 .content {
@@ -12,9 +19,18 @@
   flex-direction: column;
   & :last-child {
     width: 378px;
+
+    @include on-phone {
+      width: fit-content;
+    }
   }
 }
 .title {
   margin-bottom: 55px;
   width: 65%;
+
+  @include on-phone {
+    width: 100%;
+    margin-bottom: 55px;
+  }
 }

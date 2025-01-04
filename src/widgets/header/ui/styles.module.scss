@@ -12,9 +12,13 @@
   width: 100%;
   height: 150px;
 
+  @include on-tablet {
+    height: 91px;
+  }
+
   & > :first-child {
     @include on-tablet {
-      margin-left: 150px;
+      margin-left: 60px;
     }
   }
 }

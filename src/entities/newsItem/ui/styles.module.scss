@@ -1,8 +1,25 @@
+@import '@/shared/styles/mixins.scss';
+
+.newsItem {
+  @include on-phone {
+    margin-right: 16px;
+    width: fit-content;
+    width: 200px;
+  }
+}
 .block {
   height: 275px;
   border-radius: 20px;
   padding: 24px;
   margin-bottom: 24px;
+
+  @include on-phone {
+    background-size: cover;
+    width: 200px;
+    height: 151px;
+    padding: 13px;
+    margin-bottom: 16px;
+  }
 }
 
 .date {
@@ -10,15 +27,29 @@
   border-radius: 20px;
   padding: 10px 32px;
   width: fit-content;
+
+  @include on-phone {
+    padding: 6px 15px;
+  }
 }
 
 .text {
   font-size: 18px;
   line-height: 1em;
+  color: var(--text-color-black);
+
+  @include on-phone {
+    font-size: 12px;
+  }
 }
 
 .title {
   font-size: 24px;
   line-height: 1.1em;
   font-weight: 500;
+
+  @include on-phone {
+    font-size: 16px;
+    text-align: left;
+  }
 }
