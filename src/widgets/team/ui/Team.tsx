@@ -3,7 +3,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NavHashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
-import { TEAMMATES } from '@/shared/consts/teammates';
 import styles from './styles.module.scss';
 import Teammate from '@/entities/teammate/ui/Teammate';
 import connectImg from '@/shared/assets/images/connectUs.png';
