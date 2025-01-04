@@ -1,8 +1,25 @@
+@import '@/shared/styles/mixins.scss';
 .btn {
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: space-between;
+  gap: 7px;
   border: 1px solid var(--bg-color-btn);
   border-radius: 25px;
   padding: 5px 10px;
+
+  @include on-tablet {
+    padding: 0px 10px;
+    gap: 15px;
+    // height: 35%;
+  }
+
+  img {
+    width: 35px;
+    height: 35px;
+    @include on-tablet {
+      width: 25px;
+      max-width: none;
+    }
+  }
 }

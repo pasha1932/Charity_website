@@ -1,18 +1,29 @@
+@import '@/shared/styles/mixins.scss';
+
 .socials {
   display: flex;
   flex-direction: column;
   width: 310px;
+
   & :first-child {
     align-self: flex-start;
+  }
+
+  @include on-phone {
+    justify-content: center;
+    align-items: center;
   }
 }
 
 .text {
   margin-block: 24px;
   font-size: 18px;
-  line-height: 1em;
+  line-height: 1.5em;
   color: #A8A8A8;
-  width: 60%;
+  
+  @include on-phone {
+    text-align: center;
+  }
 }
 
 .list {

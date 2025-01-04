@@ -1,3 +1,5 @@
+@import '@/shared/styles/mixins.scss';
+
 .result {
   border: 1px solid #000;
   width: 475px;
@@ -5,15 +7,31 @@
   padding: 32px;
   margin-right: 40px;
   border-radius: 20px;
+
+  @include on-tablet {
+    width: 215px;
+    height: 120px;
+    padding: 16px;
+  }
 }
 
 .count {
   color: var(--bg-color-btn);
   margin-bottom: 16px;
+
+  @include on-tablet {
+    margin-bottom: 7px;
+    font-size: 24px;
+  }
 }
 
 .text {
   font-size: 24px;
   line-height: 1em;
   font-weight: 500;
+
+  @include on-tablet {
+    font-size: 14px;
+    font-weight: 700;
+  }
 }

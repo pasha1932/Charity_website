@@ -1,9 +1,18 @@
+@import '@/shared/styles/mixins.scss';
 .icon {
   margin-right: 10px;
+
+  @include on-tablet {
+    display: none;
+  }
 }
 
 .text {
   color: var(--text-color-white);
   font-size: 18px;
   line-height: 1em;
+
+  @include on-tablet {
+    font-size: 14px;
+  }
 }

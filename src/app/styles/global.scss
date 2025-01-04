@@ -1,13 +1,17 @@
 @import '@/shared/styles/fonts.css';
 @import '@/shared/styles/variables.css';
-@import '@/shared/styles/mixins';
-
+@import '@/shared/styles/mixins.scss';
 
 body {
   font-family: 'FixelDisplay', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: var(--text-color-black);
+}
+
+.body-no-scroll {
+  overflow: hidden;
+  height: 100%;
 }
 
 main {
@@ -21,10 +25,13 @@ main {
 .container {
   max-width: 1280px;
   margin-inline: auto;
-  // margin-inline: 24px;
-  /* padding-inline: 15px; */
+  width: calc(100% - 48px);
+
   @include on-tablet {
     margin-inline: 24px;
+  }
+  @include on-phone {
+    margin-inline: 16px;
   }
 }
 
@@ -33,22 +40,53 @@ h2 {
   line-height: 1em;
   font-weight: 600;
   color: var(--text-color-white);
+
+  @include on-tablet {
+    font-size: 44px;
+  }
+  
+  @include on-phone {
+    font-size: 24px;
+  }
 }
 
 h4 {
   font-size: 48px;
   line-height: 1em;
   font-weight: 600;
+
+  @include on-tablet {
+    font-size: 32px;
+  }
+
+  @include on-phone {
+    font-size: 24px;
+  }
 }
 
 h5 {
   font-size: 32px;
   line-height: 1em;
   font-weight: 500;
+
+  @include on-tablet {
+    font-size: 25px;
+  }
+
+  @include on-phone {
+    font-size: 16px;
+  }
 }
 
 h6 {
   font-size: 24px;
   line-height: 1em;
   font-weight: 400;
+
+  @include on-tablet {
+    font-size: 20px;
+  }
+  @include on-phone {
+    font-size: 16px;
+  }
 }

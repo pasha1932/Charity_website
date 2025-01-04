@@ -3,6 +3,7 @@ import Select from 'react-select';
 import Flag from 'react-world-flags';
 import styles from './styles.module.scss';
 import { SendFormBtn } from '@/features/send-form';
+import { useTranslation } from 'react-i18next';
 
 interface FormData {
   firstName: string;
@@ -21,65 +22,54 @@ const countryOptions = [
 ];
 
 const Form = () => {
-  const { control, watch, setValue, register, formState: { errors } } = useForm<FormData>({
+  const { control, watch, setValue, register, handleSubmit, formState: { errors, isValid  } } = useForm<FormData>({
     defaultValues: {
       phoneNumber: '+380 ', // Початковий код країни Україна
     },
   });
-  // const onSubmit = async (data: FormData) => {
-  //   try {
-  //     const payload = {
-  //       firstName: data.firstName,
-  //       lastName: data.lastName,
-  //       email: data.email,
-  //       phoneNumber:  data.phoneNumber,
-  //       message: data.message,
-  //     };
+  const { t } = useTranslation();
 
-  //     // Надсилання даних на бекенд
-  //     const response = await axios.post('/api/submit', payload);
-  //     console.log('Response:', response.data);
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // };
+  const onSubmit = async (data: FormData) => {
+
+  };
 
   const phoneNumber = watch('phoneNumber');
 
   const handleCountryChange = (selectedOption: any) => {
     setValue('phoneNumber', `${selectedOption.value} ${phoneNumber.replace(/^\+\d+\s*/, '')}`);
   };
+  console.log(errors.toString())
 
   return ( 
     <section className={styles.section}>
       <div className="container">
         <div className={styles.content}>
-          <h4 className={styles.title}>Будь ласка, заповніть форму нижче щоб продовжити</h4>
-          <form className={styles.form}>
+          <h4 className={styles.title}>{t('please')}</h4>
+          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             {/* onSubmit={handleSubmit(onSubmit)} */}
             <div className={styles.pair}>
               <label className={styles.label}>
-                <h6 className={styles.formTitle}>Ім'я</h6>
-                <input className={`${styles.formInput} ${styles.formInputHalf}`} placeholder='Степан' {...register('firstName', { required: 'Вкажіть ім’я' })} />
+                <h6 className={styles.formTitle}>{t('name')}</h6>
+                <input className={`${styles.formInput} ${styles.formInputHalf}`} placeholder={t('namepl')} {...register('firstName', { required: t('errorName') })} />
           {errors.firstName && <span>{errors.firstName.message}</span>}
               </label>
 
               <label className={styles.label}>
-                <h6 className={styles.formTitle}>Прізвисько</h6>
-                <input className={`${styles.formInput} ${styles.formInputHalf}`} placeholder='Шевченко'{...register('lastName', { required: 'Вкажіть прізвище' })} />
+                <h6 className={styles.formTitle}>{t('lastName')}</h6>
+                <input className={`${styles.formInput} ${styles.formInputHalf}`} placeholder={t('lastNamepl')}{...register('lastName', { required: t('errorLast') })} />
                 {errors.lastName && <span>{errors.lastName.message}</span>}
                 </label>
             </div>
 
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>Електронна пошта</h6>
-              <input className={styles.formInput} placeholder="stepanshevch@gmail.com"  type="email"
-              {...register('email', { required: 'Вкажіть електронну пошту' })}
+              <h6 className={styles.formTitle}>{t('email')}</h6>
+              <input className={styles.formInput} placeholder={t('emailpl')}  type="email"
+              {...register('email', { required: t('errorEmail') })}
               />
               {errors.email && <span>{errors.email.message}</span>}
             </label>
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>Номер телефону</h6>
+              <h6 className={styles.formTitle}>{t('number')}</h6>
               <div style={{ display: 'flex', alignItems: 'center', marginTop: '8px' }}>
         {/* Селект із прапорами країн */}
             <Select
@@ -122,10 +112,10 @@ const Form = () => {
             </div>
             </label>
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>Особисте повідомлення *не обовʼязково*</h6>
+              <h6 className={styles.formTitle}>{t('message')}</h6>
               <textarea className={`${styles.formInput} ${styles.formTextArea}`} {...register('message')} />
             </label>
-            <SendFormBtn />
+            {<SendFormBtn disabled={isValid} />}
           </form>
         </div>
       </div>

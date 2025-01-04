@@ -1,11 +1,4 @@
-.btn {
-  background-color: var(--bg-color-btn);
-  padding: 9px 10px;
-  border-radius: 35px;
-  display: flex;
-  align-items: center;
-  width: fit-content;
-}
+@import '@/shared/styles/mixins.scss';
 
 .text {
   font-size: 18px;
@@ -13,10 +6,20 @@
   margin-right: 28px;
   color: var(--text-color-white);
   margin-left: 14px;
+
+  @include on-phone {
+    font-size: 14px;
+    margin-left: 8px;
+    margin-right: 10px;
+  }
 }
 
 .icon {
   background-color: #fff;
   padding: 12px;
   border-radius: 30px;
+
+  @include on-phone {
+    padding: 8px;
+  } 
 }

@@ -1,15 +1,35 @@
+@import '@/shared/styles/mixins.scss';
 .section {
   margin-bottom: 158px;
+  
+  @include on-tablet {
+    margin-bottom: 48px;
+  }
 }
+
 .title {
   text-align: center;
   margin-bottom: 64px;
+
+  @include on-tablet {
+    margin-bottom: 24px;
+  }
 }
 
 .content {
   display: grid;
+  justify-content: center;
   grid-template-columns: 50% 50%;
   column-gap: 40px;
+
+  @include on-tablet {
+    grid-template-columns: 85%;
+    row-gap: 24px;
+  }
+
+  @include on-phone {
+    grid-template-columns: 100%;
+  }
 }
 
 .left {
@@ -20,14 +40,38 @@
   justify-content: center;
   align-items: center;
   padding-inline: 50px;
+  width: fit-content;
+
+  @include on-tablet {
+    padding: 60px 38px 48px 38px;
+  }
+
+  @include on-phone {
+    padding: 38px 22px 22px 24px;
+  }
 }
 
 .subtitle {
+  text-align: center;
   color: var(--text-color-black);
   margin-bottom: 32px;
+
+  @include on-phone {
+    margin-bottom: 24px;
+  }
 }
 
 .text {
   margin-bottom: 64px;
   text-align: center;
+
+  @include on-phone {
+    margin-bottom: 21px;
+  }
+}
+
+.img {
+  @include on-tablet {
+    width: 100%;
+  }
 }

@@ -1,0 +1,45 @@
+@import '@/shared/styles/mixins.scss';
+
+.content {
+  padding-top: 32px;
+  padding-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: #A9A9A9;
+  margin-bottom: 32px;
+}
+
+.tabsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px 20px;
+
+  @include on-phone {
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 64px;
+  }
+}
+
+.tab {
+  padding: 26.5px 17px;
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  box-sizing: border-box;
+
+  &Active {
+    border: 3px solid var(--bg-color-btn);
+  }
+}
+
+.text {
+  @include on-tablet {
+    font-size: 18px;
+  }
+}

@@ -1,6 +1,8 @@
+@import '@/shared/styles/mixins.scss';
+
 .project {
-  width: 620px;
-  height: 537px;
+  width: 610px;
+  height: 536px;
   border-radius: 20px;
   padding: 48px;
   display: flex;
@@ -14,7 +16,15 @@
   button {
     align-self: flex-end;
   }
+
+  @include on-phone {
+    width: 257px;
+    height: 223px;
+    padding: 16px;
+    margin-right: 16px;
+  }
 }
+
 .content {
   display: flex;
   flex-direction: column;
@@ -23,11 +33,20 @@
 .title {
   color: var(--text-color-white);
   margin-bottom: 48px;
+
+  @include on-phone {
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
 }
 
 .bottom {
   display: flex;
   justify-content: space-between;
+
+  @include on-phone {
+    display: none;
+  }
 }
 
 .termin {

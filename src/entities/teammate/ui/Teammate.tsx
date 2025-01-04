@@ -8,8 +8,8 @@ type Props = {
 const Teammate: React.FC<Props> = ({name, position, image}) => {
   return ( 
     <article className={styles.teammate} style={{backgroundImage: `url(${image})`}}>
-      <div className={styles.name} style={{display: 'none'}}>{name}</div>
-      <div className={styles.position} style={{display: 'none'}}>{position}</div>
+      <div className={styles.name} >{name}</div>
+      <div className={styles.position}>{position}</div>
     </article>
    );
 }

@@ -9,7 +9,7 @@ const Companies = () => {
   const settings = {
     infinite: true,
     centerMode: true,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     variableWidth: true,
     arrows: false,

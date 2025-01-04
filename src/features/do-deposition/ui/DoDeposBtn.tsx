@@ -7,7 +7,7 @@ type Props = {
   title: string,
 };
 
-const DoDeposBtn: React.FC<Props> = ({ disabled }) => {
+const DoDeposBtn: React.FC<Props> = ({ disabled, title }) => {
   
   return ( 
     <Button
@@ -15,7 +15,7 @@ const DoDeposBtn: React.FC<Props> = ({ disabled }) => {
       disabled={!disabled}
     >
     <img src={icon} alt="" className={styles.icon} />
-    <span className={styles.text}>Зробити внесок</span>
+      <span className={styles.text}>{title}</span>
   </Button>
   );
 }

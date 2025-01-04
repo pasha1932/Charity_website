@@ -1,16 +1,19 @@
 import { PartnerBtn } from "@/features/partner-button";
 import img from '@/shared/assets/images/cooperat.png';
 import styles from './styles.module.scss';
+import { useTranslation } from "react-i18next";
 
 const Cooperation = () => {
+  const { t } = useTranslation();
+
   return (
     <section className={styles.section}>
       <div className="container">
-      <h4 className={styles.title}>Звернення та запити на співпрацю</h4>
+      <h4 className={styles.title}>{t('cowork')}</h4>
       <div className={styles.content}>
         <div className={styles.left}>
-          <h5 className={styles.subtitle}>Заява для юридичних осіб</h5>
-          <h6 className={styles.text}>Подайте запит на співпрацю або фінансову підтримку для спільних благодійних ініціатив.
+          <h5 className={styles.subtitle}>{t('statem')}</h5>
+          <h6 className={styles.text}>{t('queryState')}
           </h6>
           <PartnerBtn />
         </div>

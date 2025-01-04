@@ -3,7 +3,7 @@ import img2 from '@/shared/assets/images/worker2.png'
 import img3 from '@/shared/assets/images/worker3.png'
 
 export const TEAMMATES = [
-  { name: 'Ігор Миколайович', position: 'Генеральний директор', image: img1},
-  { name: 'Денис Гоміль', position: 'Головний волонтер', image: img2 },
-  { name: 'Ганна Василівна', position: 'Керівник дитячого відділу', image: img3 },
+  { name: 'Андрій Сукмановський', position: 'Президент організації', image: img1},
+  { name: 'Іван Левицький', position: 'Керівник проєктів та програм', image: img2 },
+  { name: 'Софія Мандзюк', position: 'Проєктна менеджерка', image: img3 },
 ];

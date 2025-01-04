@@ -1,14 +1,32 @@
+@import '@/shared/styles/mixins.scss';
+
 .logo {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 9px;
   width: fit-content;
+
+  @include on-tablet {
+    flex-direction: row;
+  }
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 9px;
 }
 
 .img {
   width: 64px;
   height: 74px;
+
+  @include on-tablet {
+    width: 42px;
+    height: 49px;
+  }
 }
 
 .text {
@@ -18,7 +36,12 @@
   background: linear-gradient(120.86deg, #FFC98A 14.39%, #FF8A00 44.46%, #FF9619 60.68%, #FFA967 89.57%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+  background-clip: text;
   // color: var(--text-color-white);
+
+  @include on-tablet {
+    font-size: 20px;
+  }
 }
 
 .subtext {

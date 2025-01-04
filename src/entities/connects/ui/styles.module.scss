@@ -1,4 +1,4 @@
-
+@import '@/shared/styles/mixins.scss';
 
 .title {
   color: var(--text-color-white);
@@ -11,7 +11,11 @@
   gap: 22px;
 
   & :last-child {
-    width: 80%;
+    width: 85%;
+  }
+
+  @include on-phone {
+    gap: 15px;
   }
 }
 
@@ -23,7 +27,12 @@
 .text {
   color: #A8A8A8;
   font-size: 18px;
-  line-height: 1em;
+  line-height: 1.2em;
+  text-wrap: wrap;
+
+  @include on-phone {
+    font-size: 13px;
+  }
 }
 
 

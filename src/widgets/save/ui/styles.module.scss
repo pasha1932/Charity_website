@@ -1,3 +1,5 @@
+@import '@/shared/styles/mixins.scss';
+
 .section {
   width: 100%;
 }
@@ -6,6 +8,11 @@
   padding-top: 55px;
   background: url('@/shared/assets/images/bgSave.jpg');
   background-size: cover;
+
+  @include on-tablet {
+    padding-bottom: 38px;
+    background-position: center;
+  }
 }
 
 .title {
@@ -16,9 +23,19 @@
 .subtitle {
   color: var(--text-color-white);
   margin-bottom: 141px;
+
+  @include on-tablet {
+    margin-bottom: 42px;
+  }
 }
 
 .tabs {
   display: flex;
   justify-content: space-around;
 }
+
+// button {
+//   color: var(--text-color-white);
+//   padding: 10px;
+//   background-color: orange;
+// }

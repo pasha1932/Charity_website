@@ -1,19 +1,79 @@
+@import '@/shared/styles/mixins.scss';
+
 .footer {
   background-color: var(--bg-ft-hd);
   padding-top: 115px;
   padding-bottom: 30px;
+
+  @include on-phone {
+    padding-top: 24px;
+  }
 }
 
 .top {
-  display: flex;
-  // justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
   gap: 118px;
   margin-bottom: 114px;
+
+  @include on-tablet {
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 60px;
+  }
+
+  @include on-phone {
+    margin-bottom: 37px;
+    grid-template-columns: 1fr 1fr;
+    justify-items: flex-start;
+    align-items: center;
+    gap: 24px;
+  }
+
+
+  & :last-child {
+    @include on-phone {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
 }
 
+.block1 {
+  @include on-phone {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+  }
+}
+
+.block3 {
+  @include on-phone {
+    margin-left: 30px;
+  }
+}
+
+.block4 {
+  @include on-phone {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+  }
+}
+
+.logo {
+  height: 80px;
+}
 .reports {
   display: flex;
   flex-direction: column;
+  // align-items: flex-end;
   gap: 35px;
 }
 
@@ -24,6 +84,10 @@ a.report{
   text-decoration: underline;
   text-decoration-line: underline;
   max-width: 60%;
+
+  @include on-phone {
+    font-size: 20px;
+  }
 }
 
 .bottom {
@@ -31,14 +95,24 @@ a.report{
   border-top: 1px solid #D9DBE9;
   display: flex;
   justify-content: space-between;
+
+  @include on-phone {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
 }
 
 .links {
   display: flex;
+  flex-wrap: wrap;
   color: var(--text-color-white);
   gap: 6px;
   font-size: 18px;
   line-height: 1em;
+
+  @include on-phone {
+    font-size: 14px;
+  }
 
   & :first-child {
     color: #A8A8A8;
@@ -56,4 +130,8 @@ a.report{
   font-size: 18px;
   line-height: 1em;
   color: #A8A8A8;
+
+  @include on-phone {
+    font-size: 14px;
+  }
 }

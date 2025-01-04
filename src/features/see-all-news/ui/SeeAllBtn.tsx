@@ -1,8 +1,11 @@
 import { Button } from '@/shared/ui/button';
+import { useTranslation } from 'react-i18next';
 
 const SeeAllBtn = () => {
+  const { t } = useTranslation();
+
   return ( 
-    <Button variant='usual'>Дивитися всі новини</Button>
+    <Button variant='usual'>{t('seeAllNews')}</Button>
    );
 }
  

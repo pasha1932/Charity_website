@@ -1,22 +1,56 @@
+@import '@/shared/styles/mixins.scss';
+
 .section {
   margin-bottom: 168px;
+
+  @include on-phone {
+    margin-bottom: 48px;
+    width: 100%;
+  }
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  &:last-child {
-    align-self: center;
+
+  // &:last-child {
+  //   align-self: center;
+  // }
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 84px;
+
+  @include on-phone {
+    margin-bottom: 24px;
   }
 }
 
 .title {
   color: var(--text-color-black);
-  margin-bottom: 84px;
 }
 
 .newsList {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 64px 40px;
+
+  @include on-tablet {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 16px;
+  }
+}
+
+.slider {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.seeAll {
+  font-size: 16px;
+  line-height: 1em;
+  color: var(--bg-color-btn);
 }
