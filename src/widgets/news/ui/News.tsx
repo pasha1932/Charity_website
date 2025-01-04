@@ -18,7 +18,7 @@ const News = () => {
   // if (error) return <p>Помилка завантаження новин</p>;
 
 
-  // console.log(data, 'data')
+  // console.log(data)
   const isMobile = useMediaQuery({ query: '(max-width: 650px)' });
   const { t } = useTranslation();
 
