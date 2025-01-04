@@ -1,5 +1,5 @@
 import img1 from '@/shared/assets/images/icons/email.svg';
-import img2 from '@/shared/assets/images/icons/Phone.svg';
+import img2 from '@/shared/assets/images/icons/phone.svg';
 import img3 from '@/shared/assets/images/icons/mark.svg';
 
 export const CONTENT_CONNECTS = [
