@@ -22,16 +22,17 @@ const countryOptions = [
 ];
 
 const Form = () => {
-  const { control, watch, setValue, register, handleSubmit, formState: { errors, isValid  } } = useForm<FormData>({
+  //handleSubmit вниз добавити
+  const { control, watch, setValue, register, formState: { errors, isValid  } } = useForm<FormData>({
     defaultValues: {
       phoneNumber: '+380 ', // Початковий код країни Україна
     },
   });
   const { t } = useTranslation();
 
-  const onSubmit = async (data: FormData) => {
+  // const onSubmit = async (data: FormData) => {
 
-  };
+  // };
 
   const phoneNumber = watch('phoneNumber');
 
@@ -45,7 +46,7 @@ const Form = () => {
       <div className="container">
         <div className={styles.content}>
           <h4 className={styles.title}>{t('please')}</h4>
-          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+          <form className={styles.form}>
             {/* onSubmit={handleSubmit(onSubmit)} */}
             <div className={styles.pair}>
               <label className={styles.label}>

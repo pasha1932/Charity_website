@@ -1,6 +1,5 @@
 import { Result } from '@/entities/result';
 import styles from './styles.module.scss'
-import { CONTENT_RESULTS } from "@/shared/consts/contentResults";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
