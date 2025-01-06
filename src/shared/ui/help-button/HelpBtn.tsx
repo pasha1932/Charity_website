@@ -2,15 +2,15 @@ import styles from './styles.module.scss';
 type ButtonProps = {
   onClick: () => void;
   children: React.ReactNode;
-  isActive?: boolean;
+  isactive?: boolean;
 };
 
-const HelpBtn: React.FC<ButtonProps> = ({ onClick, children, isActive }) => {
+const HelpBtn: React.FC<ButtonProps> = ({ onClick, children, isactive }) => {
   return ( 
     <button
       onClick={onClick}
       className={styles.btn}
-      style={{backgroundColor: isActive ? "#FF8D06" : "#262626"}}
+      style={{backgroundColor: isactive ? "#FF8D06" : "#262626"}}
   >
     {children}
   </button>

@@ -25,7 +25,6 @@ const DonateWays: React.FC<Props> = ({onActiveTab, onKindDonate, activeTab}) => 
                 className={classNames(styles.tab, { [styles.tabActive]: item === activeTab })}
                 key={item}
                 onClick={() => onActiveTab(item)}
-                // onClick={() => setIsActive(index)}
               >
                 <h5 className={styles.text}>{item}</h5>
               </button>))}

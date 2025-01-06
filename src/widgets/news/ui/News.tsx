@@ -7,20 +7,16 @@ import styles from './styles.module.scss';
 import { SeeAllBtn } from "@/features/see-all-news";
 import { useMediaQuery } from 'react-responsive';
 import { useTranslation } from 'react-i18next';
-// import { useGetNewsQuery } from '../api/api';
+import { useGetNewsQuery } from '../api/api';
 
 
 
 const News = () => {
-  // const { data, error, isLoading } = useGetNewsQuery({ page: 0, size: 10 });
-
-  // if (isLoading) return <p>Завантаження...</p>;
-  // if (error) return <p>Помилка завантаження новин</p>;
-
-
-  // console.log(data)
   const isMobile = useMediaQuery({ query: '(max-width: 650px)' });
   const { t } = useTranslation();
+  const { data, error, isLoading } = useGetNewsQuery({ page: 0, size: 10 });
+
+  console.log(data);
 
   const settings = {
     infinite: false,
@@ -32,6 +28,9 @@ const News = () => {
     initialSlide: 0,
     // adaptiveHeight: true,
   };
+
+  if (isLoading) return <p>Завантаження...</p>;
+  if (error) return <p>Помилка завантаження новин</p>;
 
   return ( 
     <section className={styles.section} id="news">

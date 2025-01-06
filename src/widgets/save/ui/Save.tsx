@@ -63,7 +63,7 @@ const Save = () => {
           <h6 className={styles.subtitle}>{t('everyGrn')}</h6>
           {!isTablet ? <div className={styles.tabs}>
             {tabs.map((tab) => (
-              <HelpBtn key={tab.id} onClick={() => setActiveTab(tab.label)} isActive={activeTab === tab.label}>
+              <HelpBtn key={tab.id} onClick={() => setActiveTab(tab.label)} isactive={activeTab === tab.label}>
             {tab.label}
             </HelpBtn>
         ))}
