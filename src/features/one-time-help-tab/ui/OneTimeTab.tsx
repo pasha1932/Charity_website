@@ -6,7 +6,7 @@ import { CurrencySwitcher } from "@/features/currency-switcher";
 import { useTranslation } from "react-i18next";
 
 const OneTimeTab = () => {
-  const [isActive, setIsActive] = useState(0);
+  const [isactive, setisactive] = useState(0);
   const [checked, setChecked] = useState(false);
   const { t } = useTranslation();
 
@@ -20,13 +20,13 @@ const OneTimeTab = () => {
       <div className={styles.moneyList}>
         {['25UAN', '100UAN', '500UAN', '1000UAN', '5000UAN', '10000UAN', '20000UAN'].map((item, index) => (
           <div
-            className={classNames(styles.money, { [styles.moneyActive]: index === isActive })}
-            key={item} onClick={() => setIsActive(index)}
+            className={classNames(styles.money, { [styles.moneyActive]: index === isactive })}
+            key={item} onClick={() => setisactive(index)}
           >
             <h5 className={styles.text}>{item}</h5>
         </div>))}
-        <div className={classNames(styles.money, { [styles.moneyActive]: 10 === isActive })}
-             onClick={() => setIsActive(10)}>
+        <div className={classNames(styles.money, { [styles.moneyActive]: 10 === isactive })}
+             onClick={() => setisactive(10)}>
           <input className={styles.text} placeholder={t('yourSum')}></input>
         </div>
       </div>

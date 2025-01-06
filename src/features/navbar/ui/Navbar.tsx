@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const { hash } = useLocation();
-  const isActive = (iHash: string) => hash === iHash;
+  const isactive = (iHash: string) => hash === iHash;
   const { t } = useTranslation();
 
   const CONTENT_NAVIGATION_MENU = [
@@ -25,7 +25,7 @@ const Navbar = () => {
               smooth to={item.link}
               className={styles.navLink}
               style={
-                isActive(item.link)
+                isactive(item.link)
                   ? {
                       color: "var(--bg-color-btn)",
                       borderBottom: '1px solid var(--bg-color-btn)',

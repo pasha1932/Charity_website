@@ -9,7 +9,7 @@ const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
   const { hash } = useLocation();
-  const isActive = (iHash: string) => hash === iHash;
+  const isactive = (iHash: string) => hash === iHash;
   const body = document.body;
 
   const toggleMenu = () => {
@@ -48,7 +48,7 @@ const BurgerMenu = () => {
                                 smooth to={item.link}
                                 className={styles.navLink}
                                 style={
-                                  isActive(item.link)
+                                  isactive(item.link)
                                     ? {
                                         color: "var(--bg-color-btn)",
                                         borderBottom: '1px solid var(--bg-color-btn)',
