@@ -1,0 +1,58 @@
+.section {
+  margin-top: 38px;
+  margin-bottom: 64px;
+}
+
+.content {
+  margin-left: 100px;
+  margin-top: -30px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 64px;
+}
+
+.left {
+  max-width: 620px;
+}
+.img {
+  width: 100%;
+  max-height: 498px;
+  margin-bottom: 64px;
+  border-radius: 25px;
+}
+
+.title {
+  width: 90%;
+}
+.right {
+  width: 510px;
+  height: 704px;
+  border: 1px solid gray;
+}
+
+.bottom {
+  p {
+    font-size: 24px;
+    line-height: 1.1em;
+    color: var(--text-color-black);
+    margin-block: 20px;
+  }
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    // margin-left: 20px;
+  }
+  li {
+
+    font-size: 24px;
+    line-height: 1.1em;
+    margin-left: 35px;
+    margin-block: 20px;
+  }
+}

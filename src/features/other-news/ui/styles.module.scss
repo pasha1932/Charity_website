@@ -1,0 +1,35 @@
+.content {
+  border: 1px solid var(--text-color-black);
+  width: 510px;
+  border-radius: 25px;
+  padding: 48px 48px 64px 48px;
+}
+
+.title {
+  margin-bottom: 64px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+}
+
+.date {
+  background-color: var(--text-color-black);
+  color: var(--text-color-white);
+  width: fit-content;
+  padding: 13px 32px;
+  font-size: 18px;
+  line-height: 1em;
+  border-radius: 99px;
+  margin-bottom: 24px;
+
+}
+
+.itemTitle {
+  font-size: 24px;
+  line-height: 1.1em;
+  font-weight: 500;
+  color: var(--text-color-black);
+}

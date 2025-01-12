@@ -7,9 +7,11 @@ import { Project } from '@/entities/project';
 import { PROJECTS } from '@/shared/consts/projects';
 import arrow from '@/shared/assets/images/icons/arrow.svg';
 import { useTranslation } from 'react-i18next';
+import { useGetProjectsActiveQuery } from '../api/api';
 
 const Projects = () => {
   const sliderRef = useRef<Slider | null>(null);
+  const {data} = useGetProjectsActiveQuery({page: 0, size: 30})
   const next = () => {
     sliderRef.current?.slickNext();
   };
@@ -49,12 +51,13 @@ const Projects = () => {
       <div className={styles.content}>
       <div className="container">
         <Slider {...settings} className={styles.slider} ref={sliderRef}>
-            {PROJECTS.map(item => <Project
-              img={item.img}
-              endTermin={item.endTermin}
-              title={item.title}
-              collected={item.collected}
-              key={item.title}
+            {data?.content.map(item => <Project
+              img={item.imageUrl}
+              endTermin={item.deadline}
+              title={item.name}
+              collected={item.collectedAmount.toString()}
+              goalAmount={item.goalAmount}
+              key={item.id}
             />
         )}
           </Slider>

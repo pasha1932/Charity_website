@@ -8,10 +8,12 @@ import { useTranslation } from 'react-i18next';
 interface FormData {
   firstName: string;
   lastName: string;
+  pob: string,
   email: string;
   phoneNumber: string;
   country: { label: string; value: string };
   message: string;
+  image: File,
 }
 
 const countryOptions = [
@@ -62,6 +64,13 @@ const Form = () => {
                 </label>
             </div>
 
+            <label className={styles.label}>
+              <h6 className={styles.formTitle}>По батькові</h6>
+              <input className={styles.formInput} placeholder="тигранович"  type=""
+              {...register('pob', { required: t('errorEmail') })}
+              />
+              {errors.pob && <span>{errors.pob.message}</span>}
+            </label>
             <label className={styles.label}>
               <h6 className={styles.formTitle}>{t('email')}</h6>
               <input className={styles.formInput} placeholder={t('emailpl')}  type="email"
@@ -115,6 +124,13 @@ const Form = () => {
             <label className={styles.label}>
               <h6 className={styles.formTitle}>{t('message')}</h6>
               <textarea className={`${styles.formInput} ${styles.formTextArea}`} {...register('message')} />
+            </label>
+            <label className={styles.label}>
+              <h6 className={styles.formTitle}>Картинка</h6>
+              <input className={styles.formInput}  type="file"
+              {...register('image', { required: t('errorEmail') })}
+              />
+              {errors.image && <span>{errors.image.message}</span>}
             </label>
             {<SendFormBtn disabled={isValid} />}
           </form>

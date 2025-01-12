@@ -5,6 +5,9 @@
   padding-top: 115px;
   padding-bottom: 30px;
 
+  @include on-tablet {
+    padding-top: 50px;
+  }
   @include on-phone {
     padding-top: 24px;
   }
@@ -20,6 +23,7 @@
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     gap: 60px;
+    margin-bottom: 50px;
   }
 
   @include on-phone {

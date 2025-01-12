@@ -7,16 +7,13 @@ import { RouterProvider } from "react-router-dom";
 import '@/shared/lib/i18n';
 import '../app/styles/reset.css';
 import '../app/styles/global.scss';
-import { appRouter } from "./appRouter";
+import appRouter from "./appRouter";
 import { Provider } from "react-redux";
 import {store} from "./appStore";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  // <React.StrictMode>
-    // /* <ThemeProvider> */
       <Provider store={store}>
-        <RouterProvider router={appRouter} />
+         <RouterProvider router={appRouter} /> 
       </Provider>
-    //  </ThemeProvider>
-  // </React.StrictMode>
+
 );
