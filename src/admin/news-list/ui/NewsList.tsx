@@ -1,8 +1,7 @@
-import { News, useGetNewsQuery, useUpdateNewsCoverImageMutation, useUpdateNewsTextMutation } from '@/widgets/news/api/api';
+import { News, useGetNewsQuery } from '@/widgets/news/api/api';
 import styles from './styles.module.scss';
 import { useAppSelector } from '@/shared/hooks/reduxHooks';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import classNames from 'classnames';
 import pencil from '@/shared/assets/images/icons/pencil.svg';
@@ -33,7 +32,7 @@ export const NewsList = () => {
             </tr>
         </thead>
         
-        {news?.map((item: News) => (
+        {data?.content?.map((item: News) => (
           <tr
             key={item.id}
             onClick={() => setActiveRow(item.id)}

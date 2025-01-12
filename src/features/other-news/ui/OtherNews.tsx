@@ -1,10 +1,9 @@
-import { CONTENT_NEWS } from "@/shared/consts/contentNews";
 import styles from './styles.module.scss';
 import { useGetNewsQuery } from "@/widgets/news/api/api";
 import { Link } from "react-router-dom";
 
 const OtherNews = () => {
-  const { data, error, isLoading } = useGetNewsQuery({ page: 0, size: 10 });
+  const { data } = useGetNewsQuery({ page: 0, size: 10 });
   const formatDate = (dateString: string) => {
     const date = new Date(dateString); // Перетворюємо строку у дату
     return date.toLocaleDateString('uk-UA', {

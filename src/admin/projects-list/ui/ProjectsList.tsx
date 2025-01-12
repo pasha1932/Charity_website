@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "@/shared/hooks/reduxHooks";
 import classNames from "classnames";
 import styles from './styles.module.scss';
-import pencil from '@/shared/assets/images/icons/pencil.svg';
+// import pencil from '@/shared/assets/images/icons/pencil.svg';
 
 
 
@@ -31,7 +31,7 @@ export const ProjectsList = () => {
             </tr>
         </thead>
         
-        {projects?.map((item: Project) => (
+        {data?.content.map((item: Project) => (
           <tr
             key={item.id}
             onClick={() => setActiveRow(item.id)}

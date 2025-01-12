@@ -2,9 +2,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NewsItem } from "@/entities/newsItem";
-import { CONTENT_NEWS } from "@/shared/consts/contentNews";
 import styles from './styles.module.scss';
-import { SeeAllBtn } from "@/features/see-all-news";
 import { useMediaQuery } from 'react-responsive';
 import { useTranslation } from 'react-i18next';
 import { useGetNewsQuery } from '../api/api';
@@ -47,8 +45,8 @@ const News = () => {
     }
   }
 
-  // if (isLoading) return <p>Завантаження...</p>;
-  // if (error) return <p>Помилка завантаження новин</p>;
+  if (isLoading) return <p>Завантаження...</p>;
+  if (error) return <p>Помилка завантаження новин</p>;
 
   return ( 
     <section className={styles.section} id="news">

@@ -1,10 +1,10 @@
 import { useCreateNewsMutation } from '@/widgets/news/api/api';
-import { useForm } from 'react-hook-form';
 import styles from './styles.module.scss';
 import { useState } from 'react';
 
 const CreateNewsForm: React.FC = () => {
-  const [createNews, { isLoading, isError, isSuccess }] = useCreateNewsMutation();
+  // { isLoading, isError, isSuccess }
+  const [createNews] = useCreateNewsMutation();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [coverImage, setCoverImage] = useState<File | null>(null);

@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from './styles.module.scss';
 import { useRef } from 'react';
 import { Project } from '@/entities/project';
-import { PROJECTS } from '@/shared/consts/projects';
 import arrow from '@/shared/assets/images/icons/arrow.svg';
 import { useTranslation } from 'react-i18next';
 import { useGetProjectsActiveQuery } from '../api/api';

@@ -1,5 +1,5 @@
 import { Button } from '@/shared/ui/button';
-import { ButtonHTMLAttributes, FC } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface ButtonProps {

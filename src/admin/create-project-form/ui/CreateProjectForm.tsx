@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { useCreateProjectMutation } from '@/widgets/projects/api/api';
 
 const CreateProjectForm: React.FC = () => {
-  const [createProject, { isLoading, isError, isSuccess }] = useCreateProjectMutation();
+  // { isLoading, isError, isSuccess }
+  const [createProject] = useCreateProjectMutation();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [goalAmount, setGoalAmount] = useState<number>();
@@ -27,7 +28,7 @@ const CreateProjectForm: React.FC = () => {
     formData.append("name", name);
     formData.append("description", description);
     formData.append("goalAmount", goalAmount.toString());
-    formData.append("deadline", '2025-05-01');
+    formData.append("deadline", deadline.toString());
     formData.append("image", image);
 
     try {

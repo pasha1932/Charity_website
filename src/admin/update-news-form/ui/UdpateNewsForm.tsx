@@ -1,4 +1,4 @@
-import { News, useGetNewsItemQuery, useUpdateNewsCoverImageMutation, useUpdateNewsTextMutation } from "@/widgets/news/api/api";
+import { useGetNewsItemQuery, useUpdateNewsCoverImageMutation, useUpdateNewsTextMutation } from "@/widgets/news/api/api";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from './styles.module.scss';
