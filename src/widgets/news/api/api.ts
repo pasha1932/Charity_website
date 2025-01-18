@@ -64,10 +64,16 @@ export const newsApi = api.injectEndpoints({
         body: formData,
       }),
     }),
+    deleteNewsItem: build.mutation<void, string>({
+      query: (newsId) => ({
+        url: `/admin/news/${newsId}`,
+        method: 'DELETE'
+      }),
+    }),
   }),
 });
 
-export const { useGetNewsQuery, useCreateNewsMutation, useUpdateNewsTextMutation, useUpdateNewsCoverImageMutation, useGetNewsItemQuery } = newsApi;
+export const { useGetNewsQuery, useDeleteNewsItemMutation, useCreateNewsMutation, useUpdateNewsTextMutation, useUpdateNewsCoverImageMutation, useGetNewsItemQuery } = newsApi;
 export const {
   endpoints: {
     getNews,

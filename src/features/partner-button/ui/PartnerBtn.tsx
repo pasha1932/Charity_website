@@ -9,7 +9,7 @@ const PartnerBtn = () => {
   const { t } = useTranslation();
 
   return ( 
-    <Button variant="withIconRight" className={styles.headerBtn} onClick={() => navigate('form')}>
+    <Button variant="withIconRight" className={styles.headerBtn} onClick={() => navigate('/form/partner')}>
       <span className={styles.text}>{t('becamePart')}</span>
       <img src={icon} alt="" className={styles.icon} />
     </Button>

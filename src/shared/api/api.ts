@@ -33,7 +33,7 @@ const baseQuery = fetchBaseQuery({
   baseUrl: "https://backend-api.space/api",
   prepareHeaders: (headers, { getState, endpoint }) => {
     // Перевірка, чи потрібна авторизація
-    const skipAuthEndpoints = ["getNews", "getNewsItem", "getProjects", "getProjectsActive"]; // Перелік endpoint, які не вимагають авторизації
+    const skipAuthEndpoints = ["getNews", "getNewsItem", "getProjects", "getProjectsActive", "becameVolunteer", "createProject", "becamePartner", "register"]; // Перелік endpoint, які не вимагають авторизації
     if (!skipAuthEndpoints.includes(endpoint)) {
       const token =
         (getState() as RootState).auth.token ||

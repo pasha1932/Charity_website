@@ -16,10 +16,11 @@
   list-style: square;
 
   li {
-    list-style: inside;
+    list-style: url('../../../shared/assets/images/icons/list-style.svg');
   }
 
   &Link {
+    margin-left: 15px;
     font-size: 25px;
     font-weight: 500;
     color: var(--text-color-black);

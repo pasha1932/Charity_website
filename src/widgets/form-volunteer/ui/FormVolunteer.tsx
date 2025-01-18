@@ -4,16 +4,16 @@ import Flag from 'react-world-flags';
 import styles from './styles.module.scss';
 import { SendFormBtn } from '@/features/send-form';
 import { useTranslation } from 'react-i18next';
+import { useBecameVolunteerMutation } from '@/widgets/volunteers/api/api';
+import BtnBack from '@/shared/ui/button-back/ui/BtnBack';
 
 interface FormData {
   firstName: string;
   lastName: string;
-  pob: string,
+  middleName: string,
   email: string;
   phoneNumber: string;
-  country: { label: string; value: string };
-  message: string;
-  image: File,
+  avatar: File[],
 }
 
 const countryOptions = [
@@ -23,32 +23,53 @@ const countryOptions = [
   { value: '+49', flag: 'DE' },
 ];
 
-const Form = () => {
-  //handleSubmit вниз добавити
-  const { control, watch, setValue, register, formState: { errors, isValid  } } = useForm<FormData>({
+const FormVolunteer = () => {
+  const [submitVolunteer] = useBecameVolunteerMutation();
+  const { control, reset, watch, setValue, register, handleSubmit, formState: { errors, isValid  } } = useForm<FormData>({
     defaultValues: {
       phoneNumber: '+380 ', // Початковий код країни Україна
     },
   });
   const { t } = useTranslation();
 
-  // const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
+    try {
+      // Якщо є файл, формуємо FormData
+      const formData = new FormData();
+      formData.append('firstName', data.firstName);
+      formData.append('lastName', data.lastName);
+      formData.append('middleName', data.middleName);
+      formData.append('email', data.email);
+      formData.append('phoneNumber', data.phoneNumber);
+      if (data.avatar) {
+        formData.append('avatar', data.avatar[0]); // Звертаємо увагу, що avatar — масив файлів
+      }
 
-  // };
+      // Відправка даних через RTK Query
+      await submitVolunteer(formData).unwrap();
+      
+      alert('Ваша заявка була відправлена');
+      reset({
+        phoneNumber: '+380 ', // Повертаємо початкове значення коду країни
+      });
+    } catch  (error) {
+      console.error('Failed to create news:', error);
+    }
+  };
 
   const phoneNumber = watch('phoneNumber');
 
   const handleCountryChange = (selectedOption: any) => {
     setValue('phoneNumber', `${selectedOption.value} ${phoneNumber.replace(/^\+\d+\s*/, '')}`);
   };
-  console.log(errors.toString())
 
   return ( 
     <section className={styles.section}>
       <div className="container">
+        <BtnBack />
         <div className={styles.content}>
           <h4 className={styles.title}>{t('please')}</h4>
-          <form className={styles.form}>
+          <form className={styles.form}  onSubmit={handleSubmit(onSubmit)}>
             {/* onSubmit={handleSubmit(onSubmit)} */}
             <div className={styles.pair}>
               <label className={styles.label}>
@@ -66,10 +87,10 @@ const Form = () => {
 
             <label className={styles.label}>
               <h6 className={styles.formTitle}>По батькові</h6>
-              <input className={styles.formInput} placeholder="тигранович"  type=""
-              {...register('pob', { required: t('errorEmail') })}
+              <input className={styles.formInput} placeholder="Володимирович"  type=""
+              {...register('middleName', { required: t('errorEmail') })}
               />
-              {errors.pob && <span>{errors.pob.message}</span>}
+              {errors.middleName && <span>{errors.middleName.message}</span>}
             </label>
             <label className={styles.label}>
               <h6 className={styles.formTitle}>{t('email')}</h6>
@@ -122,15 +143,11 @@ const Form = () => {
             </div>
             </label>
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>{t('message')}</h6>
-              <textarea className={`${styles.formInput} ${styles.formTextArea}`} {...register('message')} />
-            </label>
-            <label className={styles.label}>
               <h6 className={styles.formTitle}>Картинка</h6>
               <input className={styles.formInput}  type="file"
-              {...register('image', { required: t('errorEmail') })}
+              {...register('avatar', { required: t('errorEmail') })}
               />
-              {errors.image && <span>{errors.image.message}</span>}
+              {errors.avatar && <span>{errors.avatar.message}</span>}
             </label>
             {<SendFormBtn disabled={isValid} />}
           </form>
@@ -140,4 +157,4 @@ const Form = () => {
    );
 }
  
-export default Form;
+export default FormVolunteer;

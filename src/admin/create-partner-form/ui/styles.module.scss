@@ -18,8 +18,8 @@
 }
 
 .content {
-  margin-left: 50px;
-  margin-top: -50px;
+  margin-top: -40px;
+  margin-left: 30px;
 }
 
 .title {
@@ -74,10 +74,13 @@
     }
   }
 
-  &TextArea {
-    padding-block: 15px;
-    height: 187px;
+  &Textarea {
+    padding: 15px;
+    height: 150px;
     outline: none;
+    background-color: #ebebeb;
+    border-radius: 12px;
+    width: 100%;
   }
 }
 
@@ -92,7 +95,7 @@
 }
 
 .select {
-  height: 72px;
+  height: 40px;
 
   @include on-phone {
     height: 52px;

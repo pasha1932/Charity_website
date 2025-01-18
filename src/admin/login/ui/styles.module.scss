@@ -1,5 +1,8 @@
-.form {
+.section {
   margin: 100px auto;
+}
+.form {
+  margin-inline: auto;
   display: flex;
   gap: 25px;
   width: fit-content;

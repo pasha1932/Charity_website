@@ -1,10 +1,11 @@
 import { useCreateNewsMutation } from '@/widgets/news/api/api';
 import styles from './styles.module.scss';
 import { useState } from 'react';
+import BtnBack from '@/shared/ui/button-back/ui/BtnBack';
 
 const CreateNewsForm: React.FC = () => {
   // { isLoading, isError, isSuccess }
-  const [createNews] = useCreateNewsMutation();
+  const [createNews, {isLoading}] = useCreateNewsMutation();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [coverImage, setCoverImage] = useState<File | null>(null);
@@ -17,8 +18,8 @@ const CreateNewsForm: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    if (!title || !content || !coverImage || title.length < 10) {
-      alert("Please fill in all fields correctly(title length > 10) and upload a cover image.");
+    if (!title || !content || !coverImage || title.length < 10 || content.length < 10) {
+      alert("Будь ласка заповніть поля коректно");
       return;
     }
 
@@ -30,7 +31,7 @@ const CreateNewsForm: React.FC = () => {
     try {
       // .then(newNews => onSetNews(currentNews => [...currentNews, newNews])
       await createNews(formData).unwrap();
-      alert('News was succesfully added');
+      alert('Новина була успішно додана');
       setTitle('');
       setContent('');
       setCoverImage(null);
@@ -41,40 +42,42 @@ const CreateNewsForm: React.FC = () => {
 
   return (
     <section className={styles.section}>
-    <div className="container">
+      <div className="container">
+        <BtnBack />
         <form onSubmit={handleSubmit} className={styles.form}>
-          <h4>Fill in for create news</h4>
+          <h4 style={{textAlign: 'center'}}>Заповніть всі поля щоб добавити новину</h4>
         <div className={styles.item}>
           <label>
-            Title:
+            Заголовок:
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
                 required
-                placeholder='Enter a title'
+                placeholder='Введіть заголовок...(більше 10 символів)'
               className={styles.title}
             />
           </label>
         </div>
         <div className={styles.item}>
           <label>
-            Content:
+            Контент:
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              required
+                required
+                placeholder='Введіть контент...(більше 10 символів)'
               
             ></textarea>
           </label>
         </div>
         <div className={styles.item}>
           <label>
-            Cover Image:
+            Картинка:
             <input type="file" onChange={handleFileChange} accept="image/*" required />
           </label>
         </div>
-        <button type="submit" className={styles.btn}>Create News Article</button>
+          <button type="submit" disabled={isLoading}  className={styles.btn}>{isLoading ? 'Створення...' : 'Створити новину'}</button>
       </form>
       </div>
     </section>

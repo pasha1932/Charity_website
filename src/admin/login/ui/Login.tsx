@@ -52,23 +52,28 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className={styles.section}>
+      <div className="container">
+        <h4 style={{textAlign: 'center', marginBottom: '50px'}}>Введіть пошту й пароль щоб увійти</h4>
+      <div className={styles.content}>
       <form onSubmit={login} className={styles.form}>
         <div>
-          <label htmlFor="username" className={styles.text}>Username: </label>
+          <label htmlFor="username" className={styles.text}>Пошта: </label>
           <input
             id="username"
             type="email"
-            value={email}
+                value={email}
+            placeholder='Вкажіть пошту'
             className={styles.input}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="password" className={styles.text}>Password: </label>
+          <label htmlFor="password" className={styles.text}>Пароль: </label>
           <input
             id="password"
-            type="password"
+                type="password"
+                placeholder='Вкажіть пароль'
             value={password}
             className={styles.input}
             onChange={(e) => setPassword(e.target.value)}
@@ -76,15 +81,17 @@ const Login: React.FC = () => {
         </div>
         <div className={styles.buttons}>
         <button type="submit" disabled={isLoading} className={styles.btn}>
-          {isLoading ? 'Logging in...' : 'Login'}
+          {isLoading ? 'Вхід...' : 'Авторизуватись'}
         </button>
           {error && <div style={{ color: 'red' }}>Login failed. Please try again.</div>}
         <button type="button" onClick={() => dispatch(logout())} className={styles.btn}>
-          Logout
+          Вийти
         </button>
         </div>
-      </form>
-    </div>
+          </form>
+          </div>
+      </div>
+      </div>
   );
 };
 

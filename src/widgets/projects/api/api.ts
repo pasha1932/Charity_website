@@ -29,12 +29,19 @@ export const projectsApi = api.injectEndpoints({
       query: (formData) => ({
         url: '/admin/projects',
         method: 'POST',
-        bod: formData,
+        body: formData,
+      }),
+    }),
+    updateProjectStatus: build.mutation<any, { id: number, status: string }>({
+      query: ({id, status}) => ({
+        url: `/admin/projects/${id}/status`,
+        method: 'PATCH',
+        body: {status},
       }),
     }),
   }),
 });
 
-export const { useGetProjectsQuery, useGetProjectsActiveQuery, useCreateProjectMutation } = projectsApi;
+export const { useGetProjectsQuery, useGetProjectsActiveQuery, useCreateProjectMutation, useUpdateProjectStatusMutation } = projectsApi;
 export { api };
 

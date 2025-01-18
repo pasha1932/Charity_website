@@ -3,7 +3,7 @@
 .section {
   margin-top: 57px;
   margin-bottom: 112px;
-  width: 50%;
+  width: 55%;
   margin-inline: auto;
   
   @include on-tablet {
@@ -18,8 +18,8 @@
 }
 
 .content {
-  margin-left: 50px;
-  margin-top: -50px;
+  margin-left: 60px;
+  margin-top: -40px;
 }
 
 .title {
@@ -85,16 +85,9 @@
   width: 100%;
   display: flex;
   gap: 40px;
+  justify-content: space-between;
 
   @include on-phone {
     gap: 23px;
-  }
-}
-
-.select {
-  height: 72px;
-
-  @include on-phone {
-    height: 52px;
   }
 }
