@@ -4,7 +4,7 @@ import Flag from 'react-world-flags';
 import styles from './styles.module.scss';
 import { SendFormBtn } from '@/features/send-form';
 import { useTranslation } from 'react-i18next';
-import { useBecameVolunteerMutation, useCreateVolunteerMutation } from '@/widgets/volunteers/api/api';
+import { useCreateVolunteerMutation } from '@/widgets/volunteers/api/api';
 import BtnBack from '@/shared/ui/button-back/ui/BtnBack';
 
 interface FormData {

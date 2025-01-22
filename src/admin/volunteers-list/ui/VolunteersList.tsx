@@ -17,14 +17,15 @@ const VolunteersList = () => {
   const [activeBtn, setActiveBtn] = useState('');
 
   // const projects = useAppSelector(state => state.projects.projects);
+  // error: pendingError, isLoading: pendingLoading,
+  // error: activeError, isLoading: activeLoading,
+  // error: rejectedError, isLoading: rejectedLoading,
   const navigate = useNavigate();
-  const { data: pendingData, error: pendingError, isLoading: pendingLoading, refetch: pendingRefetch } = useGetPendingVolunteersQuery({ page: 0, size: 50 });
-  const { data: activeData, error: activeError, isLoading: activeLoading, refetch: activeRefetch} = useGetActiveVolunteersQuery({ page: 0, size: 50 });
-  const { data: rejectedData, error: rejectedError, isLoading: rejectedLoading, refetch: rejectedRefetch } = useGetRejectedVolunteersQuery({ page: 0, size: 50 });
+  const { data: pendingData, refetch: pendingRefetch } = useGetPendingVolunteersQuery({ page: 0, size: 50 });
+  const { data: activeData, refetch: activeRefetch} = useGetActiveVolunteersQuery({ page: 0, size: 50 });
+  const { data: rejectedData, refetch: rejectedRefetch } = useGetRejectedVolunteersQuery({ page: 0, size: 50 });
   const [volonteers, setVolunteers] = useState<Volunteer[]>();
     const [updateStatus, {isLoading: statusLoad}] = useUpdateVolunteerStatusMutation();
-  // if (isLoading) return <div>Loading...</div>;
-  // if (error) return <div>Error: {JSON.stringify(error)}</div>;
 
   const handleDetailsClick = (volunteer: Volunteer) => {
     setSelectedVolunteer(volunteer);

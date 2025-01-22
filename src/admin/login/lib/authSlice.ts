@@ -1,37 +1,6 @@
-// import { createSlice } from '@reduxjs/toolkit';
-
-// interface AuthState {
-//   isAuthenticated: boolean;
-//   token: string | null;
-// }
-
-// const initialState: AuthState = {
-//   token: localStorage.getItem('authToken'), // Ініціалізація токена з localStorage
-//   isAuthenticated: !!localStorage.getItem('authToken'), // Якщо токен є, встановлюємо як автентифікованого
-// };
-
-// const authSlice = createSlice({
-//   name: 'auth',
-//   initialState,
-//   reducers: {
-//     login: (state, action) => {
-//       state.isAuthenticated = true;
-//       state.token = action.payload;
-//     },
-//     logout: (state) => {
-//       state.isAuthenticated = false;
-//       state.token = null;
-//       localStorage.removeItem('authToken');
-//     },
-//   },
-// });
-
-// export const { login, logout } = authSlice.actions;
-// export default authSlice.reducer;
-
 import { createSlice } from "@reduxjs/toolkit";
-import { authApi } from "./auth";
 import { RootState } from "@/app/appStore";
+import { api } from "@/shared/api/api";
 
 interface InitialState {
   token: string | null;
@@ -39,8 +8,8 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  token: null,
-  isAuthenticated: false,
+  token: localStorage.getItem('token'), // Зчитуємо токен з localStorage
+  isAuthenticated: !!localStorage.getItem('token'), // Якщо токен є, встановлюємо як автентифікованого
 };
 
 const slice = createSlice({
@@ -48,17 +17,18 @@ const slice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      state.token = null,
-      state.isAuthenticated = false,
-      localStorage.removeItem('token')
+      state.token = null;
+      state.isAuthenticated = false;
+      localStorage.removeItem('token'); // Видаляємо токен з localStorage
     },
   },
   extraReducers: (builder) => {
     builder
-      .addMatcher(authApi.endpoints.login.matchFulfilled, (state, action) => {
+      .addMatcher(api.endpoints.login.matchFulfilled, (state, action) => {
         state.token = action.payload.token;
         state.isAuthenticated = true;
-      })
+        localStorage.setItem('token', action.payload.token); // Зберігаємо токен у localStorage після успішного логіну
+      });
   },
 });
 

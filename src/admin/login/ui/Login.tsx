@@ -5,7 +5,7 @@ import { logout, selectToken } from '../lib/authSlice';
 // import { useLoginMutation } from '@/shared/api/api';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.scss';
-import { useLoginMutation } from '../lib/auth';
+import { useLoginMutation } from '@/shared/api/api';
 
 
 const Login: React.FC = () => {
@@ -40,13 +40,7 @@ const Login: React.FC = () => {
 
       navigate("/admin");
     } catch (err) {
-      // const maybeError = isErrorWithMessage(err);
 
-      // if (maybeError) {
-      //   setError(err.data.message);
-      // } else {
-      //   setError("Неизвестная ошибка");
-      // }
       console.log(err)
     }
   };

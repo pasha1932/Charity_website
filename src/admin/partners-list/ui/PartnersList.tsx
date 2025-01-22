@@ -168,7 +168,7 @@ const PartnersList = () => {
                   <option value="">Виберіть статус, щоб змінити його</option>
                   <option value="ACTIVE">Активний</option>
                   <option value="PENDING">В Очікуванні</option>
-                  <option value="CANSELED">Скасовано</option>
+                  <option value="CANCELED">Скасовано</option>
               </select>
                 <button disabled={statusLoad} className={styles.btn}>{statusLoad? 'Змінення...' : 'Змінити статус'}</button>
       

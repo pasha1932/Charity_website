@@ -1,8 +1,9 @@
-import { useRegisterMutation } from "@/admin/login/lib/auth";
+
 import BtnBack from "@/shared/ui/button-back/ui/BtnBack";
 import styles from './style.module.scss';
 import { SendFormBtn } from "@/features/send-form";
 import { useForm } from "react-hook-form";
+import { useRegisterMutation } from "@/shared/api/api";
 
 interface FormData {
   firstName: string;

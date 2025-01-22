@@ -13,5 +13,9 @@
 }
 
 .img {
-  height: 29px;
+  height: 55px;
+  @include on-phone {
+    height: 29px;
+  }
+  
 }

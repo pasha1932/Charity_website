@@ -33,7 +33,13 @@ export type Data = {
 export const newsApi = api.injectEndpoints({
   endpoints: (build) => ({
     getPendingPartners: build.query<Data, { page: number; size: number }>({
-          query: ({ page, size }) => `/admin/partners?page=${page}&size=${size}`,
+          query: ({ page, size }) => `/admin/partners/all?page=${page}&size=${size}`,
+        }),
+    getPartners: build.query<Data, { page: number; size: number }>({
+          query: ({ page, size }) => `/public/partners?page=${page}&size=${size}`,
+        }),
+    getPartner: build.query<Partner, { id: number }>({
+          query: (id) => `/public/partners/${id}`,
         }),
     // getNewsItem: build.query<News, { id: string | undefined }>({
     //   query: ({id}) => `/public/news/${id}`,
@@ -62,7 +68,7 @@ export const newsApi = api.injectEndpoints({
   }),
 });
 
-export const { useBecamePartnerMutation, useGetPendingPartnersQuery, useCreatePartnerMutation, useUpdatePartnerStatusMutation } = newsApi;
+export const { useBecamePartnerMutation, useGetPendingPartnersQuery, useCreatePartnerMutation, useUpdatePartnerStatusMutation, useGetPartnersQuery, useGetPartnerQuery, useLazyGetPartnerQuery } = newsApi;
 export const {
   endpoints: {
 

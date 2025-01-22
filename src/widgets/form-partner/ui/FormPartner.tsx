@@ -5,6 +5,7 @@ import { SendFormBtn } from '@/features/send-form';
 import { useTranslation } from 'react-i18next';
 // import { toast } from 'react-toastify';
 import { useBecamePartnerMutation } from '@/widgets/parters/api/api';
+import BtnBack from '@/shared/ui/button-back/ui/BtnBack';
 
 interface FormData {
   partnerName: string;
@@ -21,19 +22,15 @@ interface FormData {
   logo: File[];
 }
 
-const partnerTypeOptions = [
-  { value: 'juridical', label: 'Юридична особа' },
+const options = [
+  { value: 'LEGAL_ENTITY', label: 'Юридична особа' },
   { value: 'FOP', label: 'ФОП' },
-  { value: 'ngo', label: 'Громадська організація' },
+  { value: 'PUBLIC_ORGANIZATION', label: 'Громадська організація' },
 ];
 
 const PartnerForm = () => {
   const { t } = useTranslation();
-  const { control, register, handleSubmit, formState: { errors, isValid }, reset } = useForm<FormData>({
-    defaultValues: {
-      partnerType: '',
-    },
-  });
+  const { control, register, handleSubmit, formState: { errors, isValid }, reset } = useForm<FormData>();
 
   const [submitForm, { isLoading }] = useBecamePartnerMutation();
 
@@ -41,7 +38,7 @@ const PartnerForm = () => {
     try {
       const formData = new FormData();
       formData.append('partnerName', data.partnerName);
-      formData.append('partnerType', data.partnerType.value);
+      formData.append('partnerType', data.partnerType);
       formData.append('directorFirstName', data.directorFirstName);
       formData.append('directorLastName', data.directorLastName);
       formData.append('directorMiddleName', data.directorMiddleName);
@@ -70,8 +67,9 @@ const PartnerForm = () => {
   return (
     <section className={styles.section}>
       <div className="container">
+        <BtnBack />
         <div className={styles.content}>
-          <h4 className={styles.title}>{t('partnerFormTitle')}</h4>
+          <h4 className={styles.title}>Подати заявку на партнерство</h4>
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <label className={styles.label}>
               <h6 className={styles.formTitle}>Назва організації/компанії</h6>
@@ -88,13 +86,18 @@ const PartnerForm = () => {
               <Controller
                 name="partnerType"
                 control={control}
-                rules={{ required: 'Оберіть тип партнера' }}
+                rules={{ required: 'Тип партнера обов’язковий' }}
                 render={({ field }) => (
                   <Select
                     {...field}
-                    options={partnerTypeOptions}
-                    className={styles.select}
+                    options={options}
                     placeholder="Оберіть тип партнера"
+                    onChange={(selectedOption) =>
+                      field.onChange(selectedOption?.value)
+                    }
+                    value={options.find(
+                      (option) => option.value === field.value
+                    )}
                   />
                 )}
               />
@@ -104,18 +107,35 @@ const PartnerForm = () => {
             <label className={styles.label}>
               <h6 className={styles.formTitle}>Контакти директора компанії</h6>
               <input
+                style={{marginBottom: '10px'}}
                 className={styles.formInput}
-                placeholder="ПІБ"
-                {...register('directorFirstName', { required: 'Вкажіть ПІБ директора' })}
+                placeholder="Прізвище"
+                {...register('directorFirstName', { required: 'Вкажіть прізвище директора' })}
               />
               {errors.directorFirstName && <span>{errors.directorFirstName.message}</span>}
               <input
+                style={{marginBottom: '10px'}}
+                className={styles.formInput}
+                placeholder="Ім'я"
+                {...register('directorLastName', { required: 'Вкажіть ім`я директора' })}
+              />
+              {errors.directorLastName && <span>{errors.directorLastName.message}</span>}
+              <input
+                style={{marginBottom: '10px'}}
+                className={styles.formInput}
+                placeholder="По-батькові"
+                {...register('directorMiddleName', { required: 'Вкажіть по-батькові директора' })}
+              />
+              {errors.directorMiddleName && <span>{errors.directorMiddleName.message}</span>}
+              <input
+                style={{marginBottom: '10px'}}
                 className={styles.formInput}
                 placeholder="Номер телефону"
                 {...register('directorPhoneNumber', { required: 'Вкажіть номер телефону директора' })}
               />
               {errors.directorPhoneNumber && <span>{errors.directorPhoneNumber.message}</span>}
               <input
+                style={{marginBottom: '10px'}}
                 className={styles.formInput}
                 placeholder="Електронна адреса"
                 type="email"
@@ -164,12 +184,12 @@ const PartnerForm = () => {
               {errors.identificationCode && <span>{errors.identificationCode.message}</span>}
             </label>
              <label className={styles.label}>
-                          <h6 className={styles.formTitle}>Картинка</h6>
-                          <input className={styles.formInput}  type="file"
-                          {...register('logo', { required: t('errorEmail') })}
-                          />
-                          {errors.logo && <span>{errors.logo.message}</span>}
-                        </label>
+                <h6 className={styles.formTitle}>Картинка</h6>
+                <input className={styles.formInput}  type="file" style={{paddingTop: '20px'}}
+                {...register('logo', { required: t('errorEmail') })}
+                />
+                {errors.logo && <span>{errors.logo.message}</span>}
+              </label>
             <SendFormBtn disabled={isLoading || !isValid} />
           </form>
         </div>

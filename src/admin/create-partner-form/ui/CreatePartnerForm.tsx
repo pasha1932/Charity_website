@@ -22,19 +22,15 @@ interface FormData {
   logo: File[];
 }
 
-const partnerTypeOptions = [
-  { value: 'LEGAL_ENTITY', label: 'Юридична особа' },
+const options = [
+  { value: 'LEGAL_PERSON', label: 'Юридична особа' },
   { value: 'FOP', label: 'ФОП' },
-  { value: 'PUBLIC_ORGANIZATION', label: 'Громадська організація' },
+  { value: 'COOPERATIVE', label: 'Громадська організація' },
 ];
 
 const CreateFormPartner = () => {
   const { t } = useTranslation();
-  const { control, register, handleSubmit, formState: { errors, isValid }, reset } = useForm<FormData>({
-    defaultValues: {
-      partnerType: '',
-    },
-  });
+  const { control, register, handleSubmit, formState: { errors, isValid }, reset } = useForm<FormData>();
 
   const [submitForm, { isLoading }] = useCreatePartnerMutation();
 
@@ -42,7 +38,7 @@ const CreateFormPartner = () => {
     try {
       const formData = new FormData();
       formData.append('partnerName', data.partnerName);
-      formData.append('partnerType', data.partnerType.value);
+      formData.append('partnerType', data.partnerType);
       formData.append('directorFirstName', data.directorFirstName);
       formData.append('directorLastName', data.directorLastName);
       formData.append('directorMiddleName', data.directorMiddleName);
@@ -88,14 +84,18 @@ const CreateFormPartner = () => {
               <Controller
                 name="partnerType"
                 control={control}
-                rules={{ required: 'Оберіть тип партнера' }}
+                rules={{ required: 'Тип партнера обов’язковий' }}
                 render={({ field }) => (
                   <Select
                     {...field}
-                    options={partnerTypeOptions}
-                    style={{height: '40px'}}
-                    className={styles.select}
+                    options={options}
                     placeholder="Оберіть тип партнера"
+                    onChange={(selectedOption) =>
+                      field.onChange(selectedOption?.value)
+                    }
+                    value={options.find(
+                      (option) => option.value === field.value
+                    )}
                   />
                 )}
               />
@@ -110,19 +110,21 @@ const CreateFormPartner = () => {
                 placeholder="Прізвище"
                 {...register('directorFirstName', { required: 'Вкажіть прізвище директора' })}
               />
+              {errors.directorFirstName && <span>{errors.directorFirstName.message}</span>}
               <input
                 style={{marginBottom: '10px'}}
                 className={styles.formInput}
                 placeholder="Ім'я"
                 {...register('directorLastName', { required: 'Вкажіть ім`я директора' })}
               />
+              {errors.directorLastName && <span>{errors.directorLastName.message}</span>}
               <input
                 style={{marginBottom: '10px'}}
                 className={styles.formInput}
                 placeholder="По-батькові"
                 {...register('directorMiddleName', { required: 'Вкажіть по-батькові директора' })}
               />
-              {errors.directorFirstName && <span>{errors.directorFirstName.message}</span>}
+              {errors.directorMiddleName && <span>{errors.directorMiddleName.message}</span>}
               <input
                 style={{marginBottom: '10px'}}
                 className={styles.formInput}
@@ -180,12 +182,12 @@ const CreateFormPartner = () => {
               {errors.identificationCode && <span>{errors.identificationCode.message}</span>}
             </label>
              <label className={styles.label}>
-                          <h6 className={styles.formTitle}>Картинка</h6>
-                          <input className={styles.formInput} style={{paddingTop: '20px'}} type="file"
-                          {...register('logo', { required: t('errorEmail') })}
-                          />
-                          {errors.logo && <span>{errors.logo.message}</span>}
-                        </label>
+                <h6 className={styles.formTitle}>Картинка</h6>
+                <input className={styles.formInput} style={{paddingTop: '20px'}} type="file"
+                {...register('logo', { required: t('errorEmail') })}
+                />
+                {errors.logo && <span>{errors.logo.message}</span>}
+              </label>
             <SendFormBtn disabled={isLoading || !isValid} />
           </form>
         </div>

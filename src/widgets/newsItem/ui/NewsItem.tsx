@@ -13,6 +13,8 @@ const NewsItem = () => {
 
   useEffect(() => {
     if (bottomRef.current && data?.content) {
+      // Очищаємо вміст перед вставкою нового тексту
+      bottomRef.current.innerHTML = '';
       bottomRef.current.insertAdjacentHTML('afterbegin', data.content);
     }
   }, [data]);
