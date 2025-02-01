@@ -6,23 +6,18 @@ import { useTranslation } from 'react-i18next';
 import styles from './styles.module.scss';
 import Teammate from '@/entities/teammate/ui/Teammate';
 import connectImg from '@/shared/assets/images/connectUs.png';
-import img1 from '@/shared/assets/images/worker1.png'
-import img2 from '@/shared/assets/images/worker2.png'
-import img3 from '@/shared/assets/images/worker3.png'
+import { useGetUsersQuery } from '@/admin/users-list/api/UsersApi';
 
 
 const Team = () => {
   const { t } = useTranslation();
 
-  const TEAMMATES = [
-    { name: t('name1'), position: t('pos1'), image: img1},
-    { name: t('name2'), position: t('pos2'), image: img2 },
-    { name: t('name3'), position: t('pos3'), image: img3 },
-  ];
+  const { data } = useGetUsersQuery({page: 0, size: 50});
   
   const settings = {
     infinite: false,
     // centerMode: true,
+    
     slidesToShow:1,
     slidesToScroll: 1,
     variableWidth: true,
@@ -48,7 +43,7 @@ const Team = () => {
             </NavHashLink>
           </div>
           <Slider {...settings} className={styles.slider}>
-          {TEAMMATES.map(item => <Teammate key={item.name} name={item.name} position={item.position} image={item.image} />)}
+          {data?.content.map(item => <Teammate key={item.position} name={item.firstName + ' ' + item.lastName} position={item.position} image={item.avatarUrl} />)}
           </Slider>
       </div>
     </section>

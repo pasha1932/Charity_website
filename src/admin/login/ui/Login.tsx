@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { logout, selectToken } from '../lib/authSlice';
+import { logout, selectToken, setSuperAdmin } from '../lib/authSlice';
 // import { useLoginMutation } from '@/shared/api/api';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { useLoginMutation } from '@/shared/api/api';
+import { useAppDispatch } from '@/shared/hooks/reduxHooks';
 
 
 const Login: React.FC = () => {
@@ -13,7 +14,7 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const [loginUser, { isLoading, error }] = useLoginMutation();
   const token = useSelector(selectToken);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // const handleSubmit = async (e: React.FormEvent) => {
@@ -37,10 +38,10 @@ const Login: React.FC = () => {
   const login = async () => {
     try {
       await loginUser({email, password}).unwrap();
-
+      dispatch(setSuperAdmin(email))
       navigate("/admin");
     } catch (err) {
-
+      alert('Попробуйте ще раз авторизуватись')
       console.log(err)
     }
   };

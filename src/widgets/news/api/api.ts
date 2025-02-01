@@ -41,12 +41,12 @@ export const newsApi = api.injectEndpoints({
       query: ({ page, size }) => `/public/news?page=${page}&size=${size}`,
     }),
     getNewsItem: build.query<News, { id: string | undefined }>({
-      query: ({id}) => `/public/news/${id}`,
+      query: ({ id }) => `/public/news/${id}`,
     }),
-    createNews: build.mutation<News, FormData >({
+    createNews: build.mutation<News, FormData>({
       query: (formData) => ({
         url: '/admin/news',
-        method: 'POST',
+       method: 'POST',
         body: formData,
       }),
     }),

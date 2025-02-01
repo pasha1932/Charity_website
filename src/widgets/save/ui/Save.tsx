@@ -49,11 +49,9 @@ const Save = () => {
       ),
     },
   ];
-  const [activeTab, setActiveTab] = useState(tabs[0].label);
+  const [activeTab, setActiveTab] = useState(tabs[0].id);
   const [isKindDonate, setIsKindDonate] = useState(false);
   const isTablet = useMediaQuery({ query: '(max-width: 1310px)' });
-
-  console.log(activeTab, isKindDonate)
 
   return ( 
     <section className={styles.section}>
@@ -63,7 +61,7 @@ const Save = () => {
           <h6 className={styles.subtitle}>{t('everyGrn')}</h6>
           {!isTablet ? <div className={styles.tabs}>
             {tabs.map((tab) => (
-              <HelpBtn key={tab.id} onClick={() => setActiveTab(tab.label)} isactive={activeTab === tab.label}>
+              <HelpBtn key={tab.id} onClick={() => setActiveTab(tab.id)} isactive={activeTab === tab.id}>
             {tab.label}
             </HelpBtn>
         ))}
@@ -74,7 +72,7 @@ const Save = () => {
       <div className="container">
         <div className={styles.bottom}>
           {(!isKindDonate && isTablet) && <DonateWays activeTab={activeTab} onActiveTab={setActiveTab} onKindDonate={setIsKindDonate} />}
-          {(isKindDonate || !isTablet) && tabs.find((tab) => tab.label === activeTab)?.content}
+          {(isKindDonate || !isTablet) && tabs.find((tab) => tab.id=== activeTab)?.content}
         </div>
       </div>
     </section>

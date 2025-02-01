@@ -1,0 +1,132 @@
+.section {
+  margin-block: 70px;
+}
+
+.content {
+  margin-top: -40px;
+  margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // align-items: center;
+  text-align: center;
+}
+
+.table {
+  // border: 2px solid gray;
+
+  th {
+    border: 1px solid gray;
+    padding: 10px;
+  }
+
+  td {
+    border: 1px solid gray;
+    padding: 15px 10px;
+  }
+}
+
+.title {
+  text-align: left;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.row {
+  &Active {
+    background-color: lightblue;
+  }
+}
+
+.icon {
+  height: 16px;
+}
+
+.btn {
+  background-color: var(--bg-color-btn);
+  border-radius: 99px;
+  color: #FFF;
+  font-weight: 600;
+  padding: 10px 30px;
+  width: fit-content;
+  margin-inline: auto;
+  margin-top: 15px;
+}
+
+.modalRow {
+  display: flex;
+  gap: 100px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-right: 40px;
+
+  p {
+    font-size: 18px;
+  }
+
+  textarea {
+    resize: none;
+    width: 70%;
+    height: 300px;
+    padding: 10px;
+    background-color: lightgray;
+    border-radius: 15px;
+    outline: none;
+    font-size: 15px;
+  }
+}
+
+.author {
+  display: flex;
+  gap: 60px;
+  p {
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+}
+
+.form {
+  width: 80%;
+  margin-inline: auto;
+  display: flex;
+  border: 1px solid gray;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  border-radius: 25px;
+  padding: 50px;
+  margin-bottom: 30px;
+  margin: 30px auto 25px auto;
+
+  label {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  input {
+    background-color: lightgray;
+    // margin-left: 10px
+    padding: 10px 10px;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  select {
+    display: flex;
+    width: 100%;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    outline: none;
+    border-radius: 10px;
+  }
+}
+
+.item {
+  width: 100%;
+}

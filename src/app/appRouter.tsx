@@ -20,6 +20,9 @@ import { PartnersList } from "@/admin/partners-list";
 import { CreateFormVolunteer } from "@/admin/create-volunteer-form";
 import { CreateFormPartner } from "@/admin/create-partner-form";
 import Registration from "@/admin/registration/ui/Registration";
+import { Profile } from "@/admin/profile";
+import { AllowedEmailList } from "@/admin/allowed-email-list";
+import { UsersList } from "@/admin/users-list";
 
 // import { NewsPage } from "@/pages/news";
 const appRouter = createHashRouter([
@@ -53,6 +56,14 @@ const appRouter = createHashRouter([
 
           { path: "partners", element: <PartnersList /> }, // Сторінка проектів
           { path: "partners/create", element: <CreateFormPartner /> }, // Сторінка створення новини
+
+          { path: "profile", element: <Profile /> }, // Профіль
+
+          { path: "allowed_emails", element: <AllowedEmailList /> }, // Дозволені пошти
+
+          { path: "users", element: <UsersList /> }, // Сторінка зі списком новин
+
+
         ],
       },
       { path: "login", element: <Login /> },

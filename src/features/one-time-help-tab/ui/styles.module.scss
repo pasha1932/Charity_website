@@ -89,6 +89,22 @@
   }
 }
 
+.tel {
+  padding-inline: 16px;
+  height: 72px;
+  width: 30%;
+  background-color: #ebebeb;
+  border-radius: 12px;
+  font-size: 24px;
+  line-height: 1em;
+  margin-inline: auto;
+  margin-top: 30px;
+
+  @include on-phone {
+    font-size: 18px;
+    height: 52px;
+  }
+}
 .text {
   font-weight: 500;
   font-size: 32px;
@@ -142,5 +158,23 @@
   
   @include on-phone {
     font-size: 16px;
+  }
+}
+
+.icon {
+  margin-right: 10px;
+
+  @include on-tablet {
+    display: none;
+  }
+}
+
+.textBtn {
+  color: var(--text-color-white);
+  font-size: 18px;
+  line-height: 1em;
+
+  @include on-tablet {
+    font-size: 14px;
   }
 }

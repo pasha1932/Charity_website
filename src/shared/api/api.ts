@@ -24,6 +24,8 @@ const baseQuery = fetchBaseQuery({
       'register',
       'getPartners',
       'getPartner',
+      'donate',
+      'getUsers'
     ];
 
     // Перевіряємо, чи поточний endpoint вимагає авторизації
@@ -48,11 +50,22 @@ const baseQueryWithReauth: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions);
 
   // Обробка помилки 401
-  if (result.error && result.error.status === 401) {
-    const dispatch = api.dispatch as AppDispatch;
+  if (result.error) {
+    if (result.error.status === 401) {
+      const dispatch = api.dispatch as AppDispatch;
+      dispatch(logout());
+    }
 
-    // Виклик logout після помилки
-    dispatch(logout());
+    // Обробка HTML-відповіді (якщо сервер повертає HTML замість JSON)
+    if (
+      result.error.status === 200 &&
+      typeof result.error.data === 'string' &&
+      result.error.data.startsWith('<form')
+    ) {
+      return {
+        data: result.error.data,
+      };
+    }
   }
 
   return result;
@@ -78,9 +91,27 @@ export const api = createApi({
         body: formData,
       }),
     }),
-  }),
-});
+    donate: builder.mutation<any, any>({
+      query: (data) => ({
+        url: "/public/donations",
+        method: "POST",
+        body: data,
+        responseHandler: "text",
+      }),
+    }),
+    getNotify: builder.query({
+      query: () => ({
+        url: `admin/telegram/notifyMe`,
+        // Example: we have a backend API always returns a 200,
+        // but sets an `isError` property when there is an error.
+        // validateStatus: (response, result) =>
+        //   response.status === 200 && !result.isError,
+        responseHandler: "text",
+      }),
+    }),
+  })
+})
 
 
-export const { useLoginMutation, useRegisterMutation } =
+export const { useLoginMutation, useRegisterMutation, useDonateMutation, useGetNotifyQuery, useLazyGetNotifyQuery } =
   api
