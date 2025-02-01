@@ -8,7 +8,7 @@ import { useGetUsersQuery, User } from '../api/UsersApi';
 export const UsersList = () => {
   const [activeRow, setActiveRow] = useState('');
 
-  const { data, error, isLoading, refetch } = useGetUsersQuery({ page: 0, size: 50 });
+  const { data, error, isLoading } = useGetUsersQuery({ page: 0, size: 50 });
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {JSON.stringify(error)}</div>;

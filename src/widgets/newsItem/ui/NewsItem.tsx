@@ -4,7 +4,6 @@ import styles from './styles.module.scss';
 import { useEffect, useRef } from "react";
 import BtnBack from "@/shared/ui/button-back/ui/BtnBack";
 import { OtherNews } from "@/features/other-news";
-import { translateData } from "@/admin/translating/translate";
 
 
 const NewsItem = () => {
@@ -13,19 +12,6 @@ const NewsItem = () => {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // if (data) {
-    //   const news = {
-    //     title: 'Новина',
-    //   }
-    //   translateData(news, 'en').then((translated) => {
-    //     console.log(translated);
-    //     // Виведе:
-    //     // {
-    //     //   title: "Привіт світе!",
-    //     //   description: "Це опис."
-    //     // }
-    //   });
-    // }
     const fetchTranslation = async () => {
       const res = await fetch("https://libretranslate.com/translate", {
         method: "POST",

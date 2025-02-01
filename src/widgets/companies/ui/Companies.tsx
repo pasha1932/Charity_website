@@ -6,7 +6,7 @@ import { Company } from '@/entities/company';
 import { useGetPartnersQuery } from '@/widgets/parters/api/api';
 
 const Companies = () => {
-  const { data, isLoading } = useGetPartnersQuery({ page: 0, size: 20 });
+  const { data } = useGetPartnersQuery({ page: 0, size: 20 });
   
   const settings = {
     infinite: true,
