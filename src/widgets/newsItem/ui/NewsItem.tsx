@@ -1,7 +1,7 @@
 import { useGetNewsItemQuery } from "@/widgets/news/api/api";
 import { useParams } from "react-router-dom";
 import styles from './styles.module.scss';
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import BtnBack from "@/shared/ui/button-back/ui/BtnBack";
 import { OtherNews } from "@/features/other-news";
 import axios from "axios";

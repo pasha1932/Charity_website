@@ -12,7 +12,7 @@ const OneTimeTab = () => {
   const [isactive, setisactive] = useState(11);
   const [checked, setChecked] = useState(false);
   const [currentCurrency, setCurrentCurrency] = useState('UAH');
-  const [donate, { data, isLoading }] = useDonateMutation();
+  const [donate, {isLoading }] = useDonateMutation();
   // { data: projectData, isLoading: ProjectLoad }
   const [donateProject,] = useDonateProjectMutation();
   const { state } = useLocation();
