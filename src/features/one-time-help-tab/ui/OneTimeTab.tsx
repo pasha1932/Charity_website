@@ -3,15 +3,19 @@ import { useState } from "react";
 import classNames from "classnames";
 import { CurrencySwitcher } from "@/features/currency-switcher";
 import { useTranslation } from "react-i18next";
-import { useDonateMutation } from "@/shared/api/api";
+import { useDonateMutation, useDonateProjectMutation } from "@/shared/api/api";
 import { Button } from "@/shared/ui/button";
 import icon from '@/shared/assets/images/icons/handFast.svg';
+import { useLocation } from 'react-router-dom';
 
 const OneTimeTab = () => {
   const [isactive, setisactive] = useState(11);
   const [checked, setChecked] = useState(false);
   const [currentCurrency, setCurrentCurrency] = useState('UAH');
-  const [donate, {data, isLoading}] = useDonateMutation();
+  const [donate, { data, isLoading }] = useDonateMutation();
+  // { data: projectData, isLoading: ProjectLoad }
+  const [donateProject,] = useDonateProjectMutation();
+  const { state } = useLocation();
   
   const [tel, setTel] = useState('+380')
   const [amount, setAmount] = useState<number>();
@@ -47,28 +51,25 @@ const OneTimeTab = () => {
     }
 
     try {
-      await donate(donat).unwrap();
-      let formContainer = document.getElementById('donationFormContainer');
-
-      if (!formContainer) {
-        // Створюємо новий контейнер для форми, якщо його ще немає
-        formContainer = document.createElement('div');
-        formContainer.id = 'donationFormContainer';
-        formContainer.style.display = 'none'; // Ховаємо форму
-        document.body.appendChild(formContainer);
+      let htmlForm = '';
+      if (state.way === 'general') {
+        htmlForm = await donate(donat).unwrap();
+      } else {
+        htmlForm = await donateProject({ data: donat, id: state.projectId }).unwrap();
       }
+      
+      const newTab = window.open();
 
-      // Оновлюємо HTML у контейнері форми
-      formContainer.innerHTML = data as string;
-
-      // Знаходимо форму та надсилаємо її
-      const form = formContainer.querySelector('form');
-      if (form) {
-        form.submit(); // Автоматично викликаємо submit()
-      }
-    } catch (error) {
-
+    if (newTab) {
+      newTab.document.open();
+      newTab.document.write(htmlForm); // Записуємо отриманий HTML
+      newTab.document.close();
+    } else {
+      console.error("Попапи заблоковані браузером.");
     }
+  } catch (error) {
+    console.error("Помилка обробки донату:", error);
+  }
     
   }
   return (

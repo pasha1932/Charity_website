@@ -20,6 +20,7 @@
     "antd": "^5.23.0",
     "axios": "^1.7.9",
     "classnames": "^2.5.1",
+    "google-translate-api-x": "^10.7.2",
     "i18next": "^24.2.0",
     "i18next-browser-languagedetector": "^8.0.2",
     "or": "^0.2.0",

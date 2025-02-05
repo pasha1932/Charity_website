@@ -79,7 +79,7 @@ const News = () => {
 
               )}
             </Slider>)}
-          {data && !isMobile && data.content.length >= 6 && <Button variant='usual' onClick={handleSeeAll}>{seeAll === 6 ? t('seeAllNews') : 'Hide some news'}</Button>}
+          {data && !isMobile && data.content.length >= 6 && <Button variant='usual' onClick={handleSeeAll}>{seeAll === 6 ? t('seeAllNews') : t('hideNews')}</Button>}
         </div>
       </div>
     </section>

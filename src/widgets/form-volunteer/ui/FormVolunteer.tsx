@@ -74,20 +74,20 @@ const FormVolunteer = () => {
             <div className={styles.pair}>
               <label className={styles.label}>
                 <h6 className={styles.formTitle}>{t('name')}</h6>
-                <input className={`${styles.formInput} ${styles.formInputHalf}`} placeholder={t('namepl')} {...register('firstName', { required: t('errorName') })} />
+                <input type="text" pattern="[A-Za-z]" className={`${styles.formInput} ${styles.formInputHalf}`} placeholder={t('namepl')} {...register('firstName', { required: t('errorName') })} />
           {errors.firstName && <span>{errors.firstName.message}</span>}
               </label>
 
               <label className={styles.label}>
                 <h6 className={styles.formTitle}>{t('lastName')}</h6>
-                <input className={`${styles.formInput} ${styles.formInputHalf}`} placeholder={t('lastNamepl')}{...register('lastName', { required: t('errorLast') })} />
+                <input type="text" className={`${styles.formInput} ${styles.formInputHalf}`} placeholder={t('lastNamepl')}{...register('lastName', { required: t('errorLast') })} />
                 {errors.lastName && <span>{errors.lastName.message}</span>}
                 </label>
             </div>
 
             <label className={styles.label}>
               <h6 className={styles.formTitle}>По батькові</h6>
-              <input className={styles.formInput} placeholder="Володимирович"  type=""
+              <input type="text" className={styles.formInput} placeholder="Володимирович"
               {...register('middleName', { required: t('errorEmail') })}
               />
               {errors.middleName && <span>{errors.middleName.message}</span>}
@@ -136,6 +136,7 @@ const FormVolunteer = () => {
                     className={styles.formInput}
                     {...field}
                     placeholder="Введіть номер"
+                    type="tel"
         
                   />
                 )}
@@ -144,7 +145,8 @@ const FormVolunteer = () => {
             </label>
             <label className={styles.label}>
               <h6 className={styles.formTitle}>Картинка</h6>
-              <input className={styles.formInput}  type="file"
+              <input className={styles.formInput} type="file" accept="image/*" style={{paddingTop: '20px'}}
+              
               {...register('avatar', { required: t('errorEmail') })}
               />
               {errors.avatar && <span>{errors.avatar.message}</span>}

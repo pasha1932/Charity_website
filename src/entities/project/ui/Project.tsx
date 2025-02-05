@@ -7,9 +7,10 @@ type Props = {
   goalAmount: number,
   endTermin: string,
   collected: string,
+  id: number,
 }
 
-const Project: React.FC<Props> = ({ title, img, endTermin, collected, goalAmount }) => {
+const Project: React.FC<Props> = ({ title, img, endTermin, collected, goalAmount, id }) => {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString); // Перетворюємо строку у дату
     return date.toLocaleDateString('uk-UA', {
@@ -38,7 +39,7 @@ const Project: React.FC<Props> = ({ title, img, endTermin, collected, goalAmount
     <div
       className={styles.project}
       style={style}>
-      <DonateBtn />
+      <DonateBtn projectId={id} />
       <div className={styles.content} >
         <h5 className={styles.title}>{title}</h5>
         <div className={styles.bottom}>

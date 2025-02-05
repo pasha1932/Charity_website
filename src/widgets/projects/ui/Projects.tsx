@@ -21,13 +21,15 @@ const Projects = () => {
 
   const settings = {
     infinite: false,
-    // centerMode: true,
     slidesToShow:1,
     slidesToScroll: 1,
     variableWidth: true,
     arrows: false,
     initialSlide: 0,
-    // adaptiveHeight: true,
+    autoplay: true,
+    speed: 4000,
+    autoplaySpeed: 4000,
+    cssEase: "linear"
   };
   const { t } = useTranslation();
 
@@ -57,6 +59,7 @@ const Projects = () => {
               collected={item.collectedAmount.toString()}
               goalAmount={item.goalAmount}
               key={item.id}
+              id={item.id}
             />
         )}
           </Slider>

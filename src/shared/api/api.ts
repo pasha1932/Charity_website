@@ -10,7 +10,7 @@ import {
 
 // Створення базового запиту
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'https://backend-api.space/api',
+  baseUrl: 'https://opportforeveryonerailwayenv-production.up.railway.app/api',
   prepareHeaders: (headers, { getState, endpoint }) => {
     // Перелік endpoint, які не вимагають авторизації
     const skipAuthEndpoints = [
@@ -99,6 +99,14 @@ export const api = createApi({
         responseHandler: "text",
       }),
     }),
+    donateProject: builder.mutation<any, { id: string; data: any }>({
+      query: ({data, id}) => ({
+        url: `/public/projects/${id}/donate`,
+        method: "POST",
+        body: data,
+        responseHandler: "text",
+      }),
+    }),
     getNotify: builder.query({
       query: () => ({
         url: `admin/telegram/notifyMe`,
@@ -113,5 +121,5 @@ export const api = createApi({
 })
 
 
-export const { useLoginMutation, useRegisterMutation, useDonateMutation, useGetNotifyQuery, useLazyGetNotifyQuery } =
+export const { useLoginMutation, useRegisterMutation, useDonateMutation, useGetNotifyQuery, useLazyGetNotifyQuery, useDonateProjectMutation } =
   api

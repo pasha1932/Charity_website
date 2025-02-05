@@ -5,7 +5,7 @@ const HelpBtn = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  return (<Button variant='usual' onClick={() => navigate('payment')}>{t('helpBtn')}</Button> );
+  return (<Button variant='usual' onClick={() => navigate('payment', {state: {way: 'general'}})}>{t('helpBtn')}</Button> );
 }
  
 export default HelpBtn;

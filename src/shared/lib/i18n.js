@@ -51,6 +51,7 @@ const resources = {
       news: 'News',
       seeAllNews: 'See all news',
       seeAll: 'See all news',
+      hideNews: 'Hide some news',
 
       country: 'The country needs your help, do not be indifferent',
       helpBtn: 'Help',
@@ -162,6 +163,7 @@ const resources = {
       news: 'Новини',
       seeAll: 'Дивитися всі',
       seeAllNews: 'Дивитися всі новини',
+      hideNews: 'Приховати деякі новини',
 
       country: 'Країна потребує твоєї допомоги, не будь байдужим',
       helpBtn: 'Допомогти',

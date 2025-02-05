@@ -13,6 +13,10 @@ const FondResults = () => {
     slidesToScroll: 1,
     variableWidth: true,
     arrows: false,
+    autoplay: true,
+    speed: 4000,
+    autoplaySpeed: 4000,
+    cssEase: "linear"
   };
 
   const { t } = useTranslation();
