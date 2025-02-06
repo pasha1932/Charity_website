@@ -34,7 +34,7 @@ const Footer = () => {
             </article> 
           </div>
           <div className={styles.bottom}>
-            <p className={styles.copyright}>Copyright © 2024 Mate Academy</p>
+            <p className={styles.copyright}>Copyright © 2025 Mate Academy</p>
             <div className={styles.links}>
               <p className={styles.link}>{`All Rights Reserved `}</p>
               <p className={styles.link}>{`Terms and Conditions`}</p>

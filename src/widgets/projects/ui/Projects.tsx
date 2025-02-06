@@ -26,10 +26,6 @@ const Projects = () => {
     variableWidth: true,
     arrows: false,
     initialSlide: 0,
-    autoplay: true,
-    speed: 4000,
-    autoplaySpeed: 4000,
-    cssEase: "linear"
   };
   const { t } = useTranslation();
 

@@ -60,7 +60,7 @@ export const newsApi = api.injectEndpoints({
     }),
     becamePartner: build.mutation<any, FormData >({
       query: (formData) => ({
-        url: `/admin/partners`,
+        url: `/public/partners`,
         method: 'POST',
         body: formData,
       }),

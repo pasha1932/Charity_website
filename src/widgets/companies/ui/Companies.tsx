@@ -16,6 +16,10 @@ const Companies = () => {
     variableWidth: true,
     arrows: false,
     adaptiveHeight: true,
+    autoplay: true,
+    speed: 4000,
+    autoplaySpeed: 4000,
+    cssEase: "linear"
   };
 
   return (<section className={styles.section}>

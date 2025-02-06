@@ -2,10 +2,10 @@ import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import Flag from 'react-world-flags';
 import styles from './styles.module.scss';
-import { SendFormBtn } from '@/features/send-form';
 import { useTranslation } from 'react-i18next';
 import { useBecameVolunteerMutation } from '@/widgets/volunteers/api/api';
 import BtnBack from '@/shared/ui/button-back/ui/BtnBack';
+import { Button } from '@/shared/ui/button';
 
 interface FormData {
   firstName: string;
@@ -24,10 +24,10 @@ const countryOptions = [
 ];
 
 const FormVolunteer = () => {
-  const [submitVolunteer] = useBecameVolunteerMutation();
+  const [submitVolunteer, {isLoading}] = useBecameVolunteerMutation();
   const { control, reset, watch, setValue, register, handleSubmit, formState: { errors, isValid  } } = useForm<FormData>({
     defaultValues: {
-      phoneNumber: '+380 ', // Початковий код країни Україна
+      phoneNumber: '+380', // Початковий код країни Україна
     },
   });
   const { t } = useTranslation();
@@ -50,10 +50,11 @@ const FormVolunteer = () => {
       
       alert('Ваша заявка була відправлена');
       reset({
-        phoneNumber: '+380 ', // Повертаємо початкове значення коду країни
+        phoneNumber: '+380', // Повертаємо початкове значення коду країни
       });
     } catch  (error) {
-      console.error('Failed to create news:', error);
+      alert(`Failed to sent form: ${(error as any).data.error}`);
+      console.log(error);
     }
   };
 
@@ -74,30 +75,49 @@ const FormVolunteer = () => {
             <div className={styles.pair}>
               <label className={styles.label}>
                 <h6 className={styles.formTitle}>{t('name')}</h6>
-                <input type="text" pattern="[A-Za-z]" className={`${styles.formInput} ${styles.formInputHalf}`} placeholder={t('namepl')} {...register('firstName', { required: t('errorName') })} />
-          {errors.firstName && <span>{errors.firstName.message}</span>}
+                <input  className={`${styles.formInput} ${styles.formInputHalf}`}
+                  placeholder={t('enterSome')}
+                  {...register('firstName', {
+                    required: t('errorInput'),
+                    pattern: {
+                      value: /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ']+$/i,
+                      message: t("errorText"),
+                    },
+                  })} />
+          {errors.firstName && <span style={{color: 'red'}}>{errors.firstName.message}</span>}
               </label>
 
               <label className={styles.label}>
                 <h6 className={styles.formTitle}>{t('lastName')}</h6>
-                <input type="text" className={`${styles.formInput} ${styles.formInputHalf}`} placeholder={t('lastNamepl')}{...register('lastName', { required: t('errorLast') })} />
-                {errors.lastName && <span>{errors.lastName.message}</span>}
+                <input type="text" className={`${styles.formInput} ${styles.formInputHalf}`} placeholder={t('enterSome')}
+                  {...register('lastName', {
+                    required: t('errorInput'), pattern: {
+                      value: /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ']+$/i,
+                      message: t("errorText"),
+                    }, })} />
+                {errors.lastName && <span style={{color: 'red'}}>{errors.lastName.message}</span>}
                 </label>
             </div>
 
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>По батькові</h6>
-              <input type="text" className={styles.formInput} placeholder="Володимирович"
-              {...register('middleName', { required: t('errorEmail') })}
+              <h6 className={styles.formTitle}>{t('formMiddlename')}</h6>
+              <input type="text" className={styles.formInput} placeholder={t('enterSome')}
+              {...register('middleName', { required: t('errorInput'), pattern: {
+                value: /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ']+$/i,
+                message: t("errorText"),
+              }, })}
               />
-              {errors.middleName && <span>{errors.middleName.message}</span>}
+              {errors.middleName && <span style={{color: 'red'}}>{errors.middleName.message}</span>}
             </label>
             <label className={styles.label}>
               <h6 className={styles.formTitle}>{t('email')}</h6>
               <input className={styles.formInput} placeholder={t('emailpl')}  type="email"
-              {...register('email', { required: t('errorEmail') })}
+              {...register('email', { required: t('errorInput'), pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                message: t("errorEmail"),
+              }, })}
               />
-              {errors.email && <span>{errors.email.message}</span>}
+              {errors.email && <span style={{color: 'red'}}>{errors.email.message}</span>}
             </label>
             <label className={styles.label}>
               <h6 className={styles.formTitle}>{t('number')}</h6>
@@ -127,31 +147,35 @@ const FormVolunteer = () => {
               />
 
                   {/* Поле для введення номера телефону */}
-              <Controller
-                name="phoneNumber"
-                control={control}
-                rules={{ required: 'Вкажіть номер телефону' }}
+                <Controller
+                  name="phoneNumber"
+                  control={control}
+                  rules={{ required: t('errorTel'), pattern: {
+                    value: /^\+?\d{10,15}$/,
+                    message: t("errorTel"),
+                  }}}
                 render={({ field }) => (
                   <input
                     className={styles.formInput}
                     {...field}
-                    placeholder="Введіть номер"
                     type="tel"
         
                   />
                 )}
               />
-            </div>
+              </div>
+              {errors.phoneNumber && <span style={{color: 'red'}}>{errors.phoneNumber.message}</span>}
+
             </label>
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>Картинка</h6>
+              <h6 className={styles.formTitle}>{t('formImf')}</h6>
               <input className={styles.formInput} type="file" accept="image/*" style={{paddingTop: '20px'}}
               
-              {...register('avatar', { required: t('errorEmail') })}
+              {...register('avatar', { required: t('errorInput') })}
               />
-              {errors.avatar && <span>{errors.avatar.message}</span>}
+              {errors.avatar && <span style={{color: 'red'}}>{errors.avatar.message}</span>}
             </label>
-            {<SendFormBtn disabled={isValid} />}
+            { <Button variant='usual' disabled={!isValid}>{isLoading ? t('sending') : t('send')}</Button>}
           </form>
         </div>
       </div>

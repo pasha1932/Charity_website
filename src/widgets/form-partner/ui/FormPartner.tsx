@@ -22,14 +22,15 @@ interface FormData {
   logo: File[];
 }
 
-const options = [
-  { value: 'LEGAL_ENTITY', label: 'Юридична особа' },
-  { value: 'FOP', label: 'ФОП' },
-  { value: 'PUBLIC_ORGANIZATION', label: 'Громадська організація' },
-];
 
 const PartnerForm = () => {
   const { t } = useTranslation();
+  const options = [
+    { value: 'LEGAL_ENTITY', label: t('typeJurid') },
+    { value: 'FOP', label: t('typeFop') },
+    { value: 'PUBLIC_ORGANIZATION', label: t('typePublic') },
+  ];
+
   const { control, register, handleSubmit, formState: { errors, isValid }, reset } = useForm<FormData>();
 
   const [submitForm, { isLoading }] = useBecamePartnerMutation();
@@ -59,8 +60,7 @@ const PartnerForm = () => {
       // Очищення всіх полів форми
       reset();
     } catch (error) {
-      console.error('Error submitting form:', error);
-      // toast.error(t('formError')); // Повідомлення про помилку
+      alert(`Failed to sent form: ${(error as any).data.error}`);
     }
   };
 
@@ -69,29 +69,29 @@ const PartnerForm = () => {
       <div className="container">
         <BtnBack />
         <div className={styles.content}>
-          <h4 className={styles.title}>Подати заявку на партнерство</h4>
+          <h4 className={styles.title}>{t('formPartTitle')}</h4>
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>Назва організації/компанії</h6>
+              <h6 className={styles.formTitle}>{t('nameOrg')}</h6>
               <input
                 className={styles.formInput}
-                placeholder="Введіть назву"
-                {...register('partnerName', { required: 'Вкажіть назву організації' })}
+                placeholder={t('enterSome')}
+                {...register('partnerName', { required: t('errorInput') })}
               />
-              {errors.partnerName && <span>{errors.partnerName.message}</span>}
+              {errors.partnerName && <span style={{color: 'red'}}>{errors.partnerName.message}</span>}
             </label>
 
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>Тип партнера</h6>
+              <h6 className={styles.formTitle}>{t('typePart')}</h6>
               <Controller
                 name="partnerType"
                 control={control}
-                rules={{ required: 'Тип партнера обов’язковий' }}
+                rules={{ required: t('errorInput') }}
                 render={({ field }) => (
                   <Select
                     {...field}
                     options={options}
-                    placeholder="Оберіть тип партнера"
+                    placeholder="..."
                     onChange={(selectedOption) =>
                       field.onChange(selectedOption?.value)
                     }
@@ -101,94 +101,113 @@ const PartnerForm = () => {
                   />
                 )}
               />
-              {errors.partnerType && <span>{errors.partnerType.message}</span>}
+              {errors.partnerType && <span style={{color: 'red'}}>{errors.partnerType.message}</span>}
             </label>
 
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>Контакти директора компанії</h6>
+              <h6 className={styles.formTitle}>{t('contactsDir')}</h6>
               <input
-                style={{marginBottom: '10px'}}
                 className={styles.formInput}
-                placeholder="Прізвище"
-                {...register('directorFirstName', { required: 'Вкажіть прізвище директора' })}
+                placeholder={t('formLastname')}
+                style={{marginBottom: '10px'}}
+                {...register('directorFirstName', { required: t('errorInput'), pattern: {
+                  value: /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ']+$/i,
+                  message: t("errorText"),
+                }, })}
               />
-              {errors.directorFirstName && <span>{errors.directorFirstName.message}</span>}
+              {errors.directorFirstName && <span style={{color: 'red', display: 'inline-block', marginBottom: '16px'}}>{errors.directorFirstName.message}</span>}
               <input
-                style={{marginBottom: '10px'}}
                 className={styles.formInput}
-                placeholder="Ім'я"
-                {...register('directorLastName', { required: 'Вкажіть ім`я директора' })}
+                style={{marginBottom: '10px'}}
+                placeholder={t('formFirstname')}
+                {...register('directorLastName', { required: t('errorInput'), pattern: {
+                  value: /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ']+$/i,
+                  message: t("errorText"),
+                }, })}
               />
-              {errors.directorLastName && <span>{errors.directorLastName.message}</span>}
+              {errors.directorLastName && <span style={{color: 'red', display: 'inline-block', marginBottom: '16px'}}>{errors.directorLastName.message}</span>}
               <input
-                style={{marginBottom: '10px'}}
                 className={styles.formInput}
-                placeholder="По-батькові"
-                {...register('directorMiddleName', { required: 'Вкажіть по-батькові директора' })}
+                placeholder={t('formMiddlename')}
+                style={{marginBottom: '10px'}}
+                {...register('directorMiddleName', { required: t('errorInput'), pattern: {
+                  value: /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ']+$/i,
+                  message: t("errorText"),
+                }, })}
               />
-              {errors.directorMiddleName && <span>{errors.directorMiddleName.message}</span>}
+              {errors.directorMiddleName && <span style={{color: 'red', display: 'inline-block', marginBottom: '16px'}}>{errors.directorMiddleName.message}</span>}
               <input
-                style={{marginBottom: '10px'}}
+                type="tel"
                 className={styles.formInput}
-                placeholder="Номер телефону"
-                {...register('directorPhoneNumber', { required: 'Вкажіть номер телефону директора' })}
+                style={{marginBottom: '10px'}}
+                placeholder={t('formPhone')}
+                {...register('directorPhoneNumber', { required: t('errorTel'), pattern: {
+                  value: /^\+?\d{10,15}$/,
+                  message: t("errorTel"),
+                },
+             })}
               />
-              {errors.directorPhoneNumber && <span>{errors.directorPhoneNumber.message}</span>}
+              {errors.directorPhoneNumber && <span style={{color: 'red', display: 'inline-block', marginBottom: '16px'}}>{errors.directorPhoneNumber.message}</span>}
               <input
-                style={{marginBottom: '10px'}}
                 className={styles.formInput}
-                placeholder="Електронна адреса"
+                placeholder={t('formEmail')}
                 type="email"
-                {...register('directorEmail', { required: 'Вкажіть електронну адресу директора' })}
+                {...register('directorEmail', { required: t('errorInput'), pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                  message: t("errorEmail"),
+                }, })}
               />
-              {errors.directorEmail && <span>{errors.directorEmail.message}</span>}
+              {errors.directorEmail && <span style={{color: 'red'}}>{errors.directorEmail.message}</span>}
             </label>
 
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>Мета співпраці</h6>
+              <h6 className={styles.formTitle}>{t('formGoalCoop')}</h6>
               <textarea
+                placeholder={t('enterSome')}
                 className={styles.formTextarea}
-                placeholder="Опишіть мету співпраці"
-                {...register('cooperationGoal', { required: 'Вкажіть мету співпраці' })}
+                {...register('cooperationGoal', { required: t('errorInput') })}
               />
-              {errors.cooperationGoal && <span>{errors.cooperationGoal.message}</span>}
-            </label>
+              {errors.cooperationGoal && <span style={{color: 'red'}}>{errors.cooperationGoal.message}</span>}
+            </label> 
 
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>Посилання на соцмережі або сайт</h6>
+              <h6 className={styles.formTitle}>{t('formLink')}</h6>
               <input
                 className={styles.formInput}
                 placeholder="https://example.com"
-                {...register('siteUrl', { required: 'Вкажіть посилання' })}
+                {...register('siteUrl', { required: t('errorInput') })}
               />
-              {errors.siteUrl && <span>{errors.siteUrl.message}</span>}
+              {errors.siteUrl && <span style={{color: 'red'}}>{errors.siteUrl.message}</span>}
             </label>
 
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>Юридична адреса</h6>
+              <h6 className={styles.formTitle}>{t('formAddress')}</h6>
               <input
                 className={styles.formInput}
-                placeholder="Введіть юридичну адресу"
-                {...register('legalAddress', { required: 'Вкажіть юридичну адресу' })}
+                placeholder={t('enterSome')}
+                {...register('legalAddress', { required: t('errorInput') })}
               />
-              {errors.legalAddress && <span>{errors.legalAddress.message}</span>}
+              {errors.legalAddress && <span style={{color: 'red'}}>{errors.legalAddress.message}</span>}
             </label>
 
             <label className={styles.label}>
-              <h6 className={styles.formTitle}>Ідентифікаційний код (ЄДРПОУ)</h6>
+              <h6 className={styles.formTitle}>{t('formCode')}</h6>
               <input
                 className={styles.formInput}
-                placeholder="Введіть код ЄДРПОУ"
-                {...register('identificationCode', { required: 'Вкажіть код ЄДРПОУ' })}
+                placeholder={t('enterSome')}
+                {...register('identificationCode', { required: t('errorInput'), pattern: {
+                  value: /^\d+$/,
+                  message: t('errorNumber'),
+                }, })}
               />
-              {errors.identificationCode && <span>{errors.identificationCode.message}</span>}
+              {errors.identificationCode && <span style={{color: 'red'}}>{errors.identificationCode.message}</span>}
             </label>
-             <label className={styles.label}>
-                <h6 className={styles.formTitle}>Картинка</h6>
-                <input className={styles.formInput}  type="file" style={{paddingTop: '20px'}}
-                {...register('logo', { required: t('errorEmail') })}
+            <label htmlFor="files" className={styles.label}>
+              <h6 className={styles.formTitle}>{t('formImf')}</h6>
+                <input className={styles.formInput} accept="image/*" type="file" style={{paddingTop: '20px'}}
+                {...register('logo', { required: t('errorInput') })}
                 />
-                {errors.logo && <span>{errors.logo.message}</span>}
+                {errors.logo && <span style={{color: 'red'}}>{errors.logo.message}</span>}
               </label>
             <SendFormBtn disabled={isLoading || !isValid} />
           </form>

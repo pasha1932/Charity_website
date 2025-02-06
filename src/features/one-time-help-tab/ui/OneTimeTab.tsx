@@ -38,7 +38,7 @@ const OneTimeTab = () => {
   const handleSubmit = async () => {
 
     if (!amount || tel.length < 11 || tel.length > 14) {
-      alert("Виберіть суму донату й введіть номер мобільно телефону");
+      alert(t('paymError'));
       return;
     }
 

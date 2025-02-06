@@ -72,6 +72,7 @@ const resources = {
       monobank: 'Our monobank',
       crypto: 'Cryptocurrency',
       abroad: 'From abroad',
+      paymError: "Select donation amount and enter mobile phone number",
 
       chooseSum: 'Choose the amount you want to donate',
       becameHero: 'Become a superhero for those to whom this is necessary',
@@ -104,16 +105,37 @@ const resources = {
       number: 'Phone number',
       message: 'Personal message *optional*',
       send: 'Submit form',
-      errorName: 'Enter a name',
-      errorLast: 'Enter a last name',
-      errorEmail: 'Enter an email',
+      errorInput: 'Field is required',
+      errorText: 'Only letters allowed',
+      errorNumber: 'Only numbers allowed',
+      errorEmail: 'Enter a valid email',
+      errorTel: 'Enter a vaild number',
+      enterSome: 'Enter some value',
+      sending: 'Sending...',
 
 
       //thanks
       thanks: 'Thank you! We received your response, we will contact you shortly',
       goMain: 'Go to main page',
     
-    
+      //form-partner
+      formPartTitle: 'Apply for partnership',
+      nameOrg: 'Name of organization/company',
+      typePart: 'Partner type',
+      typeFop: 'FOP',
+      typeJurid: 'Legal entity',
+      typePublic: 'Public organization',
+      contactsDir: 'Contacts of the company director',
+      formLastname: 'Last name',
+      formFirstname: 'First name',
+      formMiddlename: 'Middle name',
+      formPhone: 'Phone number',
+      formEmail: 'Email address',
+      formGoalCoop: 'Goal of cooperation',
+      formLink: 'Link to social networks or website',
+      formAddress: 'Enter legal address',
+      formCode: 'Identification code (EDRPOU)',
+      formImf: 'Logo',
     },
   },
   uk: {
@@ -183,6 +205,7 @@ const resources = {
       monobank: 'Наша monobaнка',
       crypto: 'Криптовалюта',
       abroad: 'З-за кордону',
+      paymError: "Виберіть суму донату й введіть номер мобільно телефону",
 
       chooseSum: 'Оберіть суму, яку ви хочете задонатити',
       becameHero: 'Стань супергероєм для тих, кому це необхідно',
@@ -215,13 +238,37 @@ const resources = {
       number: 'Номер телефону',
       message: 'Особисте повідомлення *не обовʼязково*',
       send: 'Відправити форму',
-      errorName: 'Введіть ім`я',
-      errorLast: 'Введіть прізвище',
-      errorEmail: 'Введіть емейл',
+      errorInput: 'Поле є обов`язковим',
+      errorText: 'Тільки літери дозволені',
+      errorNumber: 'Тільки числа дозволені',
+      errorEmail: 'Введіть правильну пошту',
+      errorTel: 'Введіть правильний номер',
+      enterSome: 'Введіть якесь значення',
+      sending: 'Відправлення...',
 
       //thanks
       thanks: 'Дякуємо! Ми отримали вашу відповідь, найближчим часом ми звʼяжемось з вами',
       goMain: 'На головну',
+
+
+      //form-partner
+      formPartTitle: 'Подати заявку на партнерство',
+      nameOrg: 'Назва організації/компанії',
+      typePart: 'Тип партнера',
+      typeFop: 'ФОП',
+      typeJurid: 'Юридична особа',
+      typePublic: 'Громадська організація',
+      contactsDir: 'Контакти директора компанії',
+      formLastname: 'Прізвище',
+      formFirstname: 'Ім`я',
+      formMiddlename: 'По-батькові',
+      formPhone: 'Номер телефону',
+      formEmail: 'Електронна адреса',
+      formGoalCoop: 'Мета співпраці',
+      formLink: 'Посилання на соцмережі або сайт',
+      formAddress: 'Введіть юридичну адресу',
+      formCode: 'Ідентифікаційний код (ЄДРПОУ)',
+      formImf: 'Логотип',
     },
   },
 };

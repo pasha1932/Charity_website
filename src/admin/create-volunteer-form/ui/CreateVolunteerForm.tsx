@@ -27,7 +27,7 @@ const CreateFormVolunteer = () => {
   const [createVolunteer] = useCreateVolunteerMutation();
   const { control, reset, watch, setValue, register, handleSubmit, formState: { errors, isValid  } } = useForm<FormData>({
     defaultValues: {
-      phoneNumber: '+380 ', // Початковий код країни Україна
+      phoneNumber: '+380', // Початковий код країни Україна
     },
   });
   const { t } = useTranslation();
