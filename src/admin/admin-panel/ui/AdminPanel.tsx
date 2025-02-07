@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import styles from './styles.module.scss';
-import { useAppSelector } from '@/shared/hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/reduxHooks';
 import { useLazyGetNotifyQuery } from '@/shared/api/api';
+import { logout } from '@/admin/login/lib/authSlice';
 
 const AdminPanel: React.FC = () => {
   const isAdmin = useAppSelector(state => state.auth.isSuperAdmin);
   const [trigger, { data }] = useLazyGetNotifyQuery();
+  const dispatch = useAppDispatch();
 
   return (
     <div className="container">
@@ -15,6 +17,9 @@ const AdminPanel: React.FC = () => {
           <h1 className={styles.title}>Управління даними</h1>
           <button className={styles.btn} onClick={() => trigger({})}>Отримати посилання на бота</button>
           {data && <a className={styles.link} href={data}>Перейти до бота</a>}
+          <button type="button" onClick={() => dispatch(logout())} className={styles.btn}>
+                    Вийти
+                  </button>
         </div>
       <nav className={styles.nav}>
         <ul className={styles.list}>
