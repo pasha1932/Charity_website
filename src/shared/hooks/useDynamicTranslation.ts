@@ -1,16 +1,18 @@
 import { translateText } from "@/widgets/newsItem/ui/NewsItem";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import i18n from 'i18next';
 
 export const useDynamicTranslation = (key: string, text: string) => {
+  const [translatedText, setTranslatedText] = useState(text);
   useEffect(() => {
     const updateTranslation = async () => {
-      const targetLang = i18n.language === "uk" ? "en" : "uk";
-      const translatedText = await translateText(text, targetLang);
-
-      i18n.addResource(targetLang, "translation", key, translatedText);
+      if (!text) return; // Якщо немає тексту, не перекладаємо
+      const targetLang = i18n.language === "uk" ? "uk" : "en";
+      const translated = await translateText(text, targetLang);
+      i18n.addResource(targetLang, "translation", key, translated);
+      setTranslatedText(translated); // Оновлюємо стан після перекладу
     };
-
-    if (text) updateTranslation();
-  }, [text, i18n.language]); // Виконувати при зміні тексту або мови
+    updateTranslation();
+  }, [text, i18n.language]);
+  return translatedText; // Виконувати при зміні тексту або мови
 };

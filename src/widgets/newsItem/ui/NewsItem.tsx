@@ -5,7 +5,6 @@ import { useRef } from "react";
 import BtnBack from "@/shared/ui/button-back/ui/BtnBack";
 import { OtherNews } from "@/features/other-news";
 import axios from "axios";
-import { useTranslation } from "react-i18next";
 import { useDynamicTranslation } from "@/shared/hooks/useDynamicTranslation";
 
 export const translateText = async (text: string, targetLang: "en" | "uk") => {
@@ -35,12 +34,8 @@ const NewsItem = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetNewsItemQuery({ id: id?.toString() });
   const bottomRef = useRef<HTMLDivElement>(null);
-  const { t } = useTranslation();
-
-
-  
-  useDynamicTranslation(`news_title_${id}`, data?.title || '');
-  useDynamicTranslation(`news_text_${id}`, data?.content || '');
+  const titleContent = useDynamicTranslation(`news_title_${id}`, data?.title || '');
+  const textContent = useDynamicTranslation(`news_text_${id}`, data?.content || '');
   return (
     <section className={styles.section}>
       <div className="container">
@@ -49,12 +44,12 @@ const NewsItem = () => {
           <div className={styles.top}>
             <div className={styles.left}>
               <img src={data?.coverImageUrl} alt="" className={styles.img} />
-              <h4 className={styles.titles}>{t(`news_title_${id}`)}</h4>
+              <h4 className={styles.titles}>{titleContent}</h4>
             </div>
             <OtherNews />
           </div>
           <div id="bottom" ref={bottomRef} className={styles.bottom}>
-            {t(`news_text_${id}`)}
+            {textContent}
           </div>
         </div>}
       </div>

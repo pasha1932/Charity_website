@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useBecameVolunteerMutation } from '@/widgets/volunteers/api/api';
 import BtnBack from '@/shared/ui/button-back/ui/BtnBack';
 import { Button } from '@/shared/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 interface FormData {
   firstName: string;
@@ -24,7 +25,8 @@ const countryOptions = [
 ];
 
 const FormVolunteer = () => {
-  const [submitVolunteer, {isLoading}] = useBecameVolunteerMutation();
+  const [submitVolunteer, { isLoading }] = useBecameVolunteerMutation();
+  const navigate = useNavigate();
   const { control, reset, watch, setValue, register, handleSubmit, formState: { errors, isValid  } } = useForm<FormData>({
     defaultValues: {
       phoneNumber: '+380', // Початковий код країни Україна
@@ -48,13 +50,14 @@ const FormVolunteer = () => {
       // Відправка даних через RTK Query
       await submitVolunteer(formData).unwrap();
       
-      alert('Ваша заявка була відправлена');
+      alert(t('successSend'));
+
       reset({
         phoneNumber: '+380', // Повертаємо початкове значення коду країни
       });
+      navigate('/form/submit');
     } catch  (error) {
       alert(`Failed to sent form: ${(error as any).data.error}`);
-      console.log(error);
     }
   };
 

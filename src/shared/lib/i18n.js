@@ -112,6 +112,7 @@ const resources = {
       errorTel: 'Enter a vaild number',
       enterSome: 'Enter some value',
       sending: 'Sending...',
+      successSend: 'Your request has been sent',
 
 
       //thanks
@@ -245,6 +246,7 @@ const resources = {
       errorTel: 'Введіть правильний номер',
       enterSome: 'Введіть якесь значення',
       sending: 'Відправлення...',
+      successSend: 'Ваша заявка була відправлена',
 
       //thanks
       thanks: 'Дякуємо! Ми отримали вашу відповідь, найближчим часом ми звʼяжемось з вами',

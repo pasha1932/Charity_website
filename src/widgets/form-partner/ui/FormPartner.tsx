@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 // import { toast } from 'react-toastify';
 import { useBecamePartnerMutation } from '@/widgets/parters/api/api';
 import BtnBack from '@/shared/ui/button-back/ui/BtnBack';
+import { useNavigate } from 'react-router-dom';
 
 interface FormData {
   partnerName: string;
@@ -25,6 +26,7 @@ interface FormData {
 
 const PartnerForm = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const options = [
     { value: 'LEGAL_ENTITY', label: t('typeJurid') },
     { value: 'FOP', label: t('typeFop') },
@@ -55,9 +57,8 @@ const PartnerForm = () => {
       // Відправка даних через RTK Query
       await submitForm(formData).unwrap();
 
-      // toast.success(t('formSuccess')); // Успішне повідомлення
-
-      // Очищення всіх полів форми
+      alert(t('successSend'));
+      navigate('/form/submit');
       reset();
     } catch (error) {
       alert(`Failed to sent form: ${(error as any).data.error}`);
@@ -196,7 +197,7 @@ const PartnerForm = () => {
                 className={styles.formInput}
                 placeholder={t('enterSome')}
                 {...register('identificationCode', { required: t('errorInput'), pattern: {
-                  value: /^\d+$/,
+                  value: /^\d{8,}$/,
                   message: t('errorNumber'),
                 }, })}
               />
