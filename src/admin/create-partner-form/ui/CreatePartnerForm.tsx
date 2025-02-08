@@ -57,7 +57,7 @@ const CreateFormPartner = () => {
       alert('Партнер був успішно доданий')
       reset();
     } catch (error) {
-      console.error('Error submitting form:', error);
+      alert(`Щось пішло не так: ${(error as any).data.error}`);
       // toast.error(t('formError')); // Повідомлення про помилку
     }
   };

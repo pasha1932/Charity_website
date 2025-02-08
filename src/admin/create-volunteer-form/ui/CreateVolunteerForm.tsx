@@ -53,7 +53,7 @@ const CreateFormVolunteer = () => {
         phoneNumber: '+380 ', // Повертаємо початкове значення коду країни
       });
     } catch  (error) {
-      console.error('Failed to create news:', error);
+      alert(`Щось пішло не так: ${(error as any).data.error}`);
     }
   };
 

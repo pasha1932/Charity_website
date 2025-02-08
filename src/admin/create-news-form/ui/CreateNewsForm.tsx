@@ -36,7 +36,6 @@ const CreateNewsForm: React.FC = () => {
       setContent('');
       setCoverImage(null);
     } catch (error) {
-      alert
       alert(`Щось пішло не так: ${(error as any).data.error}`);
     }
   }

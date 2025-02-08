@@ -53,7 +53,7 @@ const UpdateNewsForm = () => {
         await updateNewsText(newsItem).unwrap();
         alert('Текст новини було успішно змінено');
       } catch (error) {
-        console.error('Failed to update news:', error);
+        alert(`Щось пішло не так: ${(error as any).data.error}`);
       }
     }
 

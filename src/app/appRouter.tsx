@@ -23,6 +23,7 @@ import Registration from "@/admin/registration/ui/Registration";
 import { Profile } from "@/admin/profile";
 import { AllowedEmailList } from "@/admin/allowed-email-list";
 import { UsersList } from "@/admin/users-list";
+import { DonatesList } from "@/admin/donates-list";
 
 // import { NewsPage } from "@/pages/news";
 const appRouter = createHashRouter([
@@ -61,7 +62,8 @@ const appRouter = createHashRouter([
 
           { path: "allowed_emails", element: <AllowedEmailList /> }, // Дозволені пошти
 
-          { path: "users", element: <UsersList /> }, // Сторінка зі списком новин
+          { path: "users", element: <UsersList /> },
+          { path: "donations", element: < DonatesList/> }, 
 
 
         ],

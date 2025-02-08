@@ -40,7 +40,7 @@ const Registration = () => {
       alert('Ви успішно зареєструвалися');
       reset();
     } catch  (error) {
-      console.error('Failed register:', error);
+      alert(`Щось пішло не так: ${(error as any).data.error}`);
     }
   };
 
