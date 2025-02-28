@@ -10,6 +10,8 @@
   @include on-tablet {
     flex-direction: row;
   }
+
+  @include hover(transform, scale(1.05));
 }
 
 .block {

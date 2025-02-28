@@ -1,0 +1,40 @@
+.section {
+  margin-block: 70px;
+}
+
+.content {
+  margin-top: -40px;
+  margin-left: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: lightgray;
+  padding: 15px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+
+.subtitle {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 18px;
+}
+
+.link {
+  color: #006cb4;
+}

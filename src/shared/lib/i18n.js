@@ -73,6 +73,8 @@ const resources = {
       crypto: 'Cryptocurrency',
       abroad: 'From abroad',
       paymError: "Select donation amount and enter mobile phone number",
+      paymWay: 'Choose the method you want to donate',
+      paymChoose: 'Choose method',
 
       chooseSum: 'Choose the amount you want to donate',
       becameHero: 'Become a superhero for those to whom this is necessary',
@@ -137,6 +139,11 @@ const resources = {
       formAddress: 'Enter legal address',
       formCode: 'Identification code (EDRPOU)',
       formImf: 'Logo',
+
+      //documents
+      reports: 'Reports',
+      founds: 'Founding documents',
+      linkFile: 'File link',
     },
   },
   uk: {
@@ -207,6 +214,8 @@ const resources = {
       crypto: 'Криптовалюта',
       abroad: 'З-за кордону',
       paymError: "Виберіть суму донату й введіть номер мобільно телефону",
+      paymWay: 'Оберіть спосіб яким ви хочете задонатити',
+      paymChoose: 'Обрати спосіб',
 
       chooseSum: 'Оберіть суму, яку ви хочете задонатити',
       becameHero: 'Стань супергероєм для тих, кому це необхідно',
@@ -271,6 +280,11 @@ const resources = {
       formAddress: 'Введіть юридичну адресу',
       formCode: 'Ідентифікаційний код (ЄДРПОУ)',
       formImf: 'Логотип',
+
+      //documents
+      reports: 'Звіти',
+      founds: 'Установчі документи',
+      linkFile: 'Посилання на файл',
     },
   },
 };

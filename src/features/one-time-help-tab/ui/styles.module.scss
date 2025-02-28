@@ -65,6 +65,8 @@
   background-color: #F4F4F4;
   padding-block: 55px;
   align-items: center;
+  cursor: pointer;
+  @include hover(transform, scale(1.05));
 
   @include on-tablet {
     padding-block: 26.5px;
@@ -143,7 +145,7 @@
 
 .checkbox {
   padding: 0;
-  width: 25px;
+  width: 20px;
   height: 20px;
   accent-color: white;
     

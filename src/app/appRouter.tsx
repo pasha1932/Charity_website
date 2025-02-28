@@ -24,6 +24,10 @@ import { Profile } from "@/admin/profile";
 import { AllowedEmailList } from "@/admin/allowed-email-list";
 import { UsersList } from "@/admin/users-list";
 import { DonatesList } from "@/admin/donates-list";
+import { CreateDocuments } from "@/admin/create-ducuments";
+import { DocumentsList } from "@/admin/documents-list";
+import { Reports } from "@/widgets/reports";
+import { Foundings } from "@/widgets/foundings";
 
 // import { NewsPage } from "@/pages/news";
 const appRouter = createHashRouter([
@@ -38,6 +42,8 @@ const appRouter = createHashRouter([
       { path: "form/partner", element: <FormPartner /> },
       { path: "form/submit", element: <FormSubmit /> },
       {path: "news/:id", element: <NewsItem />},
+      {path: "reports", element: <Reports/>},
+      {path: "foundings", element: <Foundings/>},
       {
         path: "admin",
         element: <ProtectedRoute />,
@@ -61,6 +67,10 @@ const appRouter = createHashRouter([
           { path: "profile", element: <Profile /> }, // Профіль
 
           { path: "allowed_emails", element: <AllowedEmailList /> }, // Дозволені пошти
+
+          { path: "documents/create", element: <CreateDocuments /> }, // Документи створення
+          { path: "documents", element: <DocumentsList /> }, // Документи створення
+
 
           { path: "users", element: <UsersList /> },
           { path: "donations", element: < DonatesList/> }, 

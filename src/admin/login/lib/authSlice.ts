@@ -5,13 +5,13 @@ import { api } from "@/shared/api/api";
 interface InitialState {
   token: string | null;
   isAuthenticated: boolean;
-  isSuperAdmin: boolean;
+  isSuperAdmin: boolean | null;
 }
 
 const initialState: InitialState = {
   token: localStorage.getItem('token'), // Зчитуємо токен з localStorage
   isAuthenticated: !!localStorage.getItem('token'), // Якщо токен є, встановлюємо як автентифікованого
-  isSuperAdmin: false,
+  isSuperAdmin: !!localStorage.getItem('isSuperAdmin'),
 };
 
 const slice = createSlice({
@@ -22,10 +22,12 @@ const slice = createSlice({
       state.token = null;
       state.isAuthenticated = false;
       state.isSuperAdmin = false;
+      localStorage.removeItem('isSuperAdmin');
       localStorage.removeItem('token'); // Видаляємо токен з localStorage
     },
     setSuperAdmin: (state, action: PayloadAction<string>) => {
-      state.isSuperAdmin = action.payload === 'first_super_admin@gmail.com' ? true : false;
+      action.payload === 'second_super_admin@gmail.com' ? localStorage.setItem('isSuperAdmin', 'yes') : localStorage.removeItem('isSuperAdmin');
+      state.isSuperAdmin = !!localStorage.getItem('isSuperAdmin');
     },
   },
   extraReducers: (builder) => {
@@ -33,6 +35,7 @@ const slice = createSlice({
       .addMatcher(api.endpoints.login.matchFulfilled, (state, action) => {
         state.token = action.payload.token;
         state.isAuthenticated = true;
+        state.isSuperAdmin = !!localStorage.getItem('isSuperAdmin');
         localStorage.setItem('token', action.payload.token); // Зберігаємо токен у localStorage після успішного логіну
       });
   },

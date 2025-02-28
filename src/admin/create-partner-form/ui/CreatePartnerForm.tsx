@@ -2,8 +2,6 @@ import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import styles from './styles.module.scss';
 import { SendFormBtn } from '@/features/send-form';
-import { useTranslation } from 'react-i18next';
-// import { toast } from 'react-toastify';
 import { useCreatePartnerMutation } from '@/widgets/parters/api/api';
 import BtnBack from '@/shared/ui/button-back/ui/BtnBack';
 
@@ -29,7 +27,6 @@ const options = [
 ];
 
 const CreateFormPartner = () => {
-  const { t } = useTranslation();
   const { control, register, handleSubmit, formState: { errors, isValid }, reset } = useForm<FormData>();
 
   const [submitForm, { isLoading }] = useCreatePartnerMutation();
@@ -58,7 +55,6 @@ const CreateFormPartner = () => {
       reset();
     } catch (error) {
       alert(`Щось пішло не так: ${(error as any).data.error}`);
-      // toast.error(t('formError')); // Повідомлення про помилку
     }
   };
 
@@ -184,7 +180,7 @@ const CreateFormPartner = () => {
              <label className={styles.label}>
                 <h6 className={styles.formTitle}>Картинка</h6>
                 <input className={styles.formInput} style={{paddingTop: '20px'}} type="file"
-                {...register('logo', { required: t('errorEmail') })}
+                {...register('logo', { required: 'Вкажіть картинку' })}
                 />
                 {errors.logo && <span>{errors.logo.message}</span>}
               </label>

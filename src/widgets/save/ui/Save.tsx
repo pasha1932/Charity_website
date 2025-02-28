@@ -21,13 +21,6 @@ const Save = () => {
       ),
     },
     {
-      id: "monthly-time",
-      label: t('monthly'),
-      content: (
-        <OneTimeTab />
-      ),
-    },
-    {
       id: "judge-person",
       label: t('juridic'),
       content: (
@@ -39,13 +32,6 @@ const Save = () => {
       label: t('monobank'),
       content: (
         <CryptoMonoTab title={t('doMono')} />
-      ),
-    },
-    {
-      id: "crypto",
-      label: t('crypto'),
-      content: (
-        <CryptoMonoTab title={t('doCrypto')} />
       ),
     },
   ];

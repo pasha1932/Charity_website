@@ -9,7 +9,7 @@ type Props = {
   activeTab: string;
 }
 
-const DonateWays: React.FC<Props> = ({onActiveTab, onKindDonate, activeTab}) => {
+const DonateWays: React.FC<Props> = ({ onActiveTab, onKindDonate, activeTab }) => {
   const handleChoose = () => {
     onKindDonate(true);
   }
@@ -22,11 +22,6 @@ const DonateWays: React.FC<Props> = ({onActiveTab, onKindDonate, activeTab}) => 
       label: t('oneTime'),
     },
     {
-      id: "monthly-time",
-      label: t('monthly'),
-      
-    },
-    {
       id: "judge-person",
       label: t('juridic'),
     
@@ -36,18 +31,14 @@ const DonateWays: React.FC<Props> = ({onActiveTab, onKindDonate, activeTab}) => 
       label: t('monobank'),
   
     },
-    {
-      id: "crypto",
-      label: t('crypto'),
-    },
   ];
 
   return ( 
     <div className={styles.content}>
           <div className={styles.top}>
-            <h4 className={styles.title}>Оберіть спосіб яким ви хочете задонатити</h4>
+        <h4 className={styles.title}>{t('paymWay')}</h4>
           </div>
-          <h5 className={styles.subtitle}>Стань супергероєм для тих, кому це необхідно</h5>
+      <h5 className={styles.subtitle}>{t('becameHero')}</h5>
           <div className={styles.tabsList}>
             {tabs.map((item) => (
               <button
@@ -58,7 +49,7 @@ const DonateWays: React.FC<Props> = ({onActiveTab, onKindDonate, activeTab}) => 
                 <h5 className={styles.text}>{item.label}</h5>
               </button>))}
       </div>
-      <Button variant='usual' onClick={() => handleChoose()} style={{alignSelf: 'center'}}>Обрати спосіб</Button>
+      <Button variant='usual' onClick={() => handleChoose()} style={{ alignSelf: 'center' }}>{t('paymChoose')}</Button>
       </div>
   );
 }

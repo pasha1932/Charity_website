@@ -56,7 +56,6 @@ const AllowedEmailList = () => {
       console.log(err);
     }
   }
-  // const [deleteNews] = useDeleteNewsItemMutation();
   console.log(data)
   return ( 
     <div className={styles.section}>

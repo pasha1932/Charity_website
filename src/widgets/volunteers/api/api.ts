@@ -32,9 +32,6 @@ export const newsApi = api.injectEndpoints({
     getRejectedVolunteers: build.query<Data, { page: number; size: number }>({
       query: ({ page, size }) => `/public/volunteers/rejected?page=${page}&size=${size}`,
     }),
-    // getNewsItem: build.query<News, { id: string | undefined }>({
-    //   query: ({id}) => `/public/news/${id}`,
-    // }),
     createVolunteer: build.mutation<Volunteer, FormData >({
       query: (formData) => ({
         url: '/admin/volunteers',

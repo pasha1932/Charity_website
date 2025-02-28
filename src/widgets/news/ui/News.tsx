@@ -28,13 +28,11 @@ const News = () => {
 
   const settings = {
     infinite: false,
-    // centerMode: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     variableWidth: true,
     arrows: false,
     initialSlide: 0,
-    // adaptiveHeight: true,
   };
 
   const handleSeeAll = () => {

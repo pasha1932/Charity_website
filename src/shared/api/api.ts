@@ -25,7 +25,9 @@ const baseQuery = fetchBaseQuery({
       'getPartners',
       'getPartner',
       'donate',
-      'getUsers'
+      'getUsers',
+      'getFoundings',
+      'getReports',
     ];
 
     // Перевіряємо, чи поточний endpoint вимагає авторизації

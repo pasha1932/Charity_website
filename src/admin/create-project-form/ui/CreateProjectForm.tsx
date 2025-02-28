@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useCreateProjectMutation } from '@/widgets/projects/api/api';
 
 const CreateProjectForm: React.FC = () => {
-  // { isLoading, isError, isSuccess }
   const [createProject] = useCreateProjectMutation();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');

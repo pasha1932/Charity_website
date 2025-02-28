@@ -15,9 +15,7 @@ const Team = () => {
   const { data } = useGetUsersQuery({page: 0, size: 50});
   
   const settings = {
-    infinite: false,
-    // centerMode: true,
-    
+    infinite: false,    
     slidesToShow:1,
     slidesToScroll: 1,
     variableWidth: true,

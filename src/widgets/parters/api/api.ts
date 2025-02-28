@@ -41,9 +41,6 @@ export const newsApi = api.injectEndpoints({
     getPartner: build.query<Partner, { id: number }>({
           query: (id) => `/public/partners/${id}`,
         }),
-    // getNewsItem: build.query<News, { id: string | undefined }>({
-    //   query: ({id}) => `/public/news/${id}`,
-    // }),
     createPartner: build.mutation<Partner, FormData >({
       query: (formData) => ({
         url: '/admin/partners',

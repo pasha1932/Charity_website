@@ -13,7 +13,6 @@ const OneTimeTab = () => {
   const [checked, setChecked] = useState(false);
   const [currentCurrency, setCurrentCurrency] = useState('UAH');
   const [donate, {isLoading }] = useDonateMutation();
-  // { data: projectData, isLoading: ProjectLoad }
   const [donateProject,] = useDonateProjectMutation();
   const { state } = useLocation();
   
@@ -52,10 +51,12 @@ const OneTimeTab = () => {
 
     try {
       let htmlForm = '';
-      if (state.way === 'general') {
+      if (state?.way === 'general') {
         htmlForm = await donate(donat).unwrap();
-      } else {
+      } else if (state?.projectId){
         htmlForm = await donateProject({ data: donat, id: state.projectId }).unwrap();
+      } else {
+        throw new Error("Некоректний стан: відсутній 'way' або 'projectId'");
       }
       
       const newTab = window.open();

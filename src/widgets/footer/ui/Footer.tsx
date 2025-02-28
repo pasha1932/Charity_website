@@ -4,6 +4,7 @@ import Socials from '@/entities/socials/ui/Socials';
 import { FooterNav } from '@/features/footer-navbar';
 import logo from '@/shared/assets/images/icons/logo.svg';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -25,8 +26,8 @@ const Footer = () => {
             </article>
             <article className={`${styles.article} ${styles.block3}`}>
               <div className={styles.reports}>
-                <a href="/" className={styles.report}>{t('reports')}</a>
-                <a href="/" className={styles.report}>{t('foundingDocuments')}</a>
+                <Link to="/reports" className={styles.report} onClick={() => scrollTo(0, 0)}>{t('reports')}</Link>
+                <Link to="/foundings" className={styles.report} onClick={() => scrollTo(0, 0)}>{t('foundingDocuments')}</Link>
               </div>
             </article>
             <article className={`${styles.article} ${styles.block4}`}>

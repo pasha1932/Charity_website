@@ -31,6 +31,7 @@ const AdminPanel: React.FC = () => {
            <li><Link to="/admin/partners" className={styles.listLink}>Партнери</Link></li>
            <li><Link to="/admin/donations" className={styles.listLink}>Донати</Link></li>
           {isAdmin && <li><Link to="/admin/allowed_emails" className={styles.listLink}>Пошти</Link></li>}
+          {isAdmin && <li><Link to="/admin/documents" className={styles.listLink}>Документи</Link></li>}
         </ul>
         </nav>
         </div>

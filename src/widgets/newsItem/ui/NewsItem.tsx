@@ -4,31 +4,7 @@ import styles from './styles.module.scss';
 import { useRef } from "react";
 import BtnBack from "@/shared/ui/button-back/ui/BtnBack";
 import { OtherNews } from "@/features/other-news";
-import axios from "axios";
 import { useDynamicTranslation } from "@/shared/hooks/useDynamicTranslation";
-
-export const translateText = async (text: string, targetLang: "en" | "uk") => {
-  try {
-    const response = await axios.get(
-      "https://translate.googleapis.com/translate_a/single",
-      {
-        params: {
-          client: "gtx",
-          dt: "t",
-          sl: "auto", // Автоматичне визначення мови
-          tl: targetLang,
-          q: text,
-        },
-      }
-    );
-
-    // Відповідь приходить у вигляді вкладених масивів
-    return response.data[0].map((t: any) => t[0]).join("");
-  } catch (error) {
-    console.error("Translation error:", error);
-    return text; // Повертаємо оригінальний текст у разі помилки
-  }
-};
 
 const NewsItem = () => {
   const { id } = useParams();

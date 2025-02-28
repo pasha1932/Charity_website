@@ -17,10 +17,10 @@ const FooterNav = () => {
     }, [hash, pathname, navigate]);
 
   const CONTENT_FOOTER_NAV = [
+    { title: t('main'), link: '#main' },
     { title: t('about'), link: '#fond' },
-    { title: t('guarantee'), link: '#garantees' },
-    { title: t('reports'), link: '#news' },
-    { title: t('foundingDocuments'), link: '#help' },
+    { title: t('news'), link: '#news' },
+    { title: t('help'), link: '#help' },
   ]
 
   return ( 

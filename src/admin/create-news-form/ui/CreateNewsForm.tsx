@@ -4,7 +4,6 @@ import { useState } from 'react';
 import BtnBack from '@/shared/ui/button-back/ui/BtnBack';
 
 const CreateNewsForm: React.FC = () => {
-  // { isLoading, isError, isSuccess }
   const [createNews, {isLoading}] = useCreateNewsMutation();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -29,7 +28,6 @@ const CreateNewsForm: React.FC = () => {
     formData.append("coverImage", coverImage);
 
     try {
-      // .then(newNews => onSetNews(currentNews => [...currentNews, newNews])
       await createNews(formData).unwrap();
       alert('Новина була успішно додана');
       setTitle('');

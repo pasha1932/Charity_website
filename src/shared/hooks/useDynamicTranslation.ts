@@ -1,6 +1,29 @@
-import { translateText } from "@/widgets/newsItem/ui/NewsItem";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import i18n from 'i18next';
+
+export const translateText = async (text: string, targetLang: "en" | "uk") => {
+  try {
+    const response = await axios.get(
+      "https://translate.googleapis.com/translate_a/single",
+      {
+        params: {
+          client: "gtx",
+          dt: "t",
+          sl: "auto", // Автоматичне визначення мови
+          tl: targetLang,
+          q: text,
+        },
+      }
+    );
+
+    // Відповідь приходить у вигляді вкладених масивів
+    return response.data[0].map((t: any) => t[0]).join("");
+  } catch (error) {
+    console.error("Translation error:", error);
+    return text; // Повертаємо оригінальний текст у разі помилки
+  }
+};
 
 export const useDynamicTranslation = (key: string, text: string) => {
   const [translatedText, setTranslatedText] = useState(text);

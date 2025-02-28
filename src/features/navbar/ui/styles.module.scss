@@ -1,3 +1,5 @@
+@import '@/shared/styles/mixins.scss';
+
 .navbar {
   margin-left: 63px;
   margin-right: 48px;
@@ -13,6 +15,7 @@
   line-height: 1em;
   color: var(--text-color-white);
 
+  @include hover(color, var(--bg-color-pressed));
 }
 
 .navLink:target,

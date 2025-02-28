@@ -145,7 +145,7 @@ const CreateFormVolunteer = () => {
             <label className={styles.label}>
               <h6 className={styles.formTitle}>Аватар</h6>
               <input className={styles.formInput}  type="file" style={{paddingTop: '20px'}}
-              {...register('avatar', { required: t('errorEmail') })}
+              {...register('avatar', { required: 'Вкажіть аватар' })}
               />
               {errors.avatar && <span>{errors.avatar.message}</span>}
             </label>
