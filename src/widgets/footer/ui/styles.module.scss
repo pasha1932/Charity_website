@@ -72,8 +72,15 @@
 }
 
 .logo {
-  height: 80px;
+  height: 134px;
+  width: 229px;
+
+  @include on-phone {
+    width: 178px;
+    height: 104px;
+  }
 }
+
 .reports {
   display: flex;
   flex-direction: column;

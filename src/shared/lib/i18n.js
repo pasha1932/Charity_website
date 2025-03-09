@@ -22,6 +22,12 @@ const resources = {
       connectNeeds: 'We connect the needs of the country with opportunities to help everyone',
       becameVol: 'Became a volunteer',
 
+      aboutUs: 'About us',
+      aboutText1: 'No barriers – only opportunities! 🚀',
+      aboutText21: '“Opportunities for everyone”',
+      aboutText2: ' - is an organization that helps people with disabilities, young people and those in need of support to realize their dreams. Work, education, social integration – we are here to help!',
+      aboutText3: 'Our mission is to create a society without barriers!',
+
       fondRes: 'Fond results',
       weTried: 'We are trying to do everything possible to bring us closer to victory',
       resText1: 'career consultations were conducted, thanks to which 617 people found jobs',
@@ -36,6 +42,23 @@ const resources = {
       name3: 'Sofia Mandziuk',
       pos3: 'Project manager',
       connectUs: 'Contact us',
+
+      routesAnd: 'Directions and values ​​of the organization',
+      routes: 'Directions of our activity:',
+      routes1: 'Development of an inclusive society',
+      routes2: 'Innovative technologies for social development',
+      routes3: 'Volunteering and civic engagement',
+      routes4: 'Education and skills development',
+      routes5: 'Support for entrepreneurship and career development',
+      routes6: 'Culture, ecology and sustainable development',
+
+      values: 'Our values:',
+      value1: 'Humanity',
+      value2: 'Activity',
+      value3: 'Innovation',
+      value4: 'Courage',
+      value5: 'Development',
+      value6: 'Responsibility',
 
       cowork: 'Applications and requests for cooperation',
       statem: 'Application for legal entities',
@@ -164,6 +187,12 @@ const resources = {
       connectNeeds: 'З’єднуємо потреби країни з можливостями допомоги кожному',
       becameVol: 'Стати волонтером',
 
+      aboutUs: 'Про нас',
+      aboutText1: 'Жодних бар’єрів – лише можливості! 🚀',
+      aboutText21: '“Можливості для кожного”',
+      aboutText2: ' – це організація, яка допомагає людям з інвалідністю, молоді та тим, хто потребує підтримки, реалізувати свої мрії. Робота, освіта, соціальна інтеграція – ми тут, щоб допомогти!',
+      aboutText3: 'Наша місія - створити суспільство без барʼєрів !',
+
       fondRes: 'Результати фонду',
       weTried: 'Ми намагаємося зробити все можливе, щоб наблизити нас до перемоги',
       resText1: 'проведених карʼєрних консультацій, завдяки яким 617 людей знайшли роботу',
@@ -178,6 +207,23 @@ const resources = {
       name3: 'Софія Мандзюк',
       pos3: 'Проєктна менеджерка',
       connectUs: 'Зв`язок з нами',
+
+      routesAnd: 'Напрями та цінності організації',
+      routes: 'Напрямки нашої діяльності:',
+      routes1: 'Розвиток інклюзивного суспільства',
+      routes2: 'Інноваційні технології для соціального розвитку',
+      routes3: 'Волонтерство та громадська активність',
+      routes4: 'Освіта та розвиток навичок',
+      routes5: 'Підтримка підприємництва та карʼєрний розвиток',
+      routes6: 'Культура , екологія та сталий розвиток',
+
+      values: 'Наші цінності:',
+      value1: 'Людяність',
+      value2: 'Активність',
+      value3: 'Інноваційність',
+      value4: 'Сміливість',
+      value5: 'Розвиток',
+      value6: 'Відповідальність',
 
       cowork: 'Звернення та запити на співпрацю',
       statem: 'Заява для юридичних осіб',

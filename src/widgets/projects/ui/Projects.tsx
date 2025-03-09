@@ -29,7 +29,7 @@ const Projects = () => {
   };
   const { t } = useTranslation();
 
-
+  if (data?.content.length === 0) return <></>;
   return ( 
     <section className={styles.section}>
       <div className="container">

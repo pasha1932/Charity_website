@@ -44,7 +44,8 @@ const News = () => {
   }
 
   if (isLoading) return <p>Завантаження...</p>;
-  if (error) return <p>Помилка завантаження новин</p>;
+  if (error) return <>
+</>;
 
   return ( 
     <section className={styles.section} id="news">

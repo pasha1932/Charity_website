@@ -13,6 +13,36 @@
 .content {
   display: flex;
   flex-direction: column;
+  position: relative;
+
+  
+  &::before {
+    content: "";
+    position: absolute;
+    // height: 100px;
+    height: 150%;
+    top: -280px;
+    right: 100px;
+    left: 100px;
+    background-image: url('../../../shared/assets/images/bg-news.png');
+    background-size: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    z-index: -11;
+
+    @include on-tablet {
+      top: -180px;
+      left: 50px;
+      right: 50px;
+    }
+
+    @include on-tablet {
+      top: -120px;
+      left: 0;
+      right: 0;
+
+    }
+  }
 }
 
 .top {
