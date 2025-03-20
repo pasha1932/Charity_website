@@ -29,7 +29,7 @@ const Team = () => {
         <div className={styles.top}>
           <div className={styles.left}>
             <h2 className={styles.title}>{t('ourTeam')}</h2>
-            <p className={styles.text}>{t('teamDeskr')}</p>
+            <p className={styles.text}><b>{t('teamDeskr1')}</b>{t('teamDeskr2')}</p>
           </div>
             <NavHashLink smooth to='#contacts' >
               <div className={styles.connect}>

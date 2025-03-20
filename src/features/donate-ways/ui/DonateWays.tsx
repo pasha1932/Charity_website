@@ -31,6 +31,11 @@ const DonateWays: React.FC<Props> = ({ onActiveTab, onKindDonate, activeTab }) =
       label: t('monobank'),
   
     },
+    {
+      id: "foreign-acc",
+      label: t('foregTitle'),
+  
+    },
   ];
 
   return ( 

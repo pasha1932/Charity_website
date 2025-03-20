@@ -40,31 +40,37 @@
 
 .right {
   flex: 1;
-  // background-image: url('@/shared/assets/images/bg-about.png');
-  // background-size: ;
-  @include on-phone {
-    z-index: -10;
-    margin-top: -52%;
-    flex-basis: 100%;
-    margin-bottom: -25px;
-    // height: 100%;
-    // background-image: url('@/shared/assets/images/bg-about.png');
-    // background-size: cover;
-  }
 }
 
 .img {
   @include on-phone {
-
+    display: none;
   }
-
-
 }
 
 .left {
   flex: 1;
+  position: relative;
 
   @include on-phone {
     flex-basis: 100%;
   }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: -47px;
+    bottom: -92px;
+    z-index: -10;
+
+  @include on-phone {
+    background-image: url('@/shared/assets/images/bg-about.png');
+    background-size: 84%;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    }
+  } 
 }

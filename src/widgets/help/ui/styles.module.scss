@@ -6,6 +6,7 @@
   width: 100%;
   background-image: url('@/shared/assets/images/bgHelp.jpg');
   background-size: cover;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
 
   @include on-phone {
@@ -25,12 +26,12 @@
     }
   }
 }
+
 .title {
   margin-bottom: 55px;
-  width: 65%;
+  width: 75%;
 
   @include on-phone {
-    width: 100%;
     margin-bottom: 55px;
   }
 }

@@ -8,6 +8,7 @@ import { useMediaQuery } from "react-responsive";
 import { DonateWays } from "@/features/donate-ways";
 import { Button } from "@/shared/ui/button";
 import { useTranslation } from "react-i18next";
+import { ForeignAccTab } from "@/features/foreign-acc-tab";
 
 const Save = () => {
   const { t } = useTranslation();
@@ -27,6 +28,14 @@ const Save = () => {
         <JuridicPeopleTab />
       ),
     },
+    {
+      id: "foreign-acc",
+      label: t('foregTitle'),
+      content: (
+        <ForeignAccTab />
+      ),
+    },
+    
     {
       id: "monobank",
       label: t('monobank'),
@@ -52,7 +61,7 @@ const Save = () => {
             </HelpBtn>
         ))}
           </div> :
-            (<Button variant="usual" onClick={() => setIsKindDonate(false)} >{!isKindDonate ? 'Оберіть спосіб оплати': 'Змінити спосіб оплати'}</Button>)}
+            (<Button variant="usual" onClick={() => setIsKindDonate(false)} >{!isKindDonate ? t('paymWayDon'): t('changePayWay')}</Button>)}
         </div>
       </div>
       <div className="container">

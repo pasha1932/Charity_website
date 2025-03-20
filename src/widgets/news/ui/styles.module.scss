@@ -19,24 +19,25 @@
   &::before {
     content: "";
     position: absolute;
-    height: 150%;
-    top: -280px;
-    right: 100px;
-    left: 100px;
+    width: 100%;
+    top: -1200px;
+    right: 0;
+    left: 0;
+    bottom: -170px;
     background-image: url('../../../shared/assets/images/bg-news.png');
-    background-size: 100%;
-    background-position: top;
+    background-size: 66%;
+    background-position: center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     z-index: -11;
 
     @include on-tablet {
-      top: -180px;
-      left: 50px;
-      right: 50px;
+      background-size: 84%;
+      top: -905px;
     }
 
-    @include on-tablet {
-      top: -120px;
+    @include on-phone {
+      top: -450px;
       left: 0;
       right: 0;
 

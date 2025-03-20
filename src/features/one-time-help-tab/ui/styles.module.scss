@@ -107,6 +107,7 @@
     height: 52px;
   }
 }
+
 .text {
   font-weight: 500;
   font-size: 32px;
@@ -179,4 +180,10 @@
   @include on-tablet {
     font-size: 14px;
   }
+}
+
+.subtext {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 15px;
 }

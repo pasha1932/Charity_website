@@ -28,13 +28,14 @@ const resources = {
       aboutText2: ' - is an organization that helps people with disabilities, young people and those in need of support to realize their dreams. Work, education, social integration – we are here to help!',
       aboutText3: 'Our mission is to create a society without barriers!',
 
-      fondRes: 'Fond results',
-      weTried: 'We are trying to do everything possible to bring us closer to victory',
+      fondRes: 'Organizational results',
+      weTried: 'We are actively working to create new opportunities for everyone',
       resText1: 'career consultations were conducted, thanks to which 617 people found jobs',
       resText2: 'psycho-emotional support was provided to children',
 
       ourTeam: 'Our team',
-      teamDeskr: 'The team specializes in different sectors of work: children`s, employment and medical. Each team member is 100 percent dedicated to their work and our offices are located in several parts of the country',
+      teamDeskr1: 'Everyone on our team is part of a great mission.',
+      teamDeskr2: ' We are different, but we are united by a common desire - to help, support and develop a society where everyone has equal opportunities',
       name1: 'Andriy Sukmanovsky',
       pos1: 'President of the organization',
       name2: 'Ivan Levitsky',
@@ -76,7 +77,7 @@ const resources = {
       seeAll: 'See all news',
       hideNews: 'Hide some news',
 
-      country: 'The country needs your help, do not be indifferent',
+      country: 'Create opportunities with us!',
       helpBtn: 'Help',
 
       //footer
@@ -98,7 +99,10 @@ const resources = {
       paymError: "Select donation amount and enter mobile phone number",
       paymWay: 'Choose the method you want to donate',
       paymChoose: 'Choose method',
-
+      paymentDesk: '*Be sure to indicate "Charitable contribution for the implementation of statutory activities" in the designated payment.',
+      paymWayDon: 'Select payment method',
+      changePayWay: 'Change payment method',
+      
       chooseSum: 'Choose the amount you want to donate',
       becameHero: 'Become a superhero for those to whom this is necessary',
       yourSum: 'Your sum',
@@ -113,6 +117,14 @@ const resources = {
       bank: 'Recipient`s bank:',
       receiver: 'Recipient:',
       currency: 'Account currency:',
+
+      foregTitle: 'Foreign exchange account',
+      compName: 'Company Name:',
+      ibanCode: 'IBAN Code:',
+      nameBank: 'Name of the bank:',
+      swiftCode: 'Bank SWIFT Code:',
+      addressComp: 'Company Address:',
+
 
       doMono: 'Support us through Monobank',
       openLink: 'Open link',
@@ -193,13 +205,14 @@ const resources = {
       aboutText2: ' – це організація, яка допомагає людям з інвалідністю, молоді та тим, хто потребує підтримки, реалізувати свої мрії. Робота, освіта, соціальна інтеграція – ми тут, щоб допомогти!',
       aboutText3: 'Наша місія - створити суспільство без барʼєрів !',
 
-      fondRes: 'Результати фонду',
-      weTried: 'Ми намагаємося зробити все можливе, щоб наблизити нас до перемоги',
+      fondRes: 'Результати організації',
+      weTried: 'Ми активно працюємо, щоб створювати нові можливості для кожного',
       resText1: 'проведених карʼєрних консультацій, завдяки яким 617 людей знайшли роботу',
       resText2: 'дітям надано психоемоційну підтримку',
 
       ourTeam: 'Наша команда',
-      teamDeskr: 'Команда спеціалізується по різним секторам роботи: дитячий, працевлаштування та медичний. Кожен з учасників команди віддається своїй праці на 100 відсотків і наші офіси розташовані по декільком точкам країни',
+      teamDeskr1: 'Кожен у нашій команді – це частина великої місії.',
+      teamDeskr2: ' Ми різні, але нас об’єднує спільне прагнення – допомагати, підтримувати та розвивати суспільство, де кожен має рівні можливості',
       name1: 'Андрій Сукмановський',
       pos1: 'Президент організації',
       name2: 'Іван Левицький',
@@ -241,7 +254,7 @@ const resources = {
       seeAllNews: 'Дивитися всі новини',
       hideNews: 'Приховати деякі новини',
 
-      country: 'Країна потребує твоєї допомоги, не будь байдужим',
+      country: 'Створюй можливості разом із нами!',
       helpBtn: 'Допомогти',
 
       //footer
@@ -262,6 +275,9 @@ const resources = {
       paymError: "Виберіть суму донату й введіть номер мобільно телефону",
       paymWay: 'Оберіть спосіб яким ви хочете задонатити',
       paymChoose: 'Обрати спосіб',
+      paymentDesk: '*Обов\'язково у призначені платежу вказувати "Благодійний внесок на виконання статутної діяльності"',
+      paymWayDon: 'Оберіть спосіб оплати',
+      changePayWay: 'Змінити спосіб оплати',
 
       chooseSum: 'Оберіть суму, яку ви хочете задонатити',
       becameHero: 'Стань супергероєм для тих, кому це необхідно',
@@ -277,6 +293,13 @@ const resources = {
       bank: 'Банк отримувача:',
       receiver: 'Отримувач:',
       currency: 'Валюта рахунку:',
+
+      foregTitle: 'Валютний рахунок',
+      compName: 'Назва компанії:',
+      ibanCode: 'IBAN Код:',
+      nameBank: 'Назва банку:',
+      swiftCode: 'SWIFT Код банку:',
+      addressComp: 'Адреса компанії:',
 
       doMono: 'Підтримай нас через Monobank',
       openLink: 'Відкрити посилання',

@@ -26,6 +26,7 @@ const JuridicPeopleTab = () => {
           </div>
         ))}
       </div>
+      <p className={styles.subtext}>{t('paymentDesk')}</p>
     </div>
    );
 }

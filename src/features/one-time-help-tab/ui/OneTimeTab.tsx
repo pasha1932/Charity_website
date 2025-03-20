@@ -102,6 +102,7 @@ const OneTimeTab = () => {
           {t('agree1')}  <span style={{ textDecoration: 'underline' }}>{t('agree2')}</span>
         </p>
       </div>
+      <p className={styles.subtext}>{t('paymentDesk')}</p>
       <Button
       variant="usual"
       disabled={!checked || isLoading}
@@ -110,7 +111,7 @@ const OneTimeTab = () => {
     >
     <img src={icon} alt="" className={styles.icon} />
       <span className={styles.textBtn}>{isLoading ? 'Loading' : t('doDepos')}</span>
-    </Button>
+      </Button>
     </div>
   );
 }
