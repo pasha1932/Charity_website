@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 import Connects from '@/entities/connects/ui/Connects';
 import Socials from '@/entities/socials/ui/Socials';
 import { FooterNav } from '@/features/footer-navbar';
-import logo from '@/shared/assets/images/icons/logo.svg';
+import logo from '@/shared/assets/images/icons/logo.png';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 

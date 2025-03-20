@@ -68,7 +68,7 @@
 
 .text {
   margin-top: 10px;
-  font-size: 24px;
+  font-size: 23px;
   font-weight: 500;
 
   @include on-tablet {
@@ -111,14 +111,15 @@
 .values::before {
   content: "";
   position: absolute;
-  top: -130px;
+  top: -235px;
   left: -20px;
   right: -20px;
   bottom: -240px;
   background-image: url('../../../shared/assets/images/bg-values.png');
-  background-size: 100%;
-  background-position: top;
+  background-size: 50%;
+  background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed; // Додаємо ефект паралаксу
   z-index: -11; /* Щоб фон був за контентом */
 
   @include on-tablet {
