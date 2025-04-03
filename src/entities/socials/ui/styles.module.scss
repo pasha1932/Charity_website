@@ -31,3 +31,7 @@
   align-items: center;
   gap: 22px;
 }
+
+.link {
+  @include hover(transform, scale(1.1));
+}

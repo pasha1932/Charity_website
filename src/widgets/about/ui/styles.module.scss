@@ -1,0 +1,76 @@
+@import '@/shared/styles/mixins.scss';
+.content {
+  display: flex;
+  gap: 40px;
+  @include on-phone {
+    flex-wrap: wrap;
+  }
+}
+
+.title {
+  color: var(--main-text-color);
+  margin-bottom: 32px;
+
+  @include on-tablet {
+    margin-bottom: 24px;
+  }
+}
+
+.subtitle {
+  margin-bottom: 32px;
+
+  @include on-tablet {
+    margin-bottom: 24px;
+    font-size: 20px;
+  }
+}
+
+.text {
+  font-size: 24px;
+  margin-bottom: 32px;
+
+  @include on-tablet {
+    font-size: 20px;
+  }
+
+  @include on-phone {
+    font-size: 16px;
+  }
+}
+
+.right {
+  flex: 1;
+}
+
+.img {
+  @include on-phone {
+    display: none;
+  }
+}
+
+.left {
+  flex: 1;
+  position: relative;
+
+  @include on-phone {
+    flex-basis: 100%;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: -47px;
+    bottom: -92px;
+    z-index: -10;
+
+  @include on-phone {
+    background-image: url('@/shared/assets/images/bg-about.png');
+    background-size: 84%;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    }
+  } 
+}

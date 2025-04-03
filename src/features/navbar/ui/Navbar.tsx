@@ -1,12 +1,20 @@
 import styles from './styles.module.scss';
 import { NavHashLink } from 'react-router-hash-link';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 const Navbar = () => {
-  const { hash } = useLocation();
+  const { hash, pathname } = useLocation();
   const isactive = (iHash: string) => hash === iHash;
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (hash && pathname !== '/') {
+      navigate('/' + hash, { replace: true });
+    }
+  }, [hash, pathname, navigate]);
 
   const CONTENT_NAVIGATION_MENU = [
     { title: t('main'), link: '#main' },

@@ -6,7 +6,7 @@ const GoMainBtn = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  return (<Button variant='usual' onClick={() => navigate('/')}>{t('goMain')}</Button> );
+  return (<Button style={{display: 'block'}} variant='usual' onClick={() => navigate('/')}>{t('goMain')}</Button> );
 }
  
 export default GoMainBtn;

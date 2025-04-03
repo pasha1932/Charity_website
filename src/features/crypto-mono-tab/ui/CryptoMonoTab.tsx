@@ -1,4 +1,4 @@
-import { DoDeposBtn } from '@/features/do-deposition';
+// import { DoDeposBtn } from '@/features/do-deposition';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
 
@@ -16,7 +16,7 @@ const CryptoMonoTab: React.FC<Props> = ({ title }) => {
       </div>
       <div className={styles.bottom}>
         <div className={styles.code}></div>
-        <DoDeposBtn disabled={true} title={t('openLink')} />
+        {/* <DoDeposBtn disabled={true} title={t('openLink')} /> */}
       </div>
     </div> );
 }

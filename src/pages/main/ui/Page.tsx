@@ -8,14 +8,18 @@ import { Help } from "@/widgets/help";
 import { News } from "@/widgets/news";
 import { Projects } from "@/widgets/projects";
 import { Team } from "@/widgets/team";
+import { About } from "@/widgets/about";
+import { Routes } from "@/widgets/routes";
 
 
 const MainPage = () => {
   return (
     <main>
       <LetsSaveSection />
+      <About />
       <FondResults />
       <Team />
+      <Routes />
       <Cooperation />
       <Companies />
       <Projects />

@@ -13,6 +13,10 @@ const FondResults = () => {
     slidesToScroll: 1,
     variableWidth: true,
     arrows: false,
+    autoplay: true,
+    speed: 4000,
+    autoplaySpeed: 4000,
+    cssEase: "linear"
   };
 
   const { t } = useTranslation();
@@ -26,7 +30,7 @@ const FondResults = () => {
   ]
 
   return ( 
-    <section id="fond" className={styles.results}>
+    <section className={styles.results}>
       <div className='container'>
         <h4 className={styles.title}>{t('fondRes')}</h4>
         <h6 className={styles.subtitle}>{t('weTried')}</h6>

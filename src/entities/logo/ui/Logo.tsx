@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
-import logo from '@/shared/assets/images/icons/logo.svg';
+import logo from '@/shared/assets/images/icons/logo.png';
 import { useTranslation } from 'react-i18next';
 
 const Logo = () => {

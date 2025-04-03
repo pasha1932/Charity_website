@@ -4,12 +4,13 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from './styles.module.scss';
 import { useRef } from 'react';
 import { Project } from '@/entities/project';
-import { PROJECTS } from '@/shared/consts/projects';
 import arrow from '@/shared/assets/images/icons/arrow.svg';
 import { useTranslation } from 'react-i18next';
+import { useGetProjectsActiveQuery } from '../api/api';
 
 const Projects = () => {
   const sliderRef = useRef<Slider | null>(null);
+  const {data} = useGetProjectsActiveQuery({page: 0, size: 30})
   const next = () => {
     sliderRef.current?.slickNext();
   };
@@ -20,17 +21,15 @@ const Projects = () => {
 
   const settings = {
     infinite: false,
-    // centerMode: true,
     slidesToShow:1,
     slidesToScroll: 1,
     variableWidth: true,
     arrows: false,
     initialSlide: 0,
-    // adaptiveHeight: true,
   };
   const { t } = useTranslation();
 
-
+  if (data?.content.length === 0) return <></>;
   return ( 
     <section className={styles.section}>
       <div className="container">
@@ -49,12 +48,14 @@ const Projects = () => {
       <div className={styles.content}>
       <div className="container">
         <Slider {...settings} className={styles.slider} ref={sliderRef}>
-            {PROJECTS.map(item => <Project
-              img={item.img}
-              endTermin={item.endTermin}
-              title={item.title}
-              collected={item.collected}
-              key={item.title}
+            {data?.content.map(item => <Project
+              img={item.imageUrl}
+              endTermin={item.deadline}
+              title={item.name}
+              collected={item.collectedAmount.toString()}
+              goalAmount={item.goalAmount}
+              key={item.id}
+              id={item.id}
             />
         )}
           </Slider>

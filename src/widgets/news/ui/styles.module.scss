@@ -2,6 +2,7 @@
 
 .section {
   margin-bottom: 168px;
+  width: 100%;
 
   @include on-phone {
     margin-bottom: 48px;
@@ -12,10 +13,36 @@
 .content {
   display: flex;
   flex-direction: column;
+  position: relative;
 
-  // &:last-child {
-  //   align-self: center;
-  // }
+  
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: -1200px;
+    right: 0;
+    left: 0;
+    bottom: -170px;
+    background-image: url('../../../shared/assets/images/bg-news.png');
+    background-size: 50%;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: -11;
+
+    @include on-tablet {
+      background-size: 84%;
+      top: -905px;
+    }
+
+    @include on-phone {
+      top: -450px;
+      left: 0;
+      right: 0;
+
+    }
+  }
 }
 
 .top {

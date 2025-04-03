@@ -1,0 +1,42 @@
+.section {
+  margin: 100px auto;
+}
+.form {
+  margin-inline: auto;
+  display: flex;
+  gap: 25px;
+  width: fit-content;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid gray;
+  border-radius: 20px;
+  padding: 50px;
+}
+
+.text {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.input {
+  font-size: 20px;
+  font-weight: 500;
+  border: 1px solid gray;
+  padding-left: 5px;
+  border-radius: 5px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.btn {
+  background-color: var(--bg-color-btn);
+  border-radius: 99px;
+  color: #FFF;
+  font-weight: 600;
+  padding: 10px 30px;
+}

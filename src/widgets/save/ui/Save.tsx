@@ -8,6 +8,7 @@ import { useMediaQuery } from "react-responsive";
 import { DonateWays } from "@/features/donate-ways";
 import { Button } from "@/shared/ui/button";
 import { useTranslation } from "react-i18next";
+import { ForeignAccTab } from "@/features/foreign-acc-tab";
 
 const Save = () => {
   const { t } = useTranslation();
@@ -21,13 +22,6 @@ const Save = () => {
       ),
     },
     {
-      id: "monthly-time",
-      label: t('monthly'),
-      content: (
-        <OneTimeTab />
-      ),
-    },
-    {
       id: "judge-person",
       label: t('juridic'),
       content: (
@@ -35,25 +29,24 @@ const Save = () => {
       ),
     },
     {
+      id: "foreign-acc",
+      label: t('foregTitle'),
+      content: (
+        <ForeignAccTab />
+      ),
+    },
+    
+    {
       id: "monobank",
       label: t('monobank'),
       content: (
         <CryptoMonoTab title={t('doMono')} />
       ),
     },
-    {
-      id: "crypto",
-      label: t('crypto'),
-      content: (
-        <CryptoMonoTab title={t('doCrypto')} />
-      ),
-    },
   ];
-  const [activeTab, setActiveTab] = useState(tabs[0].label);
+  const [activeTab, setActiveTab] = useState(tabs[0].id);
   const [isKindDonate, setIsKindDonate] = useState(false);
   const isTablet = useMediaQuery({ query: '(max-width: 1310px)' });
-
-  console.log(activeTab, isKindDonate)
 
   return ( 
     <section className={styles.section}>
@@ -63,18 +56,18 @@ const Save = () => {
           <h6 className={styles.subtitle}>{t('everyGrn')}</h6>
           {!isTablet ? <div className={styles.tabs}>
             {tabs.map((tab) => (
-              <HelpBtn key={tab.id} onClick={() => setActiveTab(tab.label)} isactive={activeTab === tab.label}>
+              <HelpBtn key={tab.id} onClick={() => setActiveTab(tab.id)} isactive={activeTab === tab.id}>
             {tab.label}
             </HelpBtn>
         ))}
           </div> :
-            (<Button variant="usual" onClick={() => setIsKindDonate(false)} >{!isKindDonate ? 'Оберіть спосіб оплати': 'Змінити спосіб оплати'}</Button>)}
+            (<Button variant="usual" onClick={() => setIsKindDonate(false)} >{!isKindDonate ? t('paymWayDon'): t('changePayWay')}</Button>)}
         </div>
       </div>
       <div className="container">
         <div className={styles.bottom}>
           {(!isKindDonate && isTablet) && <DonateWays activeTab={activeTab} onActiveTab={setActiveTab} onKindDonate={setIsKindDonate} />}
-          {(isKindDonate || !isTablet) && tabs.find((tab) => tab.label === activeTab)?.content}
+          {(isKindDonate || !isTablet) && tabs.find((tab) => tab.id=== activeTab)?.content}
         </div>
       </div>
     </section>

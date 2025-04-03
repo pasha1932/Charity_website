@@ -1,13 +1,14 @@
 import { useState } from "react";
 import styles from './styles.module.scss';
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 import { LangSwitcher } from "@/features/language-switcher";
 import { useTranslation } from "react-i18next";
 
 const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
   const { hash } = useLocation();
   const isactive = (iHash: string) => hash === iHash;
   const body = document.body;
@@ -20,6 +21,20 @@ const BurgerMenu = () => {
     setIsOpen(false);
     body.classList.remove('body-no-scroll');
   } 
+
+  const handleFastDonate = () => {
+    closeMenu();
+    navigate('payment', { state: { way: 'general' } })
+  }
+
+  const handleLang = () => {
+  if (i18n.language === 'uk') {
+    i18n.changeLanguage('en');
+  } else {
+    i18n.changeLanguage('uk');
+  } 
+  closeMenu()
+  }
   
   const CONTENT_NAVIGATION_MENU = [
     { title: t('main'), link: '#main' },
@@ -61,10 +76,10 @@ const BurgerMenu = () => {
                           </li>
                   ))}
                   <li className={styles.navItem}>
-                    <Link to='/payment'  onClick={closeMenu} className={`${styles.navLink} ${styles.navLinkYellow}`}>{t('fastDon')}</Link>
+                    <button onClick={handleFastDonate} className={`${styles.navLink} ${styles.navLinkYellow}`}>{t('fastDon')}</button>
                   </li>
                   <li className={styles.navItem}>
-                    <Link to='/payment'  onClick={closeMenu} className={styles.navLink}>{t('changeLang')}</Link>
+                    <button style={{textAlign: 'left'}} onClick={handleLang} className={styles.navLink}>{t('changeLang')}</button>
                     <LangSwitcher />
                   </li>
                 </ul>

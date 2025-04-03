@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import styles from './styles.module.scss';
 import { Button } from '@/shared/ui/button';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   onKindDonate: (val: boolean) => void;
@@ -8,28 +9,52 @@ type Props = {
   activeTab: string;
 }
 
-const DonateWays: React.FC<Props> = ({onActiveTab, onKindDonate, activeTab}) => {
+const DonateWays: React.FC<Props> = ({ onActiveTab, onKindDonate, activeTab }) => {
   const handleChoose = () => {
     onKindDonate(true);
   }
 
+  const { t } = useTranslation();
+
+  const tabs = [
+    {
+      id: "one-time",
+      label: t('oneTime'),
+    },
+    {
+      id: "judge-person",
+      label: t('juridic'),
+    
+    },
+    {
+      id: "monobank",
+      label: t('monobank'),
+  
+    },
+    {
+      id: "foreign-acc",
+      label: t('foregTitle'),
+  
+    },
+  ];
+
   return ( 
     <div className={styles.content}>
           <div className={styles.top}>
-            <h4 className={styles.title}>Оберіть спосіб яким ви хочете задонатити</h4>
+        <h4 className={styles.title}>{t('paymWay')}</h4>
           </div>
-          <h5 className={styles.subtitle}>Стань супергероєм для тих, кому це необхідно</h5>
+      <h5 className={styles.subtitle}>{t('becameHero')}</h5>
           <div className={styles.tabsList}>
-            {['Разова допомога', 'Щомісячна допомога', 'Юридичні особи', 'Наша монобанка', 'Криптовалюта', 'З-за кондону'].map((item,) => (
+            {tabs.map((item) => (
               <button
-                className={classNames(styles.tab, { [styles.tabActive]: item === activeTab })}
-                key={item}
-                onClick={() => onActiveTab(item)}
+                className={classNames(styles.tab, { [styles.tabActive]: item.id === activeTab })}
+                key={item.id}
+                onClick={() => onActiveTab(item.id)}
               >
-                <h5 className={styles.text}>{item}</h5>
+                <h5 className={styles.text}>{item.label}</h5>
               </button>))}
       </div>
-      <Button variant='usual' onClick={() => handleChoose()} style={{alignSelf: 'center'}}>Обрати спосіб</Button>
+      <Button variant='usual' onClick={() => handleChoose()} style={{ alignSelf: 'center' }}>{t('paymChoose')}</Button>
       </div>
   );
 }

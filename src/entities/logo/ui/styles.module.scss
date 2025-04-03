@@ -10,6 +10,8 @@
   @include on-tablet {
     flex-direction: row;
   }
+
+  @include hover(transform, scale(1.05));
 }
 
 .block {
@@ -20,11 +22,11 @@
 }
 
 .img {
-  width: 64px;
+  width: 120px;
   height: 74px;
 
   @include on-tablet {
-    width: 42px;
+    width: 84px;
     height: 49px;
   }
 }

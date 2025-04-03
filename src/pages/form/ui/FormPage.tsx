@@ -1,4 +1,4 @@
-import { Form } from "@/widgets/form";
+import { Form } from "@/widgets/form-volunteer";
 
 const FormPage = () => {
   return ( 

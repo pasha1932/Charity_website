@@ -4,6 +4,8 @@
   background-color: var(--bg-color-btn);
   border-radius: 99px;
   color: var(--taxt-color-white);
+
+  @include hover(background-color, var(--bg-color-pressed));
 }
 
 .withIconLeft {

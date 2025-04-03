@@ -14,6 +14,9 @@
     // height: 35%;
   }
 
+  @include hover(transform, scale(1.05));
+
+
   img {
     width: 35px;
     height: 35px;

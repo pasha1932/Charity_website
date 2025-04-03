@@ -11,4 +11,11 @@
   @include on-tablet {
     display: none;
   }
+
+  @include hover(transform, scale(1.05));
+}
+
+.icon{
+  height: 20px;
+  width: 16px;
 }

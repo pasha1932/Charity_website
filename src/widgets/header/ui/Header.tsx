@@ -8,7 +8,6 @@ import { BurgerMenu } from '@/features/burger-menu';
 
 const Header = () => {
   const isDekstop = useMediaQuery({ query: '(min-width: 1310px)' }); // Ширина екрана >= 1300px
-  // const isMobile = useMediaQuery({ query: '(max-width: 1299px)' }); // Ширина екрана < 1300px
   return (
     <header
       className={styles.header}

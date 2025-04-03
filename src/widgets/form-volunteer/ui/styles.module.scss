@@ -1,0 +1,98 @@
+@import '@/shared/styles/mixins.scss';
+
+.section {
+  margin-top: 57px;
+  margin-bottom: 112px;
+  width: 50%;
+  margin-inline: auto;
+  
+  @include on-tablet {
+    width: 80%;
+    margin-top: 41px;
+    margin-bottom: 32px;
+  }
+
+  @include on-phone {
+    width: 100%;
+  }
+}
+
+.content {
+  margin-left: 50px;
+  margin-top: -50px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 77px;
+
+  @include on-phone {
+    margin-bottom: 41px;
+  }
+}
+
+.form {
+  border: 1px solid var(--text-color-black);
+  padding: 48px 38px 64px 38px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include on-phone {
+    border: none;
+    padding: 0;
+    
+  }
+
+  &Title {
+    margin-bottom: 16px;
+
+    @include on-phone {
+      margin-bottom: 8px; 
+    }
+  }
+
+  &Input {
+    padding-inline: 16px;
+    height: 72px;
+    width: 100%;
+    background-color: #ebebeb;
+    border-radius: 12px;
+    font-size: 24px;
+    line-height: 1em;
+
+    @include on-phone {
+      font-size: 18px;
+      height: 52px;
+    }
+
+    &Half {
+      width: 100%;
+    }
+  }
+
+  &TextArea {
+    padding-block: 15px;
+    height: 187px;
+    outline: none;
+  }
+}
+
+.pair {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+
+  @include on-phone {
+    gap: 23px;
+  }
+}
+
+.select {
+  height: 72px;
+
+  @include on-phone {
+    height: 52px;
+  }
+}

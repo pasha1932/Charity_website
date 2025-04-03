@@ -1,0 +1,162 @@
+@import '@/shared/styles/mixins.scss';
+
+.section {
+  width: 100%;
+}
+
+.title {
+  color: var(--main-text-color);
+  margin-bottom: 103px;
+
+  @include on-tablet {
+    margin-bottom: 24px;
+    // font-size: 24px;
+  }
+}
+
+.subtitle {
+  margin-bottom: 90px;
+
+  @include on-tablet {
+    margin-bottom: 32px;
+  }
+
+  @include on-phone {
+    font-size: 20px;
+  }
+}
+
+.routes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 97px;
+
+  @include on-tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include on-phone {
+    gap: 25px;
+    margin-bottom: 32px;
+  }
+}
+
+.route {
+  background-color: #FFE8CD;
+  height: 212px;
+  border-radius: 20px;
+  padding: 32px 25px 32px 32px;
+
+  &:nth-child(2) {
+    @include on-phone {
+      order: 1;
+    }
+  }
+
+  &:nth-child(5) {
+    @include on-phone {
+      order: 2;
+    }
+  }
+
+  @include on-phone {
+    height: fit-content;
+    padding: 16px 10px 16px 16px;
+  }
+}
+
+.text {
+  margin-top: 10px;
+  font-size: 23px;
+  font-weight: 500;
+
+  @include on-tablet {
+    font-size: 18px;
+  }
+
+  @include on-phone {
+    font-size: 14px;
+  }
+}
+
+.icon {
+  @include on-phone {
+    width: 24px;
+  }
+}
+
+.values {
+  width: 80%;
+  margin: 0 auto 103px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 45px;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom: 103px;
+
+  @include on-tablet {
+    padding-block: 30px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include on-phone {
+    width: 100%;
+    row-gap: 25px;
+    margin-bottom: 18px;
+  }
+}
+
+.values::before {
+  content: "";
+  position: absolute;
+  top: -235px;
+  left: -20px;
+  right: -20px;
+  bottom: -215px;
+  background-image: url('../../../shared/assets/images/bg-values.png');
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; // Додаємо ефект паралаксу
+  z-index: -11; /* Щоб фон був за контентом */
+
+  @include on-tablet {
+    top: -160px;
+    background-size: 66%;
+    left: 0;
+    right: 0;
+  }
+
+  @include on-phone {
+    background-size: 85%;
+    top: -85px;
+    left: 0;
+    right: 0;
+  }
+}
+
+.value {
+  display: flex;
+}
+
+.valueText {
+  margin: 0 auto;
+  border: 1px solid #fff;
+  background-color: var(--bg-color-btn);
+  font-size: 24px;
+  padding: 24px 32px;
+  color: #fff;
+  border-radius: 36px;
+
+  @include on-tablet {
+    font-size: 18px;
+  }
+
+  @include on-phone {
+    font-size: 14px;
+    line-height: 14px;
+    padding: 15px 24px;
+  }
+}

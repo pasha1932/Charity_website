@@ -9,8 +9,8 @@ const FastDonateBtn = () => {
   
   const { t } = useTranslation();
   return ( 
-    <Button variant="withIconLeft"  onClick={() => navigate('payment')}>
-      <img src={icon} alt="" className={styles.icon} />
+    <Button variant="withIconLeft"  onClick={() => navigate('payment', {state: {way: 'general'}})}>
+      <img src={icon} alt="icon" className={styles.icon} />
       <span className={styles.text}>{t('fastDon')}</span>
     </Button>
   );

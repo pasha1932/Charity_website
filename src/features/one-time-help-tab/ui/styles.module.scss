@@ -65,6 +65,8 @@
   background-color: #F4F4F4;
   padding-block: 55px;
   align-items: center;
+  cursor: pointer;
+  @include hover(transform, scale(1.05));
 
   @include on-tablet {
     padding-block: 26.5px;
@@ -86,6 +88,23 @@
     &::placeholder  {
       color: var(--text-color-black);
     }
+  }
+}
+
+.tel {
+  padding-inline: 16px;
+  height: 72px;
+  width: 30%;
+  background-color: #ebebeb;
+  border-radius: 12px;
+  font-size: 24px;
+  line-height: 1em;
+  margin-inline: auto;
+  margin-top: 30px;
+
+  @include on-phone {
+    font-size: 18px;
+    height: 52px;
   }
 }
 
@@ -127,7 +146,7 @@
 
 .checkbox {
   padding: 0;
-  width: 25px;
+  width: 20px;
   height: 20px;
   accent-color: white;
     
@@ -143,4 +162,28 @@
   @include on-phone {
     font-size: 16px;
   }
+}
+
+.icon {
+  margin-right: 10px;
+
+  @include on-tablet {
+    display: none;
+  }
+}
+
+.textBtn {
+  color: var(--text-color-white);
+  font-size: 18px;
+  line-height: 1em;
+
+  @include on-tablet {
+    font-size: 14px;
+  }
+}
+
+.subtext {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 15px;
 }

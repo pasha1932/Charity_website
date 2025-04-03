@@ -1,0 +1,50 @@
+.content {
+  margin-block: 50px;
+}
+
+.title {
+  text-align: left;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 50px;
+
+
+  li {
+    list-style: url('../../../shared/assets/images/icons/list-style.svg');
+  }
+
+  &Link {
+    margin-left: 15px;
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text-color-black);
+    
+
+    & :hover {
+      transform: scale(1.1);
+    }
+  };
+}
+.btn {
+
+  background-color: var(--bg-color-btn);
+  border-radius: 15px;
+  color: #FFF;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.link {
+  background-color: lightblue;
+  padding: 10px;
+  border-radius: 15px;
+  
+}

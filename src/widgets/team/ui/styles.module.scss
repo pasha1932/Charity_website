@@ -62,6 +62,8 @@
   @include on-tablet {
     display: none;
   }
+
+  @include hover(transform, scale(1.05));
 }
 
 .connectTop {
