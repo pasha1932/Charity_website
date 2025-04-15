@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .content {
   padding-top: 32px;
@@ -21,7 +21,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px 20px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     grid-template-columns: 1fr 1fr;
     margin-bottom: 64px;
   }
@@ -39,7 +39,7 @@
 }
 
 .text {
-  @include on-tablet {
+  @include mixins.on-tablet {
     font-size: 18px;
   }
 }

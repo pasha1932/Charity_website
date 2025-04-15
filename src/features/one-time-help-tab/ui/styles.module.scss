@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .content {
   margin-top: 82px;
@@ -7,7 +7,7 @@
   flex-direction: column;
 
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-top: 32px;
   }
 }
@@ -21,7 +21,7 @@
 .title {
   margin-bottom: 24px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-bottom: 16px;
   }
 }
@@ -31,7 +31,7 @@
   color: #A9A9A9;
   font-weight: 500;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-bottom: 32px;
   }
 }
@@ -41,19 +41,19 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 40px 40px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-bottom: 24px;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px 20px;
   }
 
   & :nth-child(6), & :nth-child(7){
-    @include on-tablet {
+    @include mixins.on-tablet {
       display: none;
     }
   }
 
-  @include on-phone {
+  @include mixins.on-phone {
 
   }
 }
@@ -66,9 +66,9 @@
   padding-block: 55px;
   align-items: center;
   cursor: pointer;
-  @include hover(transform, scale(1.05));
+  @include mixins.hover(transform, scale(1.05));
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     padding-block: 26.5px;
   }
 
@@ -80,7 +80,7 @@
     width: 180px;
     text-align: center;
 
-    @include on-phone {
+    @include mixins.on-phone {
       width: 100px;
 
     }
@@ -102,7 +102,7 @@
   margin-inline: auto;
   margin-top: 30px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 18px;
     height: 52px;
   }
@@ -113,7 +113,7 @@
   font-size: 32px;
   line-height: 1em;
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 17px;
   }
 }
@@ -125,7 +125,7 @@
   line-height: 1em;
   display: none;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     display: block;
   }
 }
@@ -138,7 +138,7 @@
   margin-top: 80px;
   margin-bottom: 32px;
   
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-top: 64px;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -159,7 +159,7 @@
   font-size: 18px;
   line-height: 1em;
   
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 16px;
   }
 }
@@ -167,7 +167,7 @@
 .icon {
   margin-right: 10px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     display: none;
   }
 }
@@ -177,7 +177,7 @@
   font-size: 18px;
   line-height: 1em;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     font-size: 14px;
   }
 }

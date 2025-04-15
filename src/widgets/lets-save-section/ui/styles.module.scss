@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins';
+@use '@/shared/styles/mixins' as mixins;
 
 .section {
   background-image: url(../assets/images/bg.png);
@@ -7,7 +7,7 @@
   margin-bottom: 128px;
   margin-top: 64px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     margin-block: 48px;
   }
 }
@@ -19,7 +19,7 @@
   align-items: center;
   padding: 84px 110px 113px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     padding: 37px 16px 57px;
   }
 } 
@@ -30,7 +30,7 @@
 .title {
   margin-bottom: 32px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     max-width: 90%;
   }
 }
@@ -42,7 +42,7 @@
   margin-bottom: 160px;
   max-width: 75%;
 
-  @include on-phone {
+  @include mixins.on-phone {
     display: none;
   }
 }
@@ -51,7 +51,7 @@
   width: 150px;
   aspect-ratio: 1 / 1;
 
-  @include on-phone {
+  @include mixins.on-phone {
     width: 50px;
   }
 }

@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 .btn {
   display: flex;
   align-items: center;
@@ -8,11 +8,11 @@
   border-radius: 25px;
   padding: 5px 10px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     display: none;
   }
 
-  @include hover(transform, scale(1.05));
+  @include mixins.hover(transform, scale(1.05));
 }
 
 .icon{

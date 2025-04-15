@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .content {
   margin-top: 82px;
@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-top: 32px;
   }
 }
@@ -14,7 +14,7 @@
 .title {
   margin-bottom: 24px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-bottom: 16px;
   }
 }
@@ -24,7 +24,7 @@
   color: #a9a9a9;
   font-weight: 500;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-bottom: 32px;
   }
 }
@@ -39,7 +39,7 @@
   padding: 44px 0 44px 48px;
   width: 80%;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     width: 100%;
     gap: 32px;
     padding: 32px 42px 42px 32px;
@@ -57,7 +57,7 @@
   line-height: 1em;
   font-weight: 600;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     font-size: 20px;
   }
 }

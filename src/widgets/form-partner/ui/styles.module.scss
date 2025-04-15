@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .section {
   margin-top: 57px;
@@ -6,13 +6,13 @@
   width: 55%;
   margin-inline: auto;
   
-  @include on-tablet {
+  @include mixins.on-tablet {
     width: 80%;
     margin-top: 41px;
     margin-bottom: 32px;
   }
 
-  @include on-phone {
+  @include mixins.on-phone {
     width: 100%;
   }
 }
@@ -25,7 +25,7 @@
   text-align: center;
   margin-bottom: 77px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     margin-bottom: 41px;
   }
 }
@@ -40,7 +40,7 @@
   flex-direction: column;
   gap: 32px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     border: none;
     padding: 0;
     
@@ -49,7 +49,7 @@
   &Title {
     margin-bottom: 16px;
 
-    @include on-phone {
+    @include mixins.on-phone {
       margin-bottom: 8px; 
     }
   }
@@ -63,7 +63,7 @@
     font-size: 24px;
     line-height: 1em;
 
-    @include on-phone {
+    @include mixins.on-phone {
       font-size: 18px;
       height: 52px;
     }
@@ -88,7 +88,7 @@
   display: flex;
   gap: 40px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     gap: 23px;
   }
 }
@@ -96,7 +96,7 @@
 .select {
   height: 50px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     height: 52px;
   }
 }

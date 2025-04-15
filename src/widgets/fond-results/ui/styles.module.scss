@@ -1,11 +1,11 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .resultsList {
   max-width: 100vw;
   max-height: 270px;
   overflow: hidden;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     max-height: 121px;
   }
 }
@@ -14,7 +14,7 @@
   margin-bottom: 32px;
   margin-left: 110px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-bottom: 24px;
     margin-left: 0;
   }
@@ -24,7 +24,7 @@
   margin-bottom: 64px;
   margin-left: 110px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-bottom: 24px;
     margin-left: 0;
   }

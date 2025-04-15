@@ -1,11 +1,11 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .button {
   background-color: var(--bg-color-btn);
   border-radius: 99px;
   color: var(--taxt-color-white);
 
-  @include hover(background-color, var(--bg-color-pressed));
+  @include mixins.hover(background-color, var(--bg-color-pressed));
 }
 
 .withIconLeft {
@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
 
-  @include on-phone {
+  @include mixins.on-phone {
     padding: 6.5px;
   }
 }
@@ -31,12 +31,12 @@
   color: var(--text-color-white);
   margin-inline: auto;
   
-  @include on-tablet {
+  @include mixins.on-tablet {
     display: block;
     padding: 25px 40px;
   }
   
-  @include on-phone {
+  @include mixins.on-phone {
     padding: 13px 27px;
     font-size: 14px;
     margin-top: 0;

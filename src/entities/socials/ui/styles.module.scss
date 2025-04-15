@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .socials {
   display: flex;
@@ -9,7 +9,7 @@
     align-self: flex-start;
   }
 
-  @include on-phone {
+  @include mixins.on-phone {
     justify-content: center;
     align-items: center;
   }
@@ -21,7 +21,7 @@
   line-height: 1.5em;
   color: #A8A8A8;
   
-  @include on-phone {
+  @include mixins.on-phone {
     text-align: center;
   }
 }
@@ -33,5 +33,5 @@
 }
 
 .link {
-  @include hover(transform, scale(1.1));
+  @include mixins.hover(transform, scale(1.1));
 }

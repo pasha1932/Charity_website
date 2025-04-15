@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .teammate {
   display: flex;
@@ -12,7 +12,7 @@
 
   margin-right: 40px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     padding-left: 22px;
     padding-bottom: 22px;
     margin-right: 16px;
@@ -21,7 +21,7 @@
     background-size: cover;
   }
 
-  @include on-phone {
+  @include mixins.on-phone {
     padding-left: 12px;
     padding-bottom: 12px;
     width: 144px;
@@ -35,7 +35,7 @@
   color: var(--text-color-white);
   margin-bottom: 16px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 12px;
     margin-bottom: 6px;
   }
@@ -47,7 +47,7 @@
   line-height: 1em;
   color: var(--text-color-white);
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 8px;
   }
 }
