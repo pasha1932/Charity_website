@@ -1,13 +1,13 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .newsItem {
-  @include on-phone {
+  @include mixins.on-phone {
     margin-right: 16px;
     width: fit-content;
     width: 200px;
   }
 
-  @include hover(transform, scale(1.02));
+  @include mixins.hover(transform, scale(1.02));
 }
 .block {
   height: 275px;
@@ -15,7 +15,7 @@
   padding: 24px;
   margin-bottom: 24px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     background-size: cover;
     width: 200px;
     height: 151px;
@@ -30,7 +30,7 @@
   padding: 10px 32px;
   width: fit-content;
 
-  @include on-phone {
+  @include mixins.on-phone {
     padding: 6px 15px;
   }
 }
@@ -40,7 +40,7 @@
   line-height: 1em;
   color: var(--text-color-black);
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 12px;
   }
 }
@@ -51,7 +51,7 @@
   font-weight: 500;
   color: var(--text-color-black);
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 16px;
     text-align: left;
   }

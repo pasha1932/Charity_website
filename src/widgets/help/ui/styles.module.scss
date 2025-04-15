@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .section {
   padding-top: 117px;
@@ -9,7 +9,7 @@
   background-position: 50% 50%;
   background-repeat: no-repeat;
 
-  @include on-phone {
+  @include mixins.on-phone {
     padding-top: 24px;
     padding-bottom: 32px;
   }
@@ -21,7 +21,7 @@
   & :last-child {
     width: 378px;
 
-    @include on-phone {
+    @include mixins.on-phone {
       width: fit-content;
     }
   }
@@ -31,7 +31,7 @@
   margin-bottom: 55px;
   width: 75%;
 
-  @include on-phone {
+  @include mixins.on-phone {
     margin-bottom: 55px;
   }
 }

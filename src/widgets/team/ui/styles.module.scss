@@ -1,11 +1,11 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .section {
   margin-top: 128px;
   margin-bottom: 64px;
   width: 100%;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-top: 48px;
     margin-bottom: 48px;
   }
@@ -18,7 +18,7 @@
   margin-left: 110px;
   margin-bottom: 64px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-left: 0;
     margin-bottom: 32px;
   }
@@ -28,7 +28,7 @@
   color: var(--text-color-black);
   margin-bottom: 32px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-bottom: 24px;
   }
 }
@@ -36,11 +36,11 @@
 .left {
   width: 54%;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     width: 80%;
   }
 
-  @include on-phone {
+  @include mixins.on-phone {
     width: 100%;
   }
 }
@@ -49,7 +49,7 @@
   font-size: 24px;
   line-height: 28.8px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 16px;
     line-height: 16px;
     font-weight: 400;
@@ -59,11 +59,11 @@
 .connect {
   display: flex;
   flex-direction: column;
-  @include on-tablet {
+  @include mixins.on-tablet {
     display: none;
   }
 
-  @include hover(transform, scale(1.05));
+  @include mixins.hover(transform, scale(1.05));
 }
 
 .connectTop {

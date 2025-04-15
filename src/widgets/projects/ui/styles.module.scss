@@ -1,10 +1,10 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .section {
   margin-bottom: 168px;
   width: 100%;
 
-  @include on-phone {
+  @include mixins.on-phone {
     margin-bottom: 48px;
   }
 }
@@ -20,7 +20,7 @@
   align-items: center;
   margin-bottom: 86px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-bottom: 32px;
   }
 }
@@ -39,7 +39,7 @@
   padding: 26px 24px;
   border: 1px solid var(--text-color-black);
 
-  @include on-phone {
+  @include mixins.on-phone {
     padding: 15px 12px;
   }
 

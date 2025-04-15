@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .company {
   margin-right: 128px;
@@ -6,7 +6,7 @@
   align-items: center;
   height: 80px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     height: 29px;
     margin-right: 48px;
   }
@@ -14,7 +14,7 @@
 
 .img {
   height: 55px;
-  @include on-phone {
+  @include mixins.on-phone {
     height: 29px;
   }
   

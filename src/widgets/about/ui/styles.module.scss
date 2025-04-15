@@ -1,8 +1,8 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 .content {
   display: flex;
   gap: 40px;
-  @include on-phone {
+  @include mixins.on-phone {
     flex-wrap: wrap;
   }
 }
@@ -11,7 +11,7 @@
   color: var(--main-text-color);
   margin-bottom: 32px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-bottom: 24px;
   }
 }
@@ -19,7 +19,7 @@
 .subtitle {
   margin-bottom: 32px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     margin-bottom: 24px;
     font-size: 20px;
   }
@@ -29,11 +29,11 @@
   font-size: 24px;
   margin-bottom: 32px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     font-size: 20px;
   }
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 16px;
   }
 }
@@ -43,7 +43,7 @@
 }
 
 .img {
-  @include on-phone {
+  @include mixins.on-phone {
     display: none;
   }
 }
@@ -52,7 +52,7 @@
   flex: 1;
   position: relative;
 
-  @include on-phone {
+  @include mixins.on-phone {
     flex-basis: 100%;
   }
 
@@ -65,7 +65,7 @@
     bottom: -92px;
     z-index: -10;
 
-  @include on-phone {
+  @include mixins.on-phone {
     background-image: url('@/shared/assets/images/bg-about.png');
     background-size: 84%;
     background-position: center;

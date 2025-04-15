@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .title {
   color: var(--text-color-white);
@@ -14,7 +14,7 @@
     width: 85%;
   }
 
-  @include on-phone {
+  @include mixins.on-phone {
     gap: 15px;
   }
 }
@@ -30,7 +30,7 @@
   line-height: 1.2em;
   text-wrap: wrap;
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 13px;
   }
 }

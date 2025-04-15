@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .logo {
   display: flex;
@@ -7,11 +7,11 @@
   gap: 9px;
   width: fit-content;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     flex-direction: row;
   }
 
-  @include hover(transform, scale(1.05));
+  @include mixins.hover(transform, scale(1.05));
 }
 
 .block {
@@ -25,7 +25,7 @@
   width: 120px;
   height: 74px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     width: 84px;
     height: 49px;
   }
@@ -41,7 +41,7 @@
   background-clip: text;
   // color: var(--text-color-white);
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     font-size: 20px;
   }
 }

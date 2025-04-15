@@ -1,14 +1,14 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .footer {
   background-color: var(--bg-ft-hd);
   padding-top: 115px;
   padding-bottom: 30px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     padding-top: 50px;
   }
-  @include on-phone {
+  @include mixins.on-phone {
     padding-top: 24px;
   }
 }
@@ -19,14 +19,14 @@
   gap: 118px;
   margin-bottom: 114px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     gap: 60px;
     margin-bottom: 50px;
   }
 
-  @include on-phone {
+  @include mixins.on-phone {
     margin-bottom: 37px;
     grid-template-columns: 1fr 1fr;
     justify-items: flex-start;
@@ -36,7 +36,7 @@
 
 
   & :last-child {
-    @include on-phone {
+    @include mixins.on-phone {
       grid-column-start: 1;
       grid-column-end: 3;
     }
@@ -44,7 +44,7 @@
 }
 
 .block1 {
-  @include on-phone {
+  @include mixins.on-phone {
     grid-column-start: 1;
     grid-column-end: 3;
     display: flex;
@@ -55,13 +55,13 @@
 }
 
 .block3 {
-  @include on-phone {
+  @include mixins.on-phone {
     margin-left: 30px;
   }
 }
 
 .block4 {
-  @include on-phone {
+  @include mixins.on-phone {
     grid-column-start: 1;
     grid-column-end: 3;
     display: flex;
@@ -75,7 +75,7 @@
   height: 134px;
   width: 229px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     width: 178px;
     height: 104px;
   }
@@ -95,7 +95,7 @@ a.report{
   text-decoration-line: underline;
   max-width: 60%;
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 20px;
   }
 }
@@ -106,7 +106,7 @@ a.report{
   display: flex;
   justify-content: space-between;
 
-  @include on-phone {
+  @include mixins.on-phone {
     flex-direction: column-reverse;
     gap: 24px;
   }
@@ -120,7 +120,7 @@ a.report{
   font-size: 18px;
   line-height: 1em;
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 14px;
   }
 
@@ -141,7 +141,7 @@ a.report{
   line-height: 1em;
   color: #A8A8A8;
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 14px;
   }
 }

@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .burgerMenu {
   .burgerButton {
@@ -25,7 +25,7 @@
     flex-direction: column;
     padding: 20px;
 
-    @include on-tablet {
+    @include mixins.on-tablet {
       top: 91px;
       padding: 16px;
       padding-top: 5px;

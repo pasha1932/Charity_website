@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .text {
   font-size: 18px;
@@ -7,7 +7,7 @@
   color: var(--text-color-white);
   margin-left: 14px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     font-size: 14px;
     margin-right: 10px;
   }
@@ -18,7 +18,7 @@
   padding: 12px;
   border-radius: 30px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     padding: 5px;
     width: 27px;
   }

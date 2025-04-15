@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 .btn {
   display: flex;
   align-items: center;
@@ -8,19 +8,19 @@
   border-radius: 25px;
   padding: 5px 10px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     padding: 0px 10px;
     gap: 15px;
     // height: 35%;
   }
 
-  @include hover(transform, scale(1.05));
+  @include mixins.hover(transform, scale(1.05));
 
 
   img {
     width: 35px;
     height: 35px;
-    @include on-tablet {
+    @include mixins.on-tablet {
       width: 25px;
       max-width: none;
     }

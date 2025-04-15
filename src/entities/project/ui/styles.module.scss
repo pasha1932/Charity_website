@@ -1,4 +1,4 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .project {
   width: 610px;
@@ -17,7 +17,7 @@
     align-self: flex-end;
   }
 
-  @include on-phone {
+  @include mixins.on-phone {
     width: 257px;
     height: 223px;
     padding: 16px;
@@ -34,7 +34,7 @@
   color: var(--text-color-white);
   margin-bottom: 48px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     margin-bottom: 16px;
     font-weight: 400;
   }
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: space-between;
 
-  @include on-phone {
+  @include mixins.on-phone {
     display: none;
   }
 }

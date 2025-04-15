@@ -1,10 +1,10 @@
-@import '@/shared/styles/mixins.scss';
+@use '@/shared/styles/mixins.scss' as mixins;
 
 .section {
   margin-bottom: 168px;
   width: 100%;
 
-  @include on-phone {
+  @include mixins.on-phone {
     margin-bottom: 48px;
     width: 100%;
   }
@@ -31,12 +31,12 @@
     background-repeat: no-repeat;
     z-index: -11;
 
-    @include on-tablet {
+    @include mixins.on-tablet {
       background-size: 84%;
       top: -905px;
     }
 
-    @include on-phone {
+    @include mixins.on-phone {
       top: -450px;
       left: 0;
       right: 0;
@@ -51,7 +51,7 @@
   justify-content: space-between;
   margin-bottom: 84px;
 
-  @include on-phone {
+  @include mixins.on-phone {
     margin-bottom: 24px;
   }
 }
@@ -65,7 +65,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 64px 40px;
 
-  @include on-tablet {
+  @include mixins.on-tablet {
     grid-template-columns: 1fr 1fr;
     gap: 40px 16px;
   }
